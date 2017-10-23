@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+yum clean all
+rm -rf /tmp/* /var/tmp/* /var/cache/yum
+
+# Удаляем настройки прокси, чтобы не оставались в образе
+sed -i '/^proxy.*$/d' /etc/yum.conf
+
+# /usr/share/syslog-ng/include/scl/system/tty10.conf

@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+yum -y remove $BUILD_RPMLIST && yum-clean

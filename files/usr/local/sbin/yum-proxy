@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+source /usr/local/sbin/proxyenv
+
+# Добавляем настройки прокси для yum
+if [ "$http_proxy" ]; then 
+    echo "proxy=http://$PROXY_HOST:$PROXY_PORT" >> /etc/yum.conf
+    if [ "$PROXY_USER" ]; then 
+        echo "proxy_username=$PROXY_USER" >> /etc/yum.conf
+        echo "proxy_password=$PROXY_PASS" >> /etc/yum.conf
+    fi
+fi
