@@ -30,7 +30,6 @@ RUN source /usr/local/sbin/proxyenv && \
     echo '*** Add user "system"' && \
     useradd -u $PUID -U -d /config -s /bin/false system && \
     usermod -G users system && \
-    usermod -G docker_env system && \
     echo '*** Подготовка каталогов конфигураций' && \
     mkdir -p /app /config /defaults && \
     chown system:system /app /config /defaults && \
