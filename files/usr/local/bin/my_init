@@ -1,8 +1,8 @@
 #!/usr/bin/python3 -u
 import os, os.path, sys, stat, signal, errno, argparse, time, json, re
 
-KILL_PROCESS_TIMEOUT = int(os.environ.get('KILL_PROCESS_TIMEOUT', 5))
-KILL_ALL_PROCESSES_TIMEOUT = int(os.environ.get('KILL_ALL_PROCESSES_TIMEOUT', 5))
+KILL_PROCESS_TIMEOUT = os.environ.get('KILL_PROCESS_TIMEOUT', 5)
+KILL_ALL_PROCESSES_TIMEOUT = os.environ.get('KILL_ALL_PROCESSES_TIMEOUT', 5)
 
 LOG_LEVEL_ERROR = 1
 LOG_LEVEL_WARN  = 1
@@ -149,7 +149,7 @@ def stop_child_process(name, pid, signo = signal.SIGTERM, time_limit = KILL_PROC
 		os.kill(pid, signo)
 	except OSError:
 		pass
-	signal.alarm(time_limit)
+	signal.alarm(int(time_limit))
 	try:
 		try:
 			waitpid_reap_other_children(pid)
@@ -196,7 +196,7 @@ def kill_all_processes(time_limit):
 		os.kill(-1, signal.SIGTERM)
 	except OSError:
 		pass
-	signal.alarm(time_limit)
+	signal.alarm(int(time_limit))
 	try:
 		# Wait until no more child processes exist.
 		done = False
