@@ -11,7 +11,7 @@ ENV PUID=911 \
     KILL_ALL_PROCESSES_TIMEOUT=5 \
     RPMLIST="" \
     BUILD_RPMLIST="" \
-    BASE_RPMLIST="python34 syslog-ng cronie inotify-tools wget less psmisc"
+    BASE_RPMLIST="python34 syslog-ng cronie inotify-tools zip unzip wget less psmisc"
 
 RUN localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
     echo '*** Setup proxy and yum' && \
@@ -40,7 +40,7 @@ RUN localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
     chmod 700 /etc/container_environment /etc/container_environment.sh /etc/container_environment.json && \
     ln -s /etc/container_environment.sh /etc/profile.d/ && \
     echo '*** Install runit (http://smarden.org/runit/).' && \
-    (https_proxy=$https_proxy curl -s "https://packagecloud.io/install/repositories/imeyer/runit/config_file.repo?os=el&dist=7&name=javister-docker-base" > /etc/yum.repos.d/imeyer_runit.repo || true) && \
+    https_proxy=$https_proxy curl -s "https://packagecloud.io/install/repositories/imeyer/runit/config_file.repo?os=el&dist=7&name=javister-docker-base" > /etc/yum.repos.d/imeyer_runit.repo && \
     yum install -y runit && \
     rm -f /tmp/* && \
     echo '*** Configure a syslog daemon and logrotate.' && \
