@@ -52,6 +52,6 @@ RUN localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
     sed -i 's/^\s*session\s\+required\s\+pam_loginuid.so/# &/' /etc/pam.d/crond && \
     echo '*** Clean up yum caches' && \
     yum-clean && \
-    chmod +x /etc/my_init.d/*.sh
+    chmod --recursive +x /etc/my_init.d/*.sh /etc/service
 
 CMD ["/usr/local/bin/my_init"]
