@@ -13,7 +13,10 @@ ENV PUID=911 \
     BUILD_RPMLIST="" \
     BASE_RPMLIST="python34 syslog-ng cronie inotify-tools zip unzip wget less psmisc"
 
-RUN localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
+RUN echo '*** Set permissions for the support tools' && \
+    sync && \
+    chmod --recursive +x /etc/my_init.d/*.sh /etc/service /usr/local/sbin/* /usr/local/bin/* && \
+    localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
     echo '*** Setup proxy and yum' && \
     . /usr/local/sbin/yum-proxy && \
     update-ca-trust && \
@@ -22,10 +25,6 @@ RUN localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
     echo '*** Install additional softvare' && \
     yum -y install epel-release && \
     yum -y install $BASE_RPMLIST && \
-    echo '*** Set permissions for the support tools' && \
-    chmod 755 /usr/local/sbin/* && \
-    chmod 755 /usr/local/bin/* && \
-    sync && \
     echo '*** Add user "system"' && \
     useradd -u $PUID -U -d /config -s /bin/false system && \
     usermod -G users system && \
@@ -51,7 +50,6 @@ RUN localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
     chmod 600 /etc/crontab && \
     sed -i 's/^\s*session\s\+required\s\+pam_loginuid.so/# &/' /etc/pam.d/crond && \
     echo '*** Clean up yum caches' && \
-    yum-clean && \
-    chmod --recursive +x /etc/my_init.d/*.sh /etc/service
+    yum-clean
 
 CMD ["/usr/local/bin/my_init"]

@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+#Get the IP Address
+import socket
+
+print socket.gethostbyname(socket.gethostname())
