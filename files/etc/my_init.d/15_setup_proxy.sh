@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /usr/local/sbin/proxyenv
+source /usr/local/sbin/yum-proxy
 
 # Если переменная установлена в пустое значение - то значит настраивать прокси не надо и выходим
 [ -z "$PROXY" ] && exit 0
