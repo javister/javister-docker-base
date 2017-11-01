@@ -3,17 +3,22 @@
 function build() {
     local release
     release="dry"
+    doPull="yes"
 
-    while getopts ":rh" opt; do
+    while getopts ":rph" opt; do
         case $opt in
             r)
                 release="release"
+                ;;
+            p)
+                doPull="no"
                 ;;
             h)
                 cat <<EOF
 usage: build [OPTION]... [-- [docker build opts]]
   -h        show this help.
-  -r        pull base image and push resulting image too.
+  -r        push resulting image.
+  -p        don't pull base image.
 EOF
                 return 0;
                 ;;
@@ -45,7 +50,7 @@ EOF
         $@ \
         .
 
-    [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:latest
+    [ "${doPull}" == "yes" ] && docker push ${IMAGE_TAG}:latest
     [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:${VERSION}
     [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:${VERSION}-${DATE}
 }
