@@ -34,7 +34,7 @@ function wait4tcp () {
 
     if [[ $# -lt 2 ]]; then
         cat <<EOF
-usage: tcp_open [OPTION]... HOST PORT...
+usage: wait4tcp [OPTION]... HOST PORT...
   -c        wait until the port is closed. Otherwise wait until for opening.
   -s        silent mode
   -w COUNT  If number of retrying operation exceeds COUNT, return 1.
