@@ -40,7 +40,7 @@ EOF
     IMAGE_TAG="javister-docker-docker.bintray.io/javister/javister-docker-base"
     PROXY_ARGS="--build-arg http_proxy=${http_proxy} \
                 --build-arg no_proxy=${no_proxy}"
-    [ "${release}" == "release" ] && docker pull centos:7
+    [ "${doPull}" == "yes" ] && docker pull centos:7
 
     docker build \
         --tag ${IMAGE_TAG}:latest \
@@ -50,7 +50,7 @@ EOF
         $@ \
         .
 
-    [ "${doPull}" == "yes" ] && docker push ${IMAGE_TAG}:latest
+    [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:latest
     [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:${VERSION}
     [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:${VERSION}-${DATE}
 }
