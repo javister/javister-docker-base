@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /usr/local/sbin/yum-proxy
+source /usr/local/bin/yum-proxy
 
 # Если переменная установлена в пустое значение - то значит настраивать прокси не надо и выходим
 [ -z "$PROXY" ] && exit 0
@@ -15,7 +15,7 @@ echo -n "$NO_PROXY" > /etc/container_environment/no_proxy
 echo -n "$http_proxy" > /etc/container_environment/http_proxy
 echo -n "$https_proxy" > /etc/container_environment/https_proxy
 
-http_proxy=$http_proxy /usr/local/sbin/yum-proxy
+http_proxy=$http_proxy /usr/local/bin/yum-proxy
 
 
 

@@ -15,10 +15,10 @@ ENV PUID=911 \
 
 RUN echo '*** Set permissions for the support tools' && \
     sync && \
-    chmod --recursive +x /etc/my_init.d/*.sh /etc/service /usr/local/sbin/* /usr/local/bin/* && \
+    chmod --recursive +x /etc/my_init.d/*.sh /etc/service /usr/local/bin/* && \
     localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
     echo '*** Setup proxy and yum' && \
-    . /usr/local/sbin/yum-proxy && \
+    . /usr/local/bin/yum-proxy && \
     update-ca-trust && \
     echo '*** Update all rpm packages' && \
     yum -y update && \
