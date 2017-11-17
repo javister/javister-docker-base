@@ -21,7 +21,7 @@ function printLog() {
             ;;
     esac
 
-    ([ "${doMessage}" == "yes" ] && echo "$@") || true
+    ([ "${doMessage}" == "yes" ] && echo "$@" >&2 ) || true
 }
 
 printLog "$@"
