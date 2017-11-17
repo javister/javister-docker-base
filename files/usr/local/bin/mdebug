@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+function printLog() {
+    local doMessage="yes"
+
+    case ${LOG_LEVEL} in
+        DEBUG)
+            doMessage="yes"
+            ;;
+        INFO)
+            doMessage="no"
+            ;;
+        WARNING)
+            doMessage="no"
+            ;;
+        ERROR)
+            doMessage="no"
+            ;;
+        CRITICAL)
+            doMessage="no"
+            ;;
+    esac
+
+    ([ "${doMessage}" == "yes" ] && echo "$@") || true
+}
+
+printLog "$@"

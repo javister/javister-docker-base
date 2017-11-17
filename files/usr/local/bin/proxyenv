@@ -5,7 +5,7 @@
 [ "$https_proxy" ] && PROXY=$https_proxy
 [ "$http_proxy" ] && PROXY=$http_proxy
 
-echo --- PROXY=$PROXY
+mdebug "--- PROXY=$PROXY"
 
 if [ "$PROXY" ]; then
     NO_PROXY=${NO_PROXY:-krista.ru,localhost}
@@ -27,4 +27,4 @@ if [ "$PROXY" ]; then
     fi
 fi
 
-echo --- http_proxy=$http_proxy
+mdebug "--- http_proxy=$http_proxy"

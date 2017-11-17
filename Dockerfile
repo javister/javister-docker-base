@@ -11,7 +11,8 @@ ENV PUID=911 \
     KILL_ALL_PROCESSES_TIMEOUT=5 \
     RPMLIST="" \
     BUILD_RPMLIST="" \
-    BASE_RPMLIST="python34 syslog-ng cronie inotify-tools zip unzip wget less psmisc"
+    BASE_RPMLIST="python34 syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
+    LOG_LEVEL="INFO"
 
 RUN echo '*** Set permissions for the support tools' && \
     sync && \

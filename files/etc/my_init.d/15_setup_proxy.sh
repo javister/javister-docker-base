@@ -17,9 +17,6 @@ echo -n "$https_proxy" > /etc/container_environment/https_proxy
 
 http_proxy=$http_proxy /usr/local/bin/yum-proxy
 
-
-
-
 if [ "$PROXY" ]; then
     if [ "$PROXY_USER" ]; then 
         hpy="http://$PROXY_USER:$PROXY_PASS@$PROXY_HOST:$PROXY_PORT"
@@ -28,7 +25,7 @@ if [ "$PROXY" ]; then
     fi
 fi
 
-[ "$hpy" ] && echo "
+[ "$hpy" ] && mdebug "
 -------------------------------------
 Proxy setted up: $hpy
 -------------------------------------
