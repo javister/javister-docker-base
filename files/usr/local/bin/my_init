@@ -183,7 +183,7 @@ def waitpid_reap_other_children(pid):
 
 
 def stop_child_process(name, pid, signo=signal.SIGTERM, time_limit=KILL_PROCESS_TIMEOUT):
-    info("Shutting down %s (PID %d)..." % (name, pid))
+    debug("Shutting down %s (PID %d)..." % (name, pid))
     try:
         os.kill(pid, signo)
     except OSError:
@@ -232,7 +232,7 @@ def run_command_killable_and_import_envvars(*argv):
 
 
 def kill_all_processes(time_limit):
-    info("Killing all processes...")
+    debug("Killing all processes...")
     try:
         os.kill(-1, signal.SIGTERM)
     except OSError:
