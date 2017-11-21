@@ -1,17 +1,9 @@
-FROM centos:7
-MAINTAINER Viktor Verbitsky <vektory79@gmail.com>
+FROM centos:7 as BASE
 
 COPY files /
 
 ENV PUID=911 \
-    PGID=911 \
-    TERM="xterm" \
-    TZ="Europe/Moscow" \
-    KILL_PROCESS_TIMEOUT=5 \
-    KILL_ALL_PROCESSES_TIMEOUT=5 \
-    RPMLIST="" \
-    BUILD_RPMLIST="" \
-    BASE_RPMLIST="python34 syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
+    BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
     LOG_LEVEL="INFO"
 
 RUN echo '*** Set permissions for the support tools' && \
@@ -52,5 +44,32 @@ RUN echo '*** Set permissions for the support tools' && \
     sed -i 's/^\s*session\s\+required\s\+pam_loginuid.so/# &/' /etc/pam.d/crond && \
     echo '*** Clean up yum caches' && \
     yum-clean
+
+FROM scratch
+MAINTAINER Viktor Verbitsky <vektory79@gmail.com>
+
+ARG DATE
+
+LABEL \
+    os.vendor="CentOS" \
+    os.version="7.4" \
+    os.license="GPLv2" \
+    image.vendor="Javister" \
+    image.date="${DATE}"
+
+COPY --from=BASE / /
+
+ENV PUID=911 \
+    PGID=911 \
+    TERM="xterm" \
+    TZ="Europe/Moscow" \
+    KILL_PROCESS_TIMEOUT=5 \
+    KILL_ALL_PROCESSES_TIMEOUT=5 \
+    RPMLIST="" \
+    BUILD_RPMLIST="" \
+    BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
+    LANG="ru_RU.UTF-8" \
+    LANGUAGE="ru" \
+    LOG_LEVEL="INFO"
 
 CMD ["/usr/local/bin/my_init"]

@@ -43,6 +43,7 @@ EOF
     [ "${doPull}" == "yes" ] && docker pull centos:7
 
     docker build \
+        --build-arg DATE="${DATE}" \
         --tag ${IMAGE_TAG}:latest \
         --tag ${IMAGE_TAG}:${VERSION} \
         --tag ${IMAGE_TAG}:${VERSION}-${DATE} \
