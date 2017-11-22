@@ -13,10 +13,10 @@ RUN echo '*** Set permissions for the support tools' && \
     . /usr/local/bin/yum-proxy && \
     update-ca-trust && \
     echo '*** Update all rpm packages' && \
-    yum -y update && \
+    yum -y --setopt=tsflags=nodocs update && \
     echo '*** Install additional softvare' && \
     yum -y install epel-release && \
-    yum -y install $BASE_RPMLIST && \
+    yum -y --setopt=tsflags=nodocs install $BASE_RPMLIST && \
     echo '*** Add user "system"' && \
     useradd -u $PUID -U -d /config -s /bin/false system && \
     usermod -G users system && \
@@ -32,7 +32,7 @@ RUN echo '*** Set permissions for the support tools' && \
     ln -s /etc/container_environment.sh /etc/profile.d/ && \
     echo '*** Install runit (http://smarden.org/runit/).' && \
     https_proxy=$https_proxy curl -s "https://packagecloud.io/install/repositories/imeyer/runit/config_file.repo?os=el&dist=7&name=javister-docker-base" > /etc/yum.repos.d/imeyer_runit.repo && \
-    yum install -y runit && \
+    yum -y --setopt=tsflags=nodocs install runit && \
     rm -f /tmp/* && \
     echo '*** Configure a syslog daemon and logrotate.' && \
     touch /var/log/syslog && \
