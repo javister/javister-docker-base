@@ -3,7 +3,7 @@
 function build() {
     local release
     release="dry"
-    doPull="yes"
+    doPull="no"
 
     while getopts ":rph" opt; do
         case $opt in
@@ -11,7 +11,7 @@ function build() {
                 release="release"
                 ;;
             p)
-                doPull="no"
+                doPull="yes"
                 ;;
             h)
                 cat <<EOF
