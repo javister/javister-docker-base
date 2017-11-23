@@ -9,7 +9,6 @@ ENV PUID=911 \
 RUN echo '*** Set permissions for the support tools' && \
     sync && \
     chmod --recursive +x /etc/my_init.d/*.sh /etc/service /usr/local/bin/* && \
-    localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
     echo '*** Setup proxy and yum' && \
     . /usr/local/bin/yum-proxy && \
     update-ca-trust && \
@@ -21,7 +20,7 @@ RUN echo '*** Set permissions for the support tools' && \
     echo '*** Add user "system"' && \
     useradd -u $PUID -U -d /config -s /bin/false system && \
     usermod -G users system && \
-    echo '*** Подготовка каталогов конфигураций' && \
+    echo '*** Prepare application rirectories' && \
     mkdir -p /app /config /defaults && \
     chown system:system /app /config /defaults && \
     echo '*** Install init process.' && \
@@ -69,7 +68,6 @@ ENV PUID=911 \
     BUILD_RPMLIST="" \
     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
     LANG="ru_RU.UTF-8" \
-    LANGUAGE="ru" \
     LOG_LEVEL="INFO"
 
 CMD ["/usr/local/bin/my_init"]
