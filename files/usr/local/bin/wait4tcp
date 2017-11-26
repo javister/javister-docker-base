@@ -10,7 +10,7 @@ function wait4tcp () {
     op="open"
 
     while getopts ":csw:" opt; do
-        case $opt in
+        case ${opt} in
             c)
                 op="close"
                 ;;
@@ -21,11 +21,11 @@ function wait4tcp () {
                 limit=$OPTARG
                 ;;
             :)
-                echo "$0: option requires an argument -- '$OPTARG'" 1>&2
+                echo "$0: option requires an argument -- '${OPTARG}'" 1>&2
                 return 1
                 ;;
             *)
-                echo "$0: invalid option -- '$OPTARG'" 1>&2
+                echo "$0: invalid option -- '${OPTARG}'" 1>&2
                 return 1
                 ;;
         esac
@@ -47,38 +47,38 @@ EOF
     shift
 
     for port in "$@"; do
-        test -z "$silence" && echo -n "Wait for TCP $host:$port $op..."
+        test -z "${silence}" && echo -n "Wait for TCP ${host}:${port} ${op}..."
 
         tries=0
         while true; do
-            if [[ $limit -gt 0 && $tries -ge $limit ]]; then
+            if [[ ${limit} -gt 0 && ${tries} -ge ${limit} ]]; then
                 failed=1
                 break
             fi
 
-            timeout --foreground 0.5 bash -c "echo >\"/dev/tcp/$host/$port\"" >&/dev/null
+            timeout --foreground 0.5 bash -c "echo >\"/dev/tcp/${host}/${port}\"" >&/dev/null
 
             ret=$?
             tries=$((tries + 1))
-            if [ $op = "close" -a "$ret" -ne 0 ]; then
+            if [ ${op} = "close" -a "${ret}" -ne 0 ]; then
                 break
             fi
-            if [ $op = "open" -a "$ret" -eq 0 ]; then
+            if [ ${op} = "open" -a "${ret}" -eq 0 ]; then
                 break
-            elif [ "$ret" -ne 124 ]; then
+            elif [ "${ret}" -ne 124 ]; then
                 sleep 1
             fi
         done
 
-        if [[ -z "$silence" ]]; then
-            if [[ -z "$failed" ]]; then
+        if [[ -z "${silence}" ]]; then
+            if [[ -z "${failed}" ]]; then
                 echo "done"
             else
                 echo "failed"
             fi
         fi
 
-        [[ -n "$failed" ]] && return 1;
+        [[ -n "${failed}" ]] && return 1;
     done
 
     return 0;

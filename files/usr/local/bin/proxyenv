@@ -1,30 +1,30 @@
 #!/bin/bash -e
 
-[ "$HTTPS_PROXY" ] && PROXY=$HTTPS_PROXY
-[ "$HTTP_PROXY" ] && PROXY=$HTTP_PROXY
-[ "$https_proxy" ] && PROXY=$https_proxy
-[ "$http_proxy" ] && PROXY=$http_proxy
+[ "${HTTPS_PROXY}" ] && PROXY=${HTTPS_PROXY}
+[ "${HTTP_PROXY}" ] && PROXY=${HTTP_PROXY}
+[ "${https_proxy}" ] && PROXY=${https_proxy}
+[ "${http_proxy}" ] && PROXY=${http_proxy}
 
-mdebug "--- PROXY=$PROXY"
+mdebug "--- PROXY=${PROXY}"
 
-if [ "$PROXY" ]; then
+if [ "${PROXY}" ]; then
     NO_PROXY=${NO_PROXY:-krista.ru,localhost}
     # Если переменная no_proxy установлена (пусть даже в пустое значение), то берём её значение
-    [ "${no_proxy+x}" ] && NO_PROXY=$no_proxy
+    [ "${no_proxy+x}" ] && NO_PROXY=${no_proxy}
 
 
-    PROXY_USER=$(echo "$PROXY" | sed -e $'s/https\\?:\/\/\(\([^:]*\):\([^@]*\)@\)*\([^:]*\):\(.*\)/\\2/g')
-    PROXY_PASS=$(echo "$PROXY" | sed -e $'s/https\\?:\/\/\(\([^:]*\):\([^@]*\)@\)*\([^:]*\):\(.*\)/\\3/g')
-    PROXY_HOST=$(echo "$PROXY" | sed -e $'s/https\\?:\/\/\(\([^:]*\):\([^@]*\)@\)*\([^:]*\):\(.*\)/\\4/g')
-    PROXY_PORT=$(echo "$PROXY" | sed -e $'s/https\\?:\/\/\(\([^:]*\):\([^@]*\)@\)*\([^:]*\):\(.*\)/\\5/g')
+    PROXY_USER=$(echo "${PROXY}" | sed -e $'s/https\\?:\/\/\(\([^:]*\):\([^@]*\)@\)*\([^:]*\):\(.*\)/\\2/g')
+    PROXY_PASS=$(echo "${PROXY}" | sed -e $'s/https\\?:\/\/\(\([^:]*\):\([^@]*\)@\)*\([^:]*\):\(.*\)/\\3/g')
+    PROXY_HOST=$(echo "${PROXY}" | sed -e $'s/https\\?:\/\/\(\([^:]*\):\([^@]*\)@\)*\([^:]*\):\(.*\)/\\4/g')
+    PROXY_PORT=$(echo "${PROXY}" | sed -e $'s/https\\?:\/\/\(\([^:]*\):\([^@]*\)@\)*\([^:]*\):\(.*\)/\\5/g')
 
-    if [ "$PROXY_USER" ]; then 
-        http_proxy="http://$PROXY_USER:$PROXY_PASS@$PROXY_HOST:$PROXY_PORT"
-        https_proxy="https://$PROXY_USER:$PROXY_PASS@$PROXY_HOST:$PROXY_PORT"
+    if [ "${PROXY_USER}" ]; then
+        http_proxy="http://${PROXY_USER}:${PROXY_PASS}@${PROXY_HOST}:${PROXY_PORT}"
+        https_proxy="https://${PROXY_USER}:${PROXY_PASS}@${PROXY_HOST}:${PROXY_PORT}"
     else 
-        http_proxy="http://$PROXY_HOST:$PROXY_PORT"
-        https_proxy="https://$PROXY_HOST:$PROXY_PORT"
+        http_proxy="http://${PROXY_HOST}:${PROXY_PORT}"
+        https_proxy="https://${PROXY_HOST}:${PROXY_PORT}"
     fi
 fi
 
-mdebug "--- http_proxy=$http_proxy"
+mdebug "--- http_proxy=${http_proxy}"

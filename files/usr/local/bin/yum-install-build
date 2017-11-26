@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+source yum-proxy
+[ -n "${BUILD_RPMLIST}" ] && yum -y --setopt=tsflags=nodocs install ${BUILD_RPMLIST}
