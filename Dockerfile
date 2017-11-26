@@ -10,6 +10,7 @@ RUN echo '*** Set permissions for the support tools' && \
     sync && \
     chmod --recursive +x /etc/my_init.d/*.sh /etc/service /usr/local/bin/* && \
     echo '*** Setup proxy and yum' && \
+    echo "clean_requirements_on_remove=1" >> /etc/yum.conf && \
     . /usr/local/bin/yum-proxy && \
     update-ca-trust && \
     echo '*** Update all rpm packages' && \
@@ -67,7 +68,8 @@ ENV PUID=911 \
     RPMLIST="" \
     BUILD_RPMLIST="" \
     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
-    LANG="ru_RU.UTF-8" \
     LOG_LEVEL="INFO"
+
+#    LANG="ru_RU.UTF-8" \
 
 CMD ["/usr/local/bin/my_init"]
