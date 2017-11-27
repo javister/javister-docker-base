@@ -1,5 +1,9 @@
 #!/bin/bash -e
 
+IMAGE_TAG="javister-docker-docker.bintray.io/javister/javister-docker-base"
+VERSION=1.0
+DATE=$(date +"%Y-%m-%d")
+
 function build() {
     local release
     release="dry"
@@ -34,10 +38,6 @@ EOF
     done
     shift $((OPTIND-1))
 
-    VERSION=1.0
-    DATE=$(date +"%Y-%m-%d")
-
-    IMAGE_TAG="javister-docker-docker.bintray.io/javister/javister-docker-base"
     PROXY_ARGS="--build-arg http_proxy=${http_proxy} \
                 --build-arg no_proxy=${no_proxy}"
     [ "${doPull}" == "yes" ] && docker pull centos:7
