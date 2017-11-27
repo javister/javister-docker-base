@@ -5,9 +5,21 @@ addons:
   apt:
     packages:
       - docker-ce
+env:
+  global:
+    - REGISTRY_USER=vektory79
+    secure: M5X2tjEGYHpPYubggpDJn/TPkRWdjEJ5l1zrDqyxvT6Z1aziTEa7N6cwRNmumUiXASEDUYz30LfeUaLAiEVaBRo1EUTf/9A+7DYq28fMNuLtBAb1Y1s9Mu/Opp9d4fkOY/t2gq2+HZp8K1PvTHZEWtdomEtI6bmdnBdmUA8MaFORs8G0UNOBQQizM0v6HU8UpNZdOIcMsJFcqrtsjj6uSMP6KJm/4hMd3uCO0JpswpEE5WXAd9Z0ERU+0gHBIL4VnMZEqI7uesbgTs2uPdU6GHWd72v9LmmUhQlhGgpCb+bjzyO4aY7zpNZAfBVRQAtec8G16cvmvmdUV8VzrdmKS1rW8Znd9UhDfPTaiNVZtGP0di3K8SFJNYWUjJo55gzTK05l/vLqO4g1aK+mqFaaVQp+loo6Rrv2mXVpL0ECPYGyz8+lz+7S7DlOmCbJJExgDJWwhf716TCLFlxPtisdjAsIYtbnkxtJpKYokM3ULg2X66YgqZ1pECvQYkJm+b2pYrPstN6nTlC8sXwxr56Wo0PcaSg5sfot0J4klY6OdGlUk+FZ02X4Qt98ROv9cLE03zWYCdQcygXzuRGXkYTq2KKhSmr+JIa14lNAMOjsCGwXbAJ7BQJql7Rnxmli8pOxxA9MZvyqEQ2k8FU7qLflaLfAdls7gzsKdFsnXRB5iHM=
 script:
-  - ./build.sh
+  - ./build.sh -p
   - docker run javister-docker-docker.bintray.io/javister/javister-docker-base my_init -- ls
 
 after_script:
   - docker images
+before_deploy:
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS" javister-docker-docker.bintray.io
+
+deploy:
+  provider: script
+  script: ./build.sh -r
+  on:
+    branch: master

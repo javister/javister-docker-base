@@ -48,14 +48,11 @@ RUN echo '*** Set permissions for the support tools' && \
 FROM scratch
 MAINTAINER Viktor Verbitsky <vektory79@gmail.com>
 
-ARG DATE
-
 LABEL \
     os.vendor="CentOS" \
     os.version="7.4" \
     os.license="GPLv2" \
-    image.vendor="Javister" \
-    image.date="${DATE}"
+    image.vendor="Javister"
 
 COPY --from=BASE / /
 

@@ -2,7 +2,6 @@
 
 IMAGE_TAG="javister-docker-docker.bintray.io/javister/javister-docker-base"
 VERSION=1.0
-DATE=$(date +"%Y-%m-%d")
 
 function build() {
     local release
@@ -43,7 +42,6 @@ EOF
     [ "${doPull}" == "yes" ] && docker pull centos:7 || true
 
     docker build \
-        --build-arg DATE="${DATE}" \
         --tag ${IMAGE_TAG}:latest \
         --tag ${IMAGE_TAG}:${VERSION} \
         ${PROXY_ARGS} \
