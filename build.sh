@@ -40,7 +40,7 @@ EOF
 
     PROXY_ARGS="--build-arg http_proxy=${http_proxy} \
                 --build-arg no_proxy=${no_proxy}"
-    [ "${doPull}" == "yes" ] && docker pull centos:7
+    [ "${doPull}" == "yes" ] && docker pull centos:7 || true
 
     docker build \
         --build-arg DATE="${DATE}" \
@@ -50,8 +50,8 @@ EOF
         $@ \
         .
 
-    [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:latest
-    [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:${VERSION}
+    [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:latest || true
+    [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:${VERSION} || true
 }
 
 trap "exit 1" INT TERM QUIT
