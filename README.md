@@ -1,6 +1,7 @@
 # Базовый образ CentOS, адаптированный для комфортной работы в Docker
 
 [ ![Download](https://api.bintray.com/packages/javister/docker/javister%3Ajavister-docker-base/images/download.svg) ](https://bintray.com/javister/docker/javister%3Ajavister-docker-base/_latestVersion)
+[![Build Status](https://travis-ci.org/javister/javister-docker-base.svg?branch=master)](https://travis-ci.org/javister/javister-docker-base)
 
 TODO: дополнительно описать вспомогательные скрипты для уменшения бойлерплейта
 
