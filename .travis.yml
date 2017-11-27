@@ -1,7 +1,10 @@
 sudo: required
 services:
   - docker
-
+addons:
+  apt:
+    packages:
+      - docker-ce
 script:
   - ./build.sh
   - docker run javister-docker-docker.bintray.io/javister/javister-docker-base my_init -- ls
