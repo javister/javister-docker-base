@@ -20,6 +20,6 @@ before_deploy:
 
 deploy:
   provider: script
-  script: ./build.sh -rd
+  script: ./build.sh -prd
   on:
     branch: master
