@@ -13,7 +13,7 @@ function build() {
                 release="release"
                 ;;
             p)
-                doPull="--pull"
+                doPull="--pull --cache-from ${IMAGE_TAG}:${VERSION}"
                 ;;
             d)
                 downstream="yes"
@@ -42,6 +42,8 @@ EOF
 
     PROXY_ARGS="--build-arg http_proxy=${http_proxy} \
                 --build-arg no_proxy=${no_proxy}"
+
+    [ "${doPull}" ] && docker pull ${IMAGE_TAG}:${VERSION} || true
 
     docker build \
         ${doPull} \
