@@ -7,7 +7,7 @@ function build() {
     local doPull=""
     local downstream="no"
 
-    while getopts ":rph" opt; do
+    while getopts ":rphd" opt; do
         case $opt in
             r)
                 release="release"
