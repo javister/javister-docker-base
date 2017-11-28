@@ -55,8 +55,8 @@ EOF
     [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:${VERSION} || true
 
     if [ "${downstream}" == "yes" ]; then
-        while read repo; do
-            minfo "*** Trigger downstream build ${repo}"
+        while read -u 10 repo; do
+            echo "*** Trigger downstream build ${repo}"
             URL=$(echo "${repo}" | sed -r "s/([0-9a-z_-]+).([0-9a-z_-]+)/\\1%2F\\2/g")
 
             body='{
@@ -71,7 +71,7 @@ EOF
                -H "Authorization: token ${TRAVIS_TOKEN}" \
                -d "$body" \
                https://api.travis-ci.org/repo/${URL}/requests
-        done <downstream.txt
+        done 10<downstream.txt
     fi
 }
 
