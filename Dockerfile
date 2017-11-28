@@ -23,7 +23,6 @@ RUN echo '*** Set permissions for the support tools' && \
     usermod -G users system && \
     echo '*** Prepare application rirectories' && \
     mkdir -p /app /config /defaults && \
-    chown system:system /app /config /defaults && \
     echo '*** Install init process.' && \
     mkdir -p /etc/my_init.d && \
     mkdir -p /etc/container_environment && \
@@ -42,6 +41,8 @@ RUN echo '*** Set permissions for the support tools' && \
     echo '*** Configure cron daemon.' && \
     chmod 600 /etc/crontab && \
     sed -i 's/^\s*session\s\+required\s\+pam_loginuid.so/# &/' /etc/pam.d/crond && \
+    chown system:system /app /config /defaults && \
+    chown system /var/spool/mail/system && \
     echo '*** Clean up yum caches' && \
     yum-clean
 
