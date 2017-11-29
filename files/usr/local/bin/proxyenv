@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+install-ca-certs
+
 [ "${HTTPS_PROXY}" ] && PROXY=${HTTPS_PROXY}
 [ "${HTTP_PROXY}" ] && PROXY=${HTTP_PROXY}
 [ "${https_proxy}" ] && PROXY=${https_proxy}

@@ -338,16 +338,16 @@ def main(largs):
             try:
                 exit_code = waitpid_reap_other_children(pid)
                 if exit_code is None:
-                    info("%s exited with unknown status." % largs.main_command[0])
+                    warn("%s exited with unknown status." % largs.main_command[0])
                     exit_status = 1
                 else:
                     exit_status = os.WEXITSTATUS(exit_code)
-                    info("%s exited with status %d." % (largs.main_command[0], exit_status))
+                    debug("%s exited with status %d." % (largs.main_command[0], exit_status))
             except KeyboardInterrupt:
                 stop_child_process(largs.main_command[0], pid)
                 raise
             except BaseException as s:
-                warn("An error occurred. Aborting.")
+                error("An error occurred. Aborting. Error message: %s" % s)
                 stop_child_process(largs.main_command[0], pid)
                 raise
         sys.exit(exit_status)

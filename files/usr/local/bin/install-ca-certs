@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -d /config/ca-certificates ]; then
+    cp --archive --force /config/ca-certificates/* /etc/pki/ca-trust/source/anchors/
+fi
+update-ca-trust
