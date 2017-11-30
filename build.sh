@@ -65,7 +65,7 @@ EOF
     if [ "${downstream}" == "yes" ]; then
         while read -u 10 repo; do
             echo "*** Trigger downstream build ${repo}"
-            URL=$(echo "${repo}" | sed -r "s/([0-9a-z_-]+).([0-9a-z_-]+)/\\1%2F\\2/g")
+            URL=$(echo "${repo}" | sed -r "s/([0-9a-zA-Z_-]+).([0-9a-zA-Z_-]+)/\\1%2F\\2/g")
 
             body='{
             "request": {
