@@ -5,15 +5,19 @@
 function build() {
     local release="dry"
     local doPull=""
+    local useCache=""
     local downstream="no"
 
-    while getopts ":rphd" opt; do
+    while getopts ":rphdc" opt; do
         case $opt in
             r)
                 release="release"
                 ;;
             p)
-                doPull="--pull --cache-from ${IMAGE_TAG}:${VERSION}"
+                doPull="--pull"
+                ;;
+            c)
+                useCache="--cache-from ${IMAGE_TAG}:${VERSION}"
                 ;;
             d)
                 downstream="yes"
@@ -22,6 +26,7 @@ function build() {
                 cat <<EOF
 usage: build [OPTION]... [-- [docker build opts]]
   -h        show this help.
+  -c        use cache from previous build
   -r        push resulting image.
   -p        don't pull base image.
   -d        trigger downstream builds on Travis CI
@@ -47,6 +52,7 @@ EOF
 
     docker build \
         ${doPull} \
+        ${useCache} \
         --tag ${IMAGE_TAG}:latest \
         --tag ${IMAGE_TAG}:${VERSION} \
         ${PROXY_ARGS} \
@@ -76,6 +82,12 @@ EOF
         done 10<downstream.txt
     fi
 }
+
+CURRENT_DIR=$(pwd)
+
+if [ -d ${CURRENT_DIR}/tmp ]; then
+    rm -rf ${CURRENT_DIR}/tmp
+fi
 
 trap "exit 1" INT TERM QUIT
 
