@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 function printLog() {
     local doMessage="yes"
 
@@ -24,4 +26,9 @@ function printLog() {
     ([ "${doMessage}" == "yes" ] && echo "$@") || true
 }
 
-printLog "$@"
+if [ "$(cat /etc/SYSLOG_STARTED)" == "yes" ]; then
+    PARENT_COMMAND="$(ps -o comm= $PPID)"
+    logger --priority debug --tag "${PARENT_COMMAND}" "# $@"
+else
+    printLog "$@"
+fi

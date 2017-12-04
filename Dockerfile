@@ -6,9 +6,10 @@ ENV PUID=911 \
     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
     LOG_LEVEL="INFO"
 
-RUN echo '*** Set permissions for the support tools' && \
-    sync && \
+RUN echo -n "no" > /etc/SYSLOG_STARTED && \
+    echo '*** Set permissions for the support tools' && \
     chmod --recursive +x /etc/my_init.d/*.sh /etc/service /usr/local/bin/* && \
+    sync && \
     echo '*** Setup proxy and yum' && \
     echo "clean_requirements_on_remove=1" >> /etc/yum.conf && \
     . /usr/local/bin/yum-proxy && \
@@ -43,6 +44,8 @@ RUN echo '*** Set permissions for the support tools' && \
     sed -i 's/^\s*session\s\+required\s\+pam_loginuid.so/# &/' /etc/pam.d/crond && \
     chown system:system /app /config /defaults && \
     chown system /var/spool/mail/system && \
+    echo '*** Clean up system' && \
+    rm -rf /var/log/anaconda && \
     echo '*** Clean up yum caches' && \
     yum-clean
 

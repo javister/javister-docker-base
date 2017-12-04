@@ -6,6 +6,7 @@ docker run \
     -it \
     -e PUID=$(id -u) \
     -e PGID=$(id -g) \
+    -e LOG_LEVEL="WARNING" \
     ${PROXY_ARGS} \
     javister-docker-docker.bintray.io/javister/javister-docker-base \
     $@

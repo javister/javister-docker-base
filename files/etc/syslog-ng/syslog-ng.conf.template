@@ -93,23 +93,25 @@ filter f_messages { level(info,notice,warn) and
                     not facility(auth,authpriv,cron,daemon,mail,news); };
 
 filter f_auth { facility(auth, authpriv) and not filter(f_debug); };
-filter f_cron { facility(cron) and not filter(f_debug); };
-filter f_daemon { facility(daemon) and not filter(f_debug); };
-filter f_kern { facility(kern) and not filter(f_debug); };
-filter f_lpr { facility(lpr) and not filter(f_debug); };
+
+filter f_cron { facility(cron) ${SYSLOGNG_CRON_FILTER}; };
+
+filter f_daemon { facility(daemon) ${SYSLOGNG_FILTER}; };
+filter f_kern { facility(kern) ${SYSLOGNG_FILTER}; };
+filter f_lpr { facility(lpr) ${SYSLOGNG_FILTER}; };
 filter f_local { facility(local0, local1, local3, local4, local5,
-                        local6, local7) and not filter(f_debug); };
-filter f_mail { facility(mail) and not filter(f_debug); };
-filter f_news { facility(news) and not filter(f_debug); };
-filter f_syslog3 { not facility(auth, authpriv, mail) and not filter(f_debug); };
-filter f_user { facility(user) and not filter(f_debug); };
-filter f_uucp { facility(uucp) and not filter(f_debug); };
+                        local6, local7) ${SYSLOGNG_FILTER}; };
+filter f_mail { facility(mail) ${SYSLOGNG_FILTER}; };
+filter f_news { facility(news) ${SYSLOGNG_FILTER}; };
+filter f_syslog3 { not facility(auth, authpriv, mail) ${SYSLOGNG_CRON_FILTER}; };
+filter f_user { facility(user) ${SYSLOGNG_FILTER}; };
+filter f_uucp { facility(uucp) ${SYSLOGNG_FILTER}; };
 
 filter f_cnews { level(notice, err, crit) and facility(news); };
 filter f_cother { level(debug, info, notice, warn) or facility(daemon, mail); };
 
-filter f_ppp { facility(local2) and not filter(f_debug); };
-filter f_console { level(warn .. emerg); };
+filter f_ppp { facility(local2) ${SYSLOGNG_FILTER}; };
+filter f_console { level(warn .. emerg) ${SYSLOGNG_FILTER}; };
 
 ########################
 # Log paths

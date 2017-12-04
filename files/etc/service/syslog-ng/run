@@ -16,4 +16,6 @@ case "x${CONSOLE_LOG_LEVEL}" in
     ;;
 esac
 
+echo -n "yes" > /etc/SYSLOG_STARTED
+
 exec syslog-ng -F -p /var/run/syslog-ng.pid ${SYSLOGNG_OPTS}
