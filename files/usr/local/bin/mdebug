@@ -26,7 +26,7 @@ function printLog() {
     ([ "${doMessage}" == "yes" ] && echo "$@") || true
 }
 
-if [ "$(cat /etc/SYSLOG_STARTED)" == "yes" ]; then
+if [ "$(cat /tmp/SYSLOG_STARTED)" == "yes" ]; then
     PARENT_COMMAND="$(ps -o comm= $PPID)"
     logger --priority debug --tag "${PARENT_COMMAND}" "# $@"
 else
