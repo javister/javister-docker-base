@@ -6,8 +6,7 @@ ENV PUID=911 \
     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
     LOG_LEVEL="INFO"
 
-RUN echo -n "no" > /etc/SYSLOG_STARTED && \
-    echo '*** Set permissions for the support tools' && \
+RUN echo '*** Set permissions for the support tools' && \
     chmod --recursive +x /etc/my_init.d/*.sh /etc/service /usr/local/bin/* && \
     sync && \
     echo '*** Setup proxy and yum' && \
