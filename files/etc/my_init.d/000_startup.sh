@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-rm /tmp/SYSLOG_STARTED || true
+[ -f "/tmp/SYSLOG_STARTED" ] && rm /tmp/SYSLOG_STARTED || true
