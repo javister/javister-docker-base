@@ -3,7 +3,7 @@ FROM centos:7 as BASE
 COPY files /
 
 ENV PUID=911 \
-    BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
+    BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc iproute" \
     LOG_LEVEL="INFO"
 
 RUN echo '*** Set permissions for the support tools' && \
