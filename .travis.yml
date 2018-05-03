@@ -16,7 +16,7 @@ script:
 after_script:
   - docker images
 before_deploy:
-  - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin
+  - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin javister-docker-docker.bintray.io
 
 deploy:
   provider: script
