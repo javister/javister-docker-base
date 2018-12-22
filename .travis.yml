@@ -8,7 +8,6 @@ addons:
 env:
   global:
     - REGISTRY_USER=vektory79
-    - secure: g366sR7zZZcUYxUciMtORHwA/K5U83mmTpzy38RFtUylnfpSl8jQxYwL4D6h5T5s+liY3r9lg204+1Au5vnQV2pVLhfQRIJ3la7AdFKNq02Q/URBg520ZTb85/nUx/mB/yWY3YmTDEKGmdF/P1H4qZVulRhBYtEykr5053teeqq26g20YHtieY2+1hy3g9qlXIqgQaPfD0OK7nFTrqBQRGo+eJdTb5H6QP0329lJvVcFwAkpulMiCbTDgs6UqfdceC9GC28Os96aeUlDCzL/mGzHP3oKPZ61HGF/lGIvEtyrGl4BXtjcbJOEMfr+IPjhJP757dE46Tg3dHSgf7jm+q1VubqVfHRQYpOwgpYEttbNVXcnAfMdMlCsbPXXDtZaBqQmM1FA4lwrgGbuIt7dqeG/FROd4W/zv7enKlM0W1lmixfb+nMTuM9GgfVGCdd2QfuD4B6ac1RXZ2R6J0DUr/85+eELcPQQhbZdIQAvF1HHizKsfPRFvyhSbx29YaJrm6Z1NlzP6FiaKRk+jNNojMD0iHrOifR9mPOM75VSyJtNAnC9nFdIRcXzY8fu5cdl7/sA8VRchUu+SWYF6Xylgrh1bxsfM4MtfC0OVwGDzfQ1TfI+OiR0aKTOT70IkaCvpjnd91hfk4g8RZKu/BNhkD7I1kSW6o0fHgk6oJ//Bo4=
 script:
   - ./build.sh -pc
   - docker run javister-docker-docker.bintray.io/javister/javister-docker-base my_init -- ls
