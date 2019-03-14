@@ -8,14 +8,14 @@ addons:
 env:
   global:
     - REGISTRY_USER=vektory79
+before_script:
+  - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin javister-docker-docker.bintray.io
 script:
-  - ./build.sh -pc
+  - ./build.sh -rpc
   - docker run javister-docker-docker.bintray.io/javister/javister-docker-base my_init -- ls
 
 after_script:
   - docker images
-before_deploy:
-  - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin javister-docker-docker.bintray.io
 
 deploy:
   provider: script
