@@ -19,7 +19,7 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.13</version>
+                <version>${dockerfile-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>default</id>
@@ -49,7 +49,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>${build-helper-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>compile</id>

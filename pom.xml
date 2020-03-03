@@ -22,12 +22,20 @@
     </issueManagement>
 
     <properties>
+        <!-- Project Version -->
         <revision>2.0</revision>
         <changelist>-SNAPSHOT</changelist>
         <sha1/>
+        <!-- Settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>8</maven.compiler.release>
+        <!-- Dependency versions -->
         <centos.version>7</centos.version>
+        <!-- Plugins Version -->
+        <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
+        <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
+        <flatten-maven-plugin.version>1.2.1</flatten-maven-plugin.version>
+        <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
     </properties>
 
     <modules>
@@ -48,7 +56,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <version>${flatten-maven-plugin.version}</version>
                 <configuration>
                     <updatePomFile>true</updatePomFile>
                     <flattenMode>resolveCiFriendliesOnly</flattenMode>
@@ -74,7 +82,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.0.0-M3</version>
+                <version>${maven-enforcer-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>enforce-versions</id>
@@ -100,7 +108,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.0.0-M3</version>
+                    <version>${maven-enforcer-plugin.version}</version>
                     <configuration>
                         <rules>
                             <DependencyConvergence />
