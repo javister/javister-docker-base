@@ -1,6 +1,6 @@
 FROM centos:7 as BASE
 
-COPY files /
+COPY src/main/docker /
 
 ENV PUID=911 \
     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc iproute" \

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>javister-base-image</artifactId>
+
+    <parent>
+        <artifactId>base-root</artifactId>
+        <groupId>com.github.javister.docker</groupId>
+        <version>${revision}${sha1}${changelist}</version>
+    </parent>
+
+    <build>
+        <finalName>javister-docker-base</finalName>
+        <plugins>
+            <!-- https://github.com/spotify/dockerfile-maven -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <repository>javister-docker-docker.bintray.io/javister/javister-docker-base</repository>
+                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                    <tag>${project.version}</tag>
+                </configuration>
+            </plugin>
+            <!-- Хак для IDEA, чтобы она добавиляла этот артефакт в classpath. Иначе не будет работать запуск jUnit тестов. -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>${basedir}/target/javister-docker-base-docker-info.jar</file>
+                                    <type>jar</type>
+                                    <classifier>optional</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

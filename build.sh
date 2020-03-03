@@ -1,23 +1,13 @@
 #!/bin/bash -e
 
-. ./config.properties
-
 function build() {
-    local release="dry"
-    local doPull=""
-    local useCache=""
+    local release="verify"
     local downstream="no"
 
-    while getopts ":rphdc" opt; do
+    while getopts ":rhd" opt; do
         case $opt in
             r)
-                release="release"
-                ;;
-            p)
-                doPull="--pull"
-                ;;
-            c)
-                useCache="--cache-from ${IMAGE_TAG}:${VERSION}"
+                release="deploy"
                 ;;
             d)
                 downstream="yes"
@@ -45,22 +35,7 @@ EOF
     done
     shift $((OPTIND-1))
 
-    PROXY_ARGS="--build-arg http_proxy=${http_proxy} \
-                --build-arg no_proxy=${no_proxy}"
-
-    [ "${doPull}" ] && docker pull ${IMAGE_TAG}:${VERSION} || true
-
-    docker build \
-        ${doPull} \
-        ${useCache} \
-        --tag ${IMAGE_TAG}:latest \
-        --tag ${IMAGE_TAG}:${VERSION} \
-        ${PROXY_ARGS} \
-        $@ \
-        .
-
-    [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:latest || true
-    [ "${release}" == "release" ] && docker push ${IMAGE_TAG}:${VERSION} || true
+    mvn -B ${release}
 
     if [ "${downstream}" == "yes" ]; then
         while read -u 10 repo; do
