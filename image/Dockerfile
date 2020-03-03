@@ -1,4 +1,5 @@
-FROM centos:7 as BASE
+ARG CENTOS_VERSION
+FROM centos:${CENTOS_VERSION} as BASE
 
 COPY src/main/docker /
 

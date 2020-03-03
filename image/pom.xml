@@ -40,6 +40,9 @@
                     <repository>javister-docker-docker.bintray.io/javister/javister-docker-base</repository>
                     <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
                     <tag>${project.version}</tag>
+                    <buildArgs>
+                        <CENTOS_VERSION>${centos.version}</CENTOS_VERSION>
+                    </buildArgs>
                 </configuration>
             </plugin>
             <!-- Хак для IDEA, чтобы она добавиляла этот артефакт в classpath. Иначе не будет работать запуск jUnit тестов. -->
