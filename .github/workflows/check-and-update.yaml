@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install xmllint
+      - name: Install xmlstarlet
         run: sudo apt-get install xmlstarlet
       - name: Get the Docker image meta
         run: |
