@@ -88,11 +88,13 @@
                 <executions>
                     <execution>
                         <id>enforce-versions</id>
+                        <phase>validate</phase>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
                         <configuration>
                             <rules>
+                                <DependencyConvergence />
                                 <requireMavenVersion>
                                     <version>3.6.3</version>
                                 </requireMavenVersion>
@@ -113,28 +115,5 @@
                 </configuration>
             </plugin>
         </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>${maven-enforcer-plugin.version}</version>
-                    <configuration>
-                        <rules>
-                            <DependencyConvergence />
-                        </rules>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>enforce</id>
-                            <goals>
-                                <goal>enforce</goal>
-                            </goals>
-                            <phase>validate</phase>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 </project>
