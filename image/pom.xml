@@ -37,9 +37,9 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <repository>javister-docker-docker.bintray.io/javister/javister-docker-base</repository>
+                    <repository>${docker.image}</repository>
                     <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <tag>${project.version}</tag>
+                    <tag>${revision}</tag>
                     <buildArgs>
                         <CENTOS_VERSION>${centos.version}</CENTOS_VERSION>
                     </buildArgs>
@@ -71,4 +71,42 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>force-push</id>
+            <activation>
+                <property>
+                    <name>forcePush</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <!-- https://github.com/spotify/dockerfile-maven -->
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                        <version>${dockerfile-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>force-push</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>push</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <repository>${docker.image}</repository>
+                            <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                            <tag>${revision}</tag>
+                            <buildArgs>
+                                <CENTOS_VERSION>${centos.version}</CENTOS_VERSION>
+                            </buildArgs>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

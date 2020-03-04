@@ -5,7 +5,7 @@
     <artifactId>base-root</artifactId>
     <version>${revision}${sha1}${changelist}</version>
     <packaging>pom</packaging>
-    <name>${groupId}:${artifactId}</name>
+    <name>${project.groupId}:${project.artifactId}</name>
 
     <scm>
         <connection>scm:git:https://github.com/javister/javister-docker-base.git</connection>
@@ -29,6 +29,7 @@
         <!-- Settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>8</maven.compiler.release>
+        <docker.image>javister-docker-docker.bintray.io/javister/javister-docker-base</docker.image>
         <!-- Dependency versions -->
         <centos.version>7</centos.version>
         <!-- Plugins Version -->
