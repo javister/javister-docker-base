@@ -62,7 +62,7 @@
                                 <artifact>
                                     <file>${basedir}/target/javister-docker-base-docker-info.jar</file>
                                     <type>jar</type>
-                                    <classifier>optional</classifier>
+                                    <classifier>docker-info</classifier>
                                 </artifact>
                             </artifacts>
                         </configuration>
