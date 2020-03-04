@@ -32,11 +32,12 @@
         <docker.image>javister-docker-docker.bintray.io/javister/javister-docker-base</docker.image>
         <!-- Dependency versions -->
         <centos.version>7</centos.version>
-        <!-- Plugins Version -->
+        <!-- Plugins Versions -->
         <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
         <flatten-maven-plugin.version>1.2.1</flatten-maven-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     </properties>
 
     <modules>
@@ -106,7 +107,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>${maven-jar-plugin.version}</version>
                 <configuration>
                     <skipIfEmpty>true</skipIfEmpty>
                 </configuration>
