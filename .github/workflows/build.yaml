@@ -24,6 +24,8 @@ jobs:
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
+      - name: Login to Bintray Javister
+        run: echo ${{ secrets.BINTRAY_PASSWORD }} | docker login -u ${{ secrets.BINTRAY_USER }} --password-stdin
       - name: Push Docker image
         run: mvn -B -DforcePush verify
         env:
