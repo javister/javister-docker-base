@@ -1,0 +1,10 @@
+name: TEST
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display current date
+        run: date
