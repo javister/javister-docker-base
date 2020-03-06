@@ -1,0 +1,155 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] com.github.javister.docker:base-root                               [pom]
+[[1;34mINFO[m] com.github.javister.docker:javister-docker-base                    [jar]
+[[1;34mINFO[m] com.github.javister.docker:javister-docker-base-testing            [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------< [0;36mcom.github.javister.docker:base-root[0;1m >----------------[m
+[[1;34mINFO[m] [1mBuilding com.github.javister.docker:base-root 2.0-SNAPSHOT         [1/3][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M3:enforce[m [1m(enforce-versions)[m @ [36mbase-root[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mflatten-maven-plugin:1.2.1:flatten[m [1m(flatten)[m @ [36mbase-root[0;1m ---[m
+[[1;34mINFO[m] Generating flattened POM of project com.github.javister.docker:base-root:pom:2.0-SNAPSHOT...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------< [0;36mcom.github.javister.docker:javister-docker-base[0;1m >-----------[m
+[[1;34mINFO[m] [1mBuilding com.github.javister.docker:javister-docker-base 2.0-SNAPSHOT [2/3][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M3:enforce[m [1m(enforce-versions)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 0 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mflatten-maven-plugin:1.2.1:flatten[m [1m(flatten)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] Generating flattened POM of project com.github.javister.docker:javister-docker-base:jar:2.0-SNAPSHOT...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /media/data/Docker/src/javister/javister-docker-base/image/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M3:test[m [1m(default-test)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.2.0:jar[m [1m(default-jar)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] Skipping packaging of the jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mdockerfile-maven-plugin:1.4.13:build[m [1m(default)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] dockerfile: null
+[[1;34mINFO[m] contextDirectory: /media/data/Docker/src/javister/javister-docker-base/image
+[[1;34mINFO[m] Building Docker context /media/data/Docker/src/javister/javister-docker-base/image
+[[1;34mINFO[m] Path(dockerfile): null
+[[1;34mINFO[m] Path(contextDirectory): /media/data/Docker/src/javister/javister-docker-base/image
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Image will be built as javister-docker-docker.bintray.io/javister/javister-docker-base:2.0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Step 1/11 : ARG CENTOS_VERSION
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Step 2/11 : FROM centos:${CENTOS_VERSION} as BASE
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Pulling from library/centos
+[[1;34mINFO[m] Digest: sha256:4a701376d03f6b39b8c2a8f4a8e499441b0d567f9ab9d58e4991de4472fb813c
+[[1;34mINFO[m] Status: Image is up to date for centos:7
+[[1;34mINFO[m]  ---> 5e35e350aded
+[[1;34mINFO[m] Step 3/11 : COPY src/main/docker /
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> 249636d38cd7
+[[1;34mINFO[m] Step 4/11 : ENV PUID=911     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc iproute"     LOG_LEVEL="INFO"
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> 9b1a1825cedb
+[[1;34mINFO[m] Step 5/11 : RUN echo '*** Set permissions for the support tools' &&     chmod --recursive +x /etc/my_init.d/*.sh /etc/service /usr/local/bin/* &&     sync &&     echo '*** Setup proxy and yum' &&     echo "clean_requirements_on_remove=1" >> /etc/yum.conf &&     . /usr/local/bin/yum-proxy &&     update-ca-trust &&     echo '*** Update all rpm packages' &&     yum -y --setopt=tsflags=nodocs update &&     echo '*** Install additional softvare' &&     yum -y install epel-release &&     yum -y --setopt=tsflags=nodocs install $BASE_RPMLIST &&     echo '*** Add user "system"' &&     useradd -u $PUID -U -d /config -s /bin/false system &&     usermod -G users system &&     echo '*** Prepare application rirectories' &&     mkdir -p /app /config /defaults &&     echo '*** Install init process.' &&     mkdir -p /etc/my_init.d &&     mkdir -p /etc/container_environment &&     touch /etc/container_environment.sh &&     touch /etc/container_environment.json &&     chmod 700 /etc/container_environment /etc/container_environment.sh /etc/container_environment.json &&     ln -s /etc/container_environment.sh /etc/profile.d/ &&     echo '*** Install runit (http://smarden.org/runit/).' &&     https_proxy=$https_proxy curl -s "https://packagecloud.io/install/repositories/imeyer/runit/config_file.repo?os=el&dist=7&name=javister-docker-base" > /etc/yum.repos.d/imeyer_runit.repo &&     yum -y --setopt=tsflags=nodocs install runit &&     rm -f /tmp/* &&     echo '*** Configure a syslog daemon and logrotate.' &&     touch /var/log/syslog &&     mknod -m 640 /dev/xconsole p &&     chmod u=rw,g=r,o= /var/log/syslog &&     echo '*** Configure cron daemon.' &&     chmod 600 /etc/crontab &&     sed -i 's/^\s*session\s\+required\s\+pam_loginuid.so/# &/' /etc/pam.d/crond &&     chown system:system /app /config /defaults &&     chown system /var/spool/mail/system &&     echo '*** Clean up system' &&     rm -rf /var/log/anaconda &&     echo '*** Clean up yum caches' &&     yum-clean
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> f2747932ff1a
+[[1;34mINFO[m] Step 6/11 : FROM scratch
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> 
+[[1;34mINFO[m] Step 7/11 : MAINTAINER Viktor Verbitsky <vektory79@gmail.com>
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> 38aa9d4d6062
+[[1;34mINFO[m] Step 8/11 : LABEL     os.vendor="CentOS"     os.version="7.4"     os.license="GPLv2"     image.vendor="Javister"
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> 4a59d2bea8e0
+[[1;34mINFO[m] Step 9/11 : COPY --from=BASE / /
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> d5f3013d12a2
+[[1;34mINFO[m] Step 10/11 : ENV PUID=911     PGID=911     TERM="xterm"     TZ="Europe/Moscow"     KILL_PROCESS_TIMEOUT=5     KILL_ALL_PROCESSES_TIMEOUT=5     RPMLIST=""     BUILD_RPMLIST=""     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc"     LOG_LEVEL="INFO"
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> e8bf0fb7513d
+[[1;34mINFO[m] Step 11/11 : CMD ["/usr/local/bin/my_init"]
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> f122aea64ce6
+[[1;34mINFO[m] Successfully built f122aea64ce6
+[[1;34mINFO[m] Successfully tagged javister-docker-docker.bintray.io/javister/javister-docker-base:2.0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Detected build of image with id f122aea64ce6
+[[1;34mINFO[m] Successfully built javister-docker-docker.bintray.io/javister/javister-docker-base:2.0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mbuild-helper-maven-plugin:3.0.0:attach-artifact[m [1m(compile)[m @ [36mjavister-docker-base[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------< [0;36mcom.github.javister.docker:javister-docker-base-testing[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding com.github.javister.docker:javister-docker-base-testing 2.0-SNAPSHOT [3/3][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M3:enforce[m [1m(enforce-versions)[m @ [36mjavister-docker-base-testing[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mjavister-docker-base-testing[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 4 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mflatten-maven-plugin:1.2.1:flatten[m [1m(flatten)[m @ [36mjavister-docker-base-testing[0;1m ---[m
+[[1;34mINFO[m] Generating flattened POM of project com.github.javister.docker:javister-docker-base-testing:jar:2.0-SNAPSHOT...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mjavister-docker-base-testing[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mjavister-docker-base-testing[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /media/data/Docker/src/javister/javister-docker-base/testing/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mjavister-docker-base-testing[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M3:test[m [1m(default-test)[m @ [36mjavister-docker-base-testing[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running com.github.javister.docker.testing.base.[1mJavisterBaseContainerTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s - in com.github.javister.docker.testing.base.[1mJavisterBaseContainerTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 5, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.2.0:jar[m [1m(default-jar)[m @ [36mjavister-docker-base-testing[0;1m ---[m
+[[1;34mINFO[m] Building jar: /media/data/Docker/src/javister/javister-docker-base/testing/target/javister-docker-base-testing-2.0-SNAPSHOT.jar
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for com.github.javister.docker:base-root 2.0-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] com.github.javister.docker:base-root ............... [1;32mSUCCESS[m [  0.594 s]
+[[1;34mINFO[m] com.github.javister.docker:javister-docker-base .... [1;32mSUCCESS[m [  7.046 s]
+[[1;34mINFO[m] com.github.javister.docker:javister-docker-base-testing [1;32mSUCCESS[m [  1.516 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  9.270 s
+[[1;34mINFO[m] Finished at: 2020-03-06T16:32:39+03:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
