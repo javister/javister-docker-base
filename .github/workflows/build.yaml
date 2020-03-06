@@ -14,9 +14,9 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Set up Python 3.7 For Reporting
-          uses: actions/setup-python@v1
-          with:
-            python-version: 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
@@ -38,6 +38,6 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
       - name: Upload Test Results
-          if: always()
-          shell: bash
-          run: curl -s https://report.ci/upload.py | python - --include='TEST-*.xml' --framework=junit --tool java --input maven.log --merge .*
+        if: always()
+        shell: bash
+        run: curl -s https://report.ci/upload.py | python - --include='TEST-*.xml' --framework=junit --tool java --input maven.log --merge .*
