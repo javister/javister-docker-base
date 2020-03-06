@@ -24,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build and Check
-        run: mvn --no-transfer-progress -Dstyle.color=always --log-file maven.log --fail-at-end verify
+        run: mvn --no-transfer-progress -Dstyle.color=always --fail-at-end verify
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
