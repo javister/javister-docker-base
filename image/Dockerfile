@@ -71,6 +71,4 @@ ENV PUID=911 \
     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
     LOG_LEVEL="INFO"
 
-#    LANG="ru_RU.UTF-8" \
-
 CMD ["/usr/local/bin/my_init"]

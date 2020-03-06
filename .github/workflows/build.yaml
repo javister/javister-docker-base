@@ -13,6 +13,10 @@ jobs:
           server-id: bintray-javister
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
+      - name: Set up Python 3.7 For Reporting
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.7
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
@@ -20,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build and Check
-        run: mvn --no-transfer-progress -Dstyle.color=always verify
+        run: mvn --no-transfer-progress -Dstyle.color=always --log-file maven.log --fail-at-end verify
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
@@ -28,8 +32,12 @@ jobs:
       - name: Login to Bintray Javister
         run: docker login -u ${{ secrets.BINTRAY_USER }} -p ${{ secrets.BINTRAY_PASSWORD }} javister-docker-docker.bintray.io
       - name: Push Docker image
-        run: mvn --no-transfer-progress -Dstyle.color=always -DforcePush verify
+        run: mvn --no-transfer-progress -Dstyle.color=always -DforcePush -DskipTests verify
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
+      - name: Upload Test Results
+          if: always()
+          shell: bash
+          run: curl -s https://report.ci/upload.py | python - --include='TEST-*.xml' --framework=junit --tool java --input maven.log --merge .*
