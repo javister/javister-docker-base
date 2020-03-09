@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.containers.BindMode;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.containers.output.BaseConsumer;
@@ -91,6 +92,20 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
     public JavisterBaseContainer(String dockerImageName, String tag) {
         super(dockerImageName + ":" + tag);
         initialize();
+    }
+
+    /**
+     * Создание контейнера прямо из базового образа
+     * <a href="https://github.com/javister/javister-docker-base">
+     * javister-docker-docker.bintray.io/javister/javister-docker-base
+     * </a> для проведения JUnit тестирования.
+     *
+     * <p>Объект класса необходим для нахождения рабочего каталога тестов.
+     *
+     * @param testClass класс JUnit теста.
+     */
+    public JavisterBaseContainer(Class<?> testClass) {
+        this(getImageTag(JavisterBaseContainer.class), testClass);
     }
 
     /**
@@ -180,10 +195,12 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
             if (SystemUtils.IS_OS_LINUX) {
                 String puid = new ProcessExecutor().command("id", "-u")
                         .readOutput(true).execute()
-                        .outputUTF8();
+                        .outputUTF8()
+                        .trim();
                 String pgid = new ProcessExecutor().command("id", "-g")
                         .readOutput(true).execute()
-                        .outputUTF8();
+                        .outputUTF8()
+                        .trim();
                 this
                         .withPUID(puid)
                         .withPGID(pgid)
@@ -338,6 +355,39 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
     }
 
     /**
+     * Добавляет биндинг файловой системы, относительно каталога {@link JavisterBaseContainer#getTestVolumePath()}.
+     * <p>Если каталог {@link JavisterBaseContainer#getTestVolumePath()} не определён - вернёт null.
+     *
+     * @param hostPath      путь на хосте
+     * @param containerPath путь внутри контейнера
+     * @return возвращает this для fluent API.
+     */
+    public SELF withRelativeFileSystemBind(String hostPath, String containerPath) {
+        File path = getTestVolumePath();
+        if (path != null) {
+            this.withFileSystemBind(path.toString() + "/" + hostPath, containerPath);
+        }
+        return self();
+    }
+
+    /**
+     * Добавляет биндинг файловой системы, относительно каталога {@link JavisterBaseContainer#getTestVolumePath()}.
+     * <p>Если каталог {@link JavisterBaseContainer#getTestVolumePath()} не определён - вернёт null.
+     *
+     * @param hostPath      путь на хосте
+     * @param containerPath путь внутри контейнера
+     * @param mode          режым монтирования
+     * @return возвращает this для fluent API.
+     */
+    public SELF withRelativeFileSystemBind(String hostPath, String containerPath, BindMode mode) {
+        File path = getTestVolumePath();
+        if (path != null) {
+            this.withFileSystemBind(path.toString() + "/" + hostPath, containerPath, mode);
+        }
+        return self();
+    }
+
+    /**
      * Формирует и возвращает путь к каталогу, который необходимо примонтировать при выполнении JUnit тестов.
      * <p>Для Maven проектов путь будет сформирован в виде: <b>${project.path}/target/docker-&lt;junit-class-name&gt;</b>
      * <p>Данный путь може быть сформирован только если был указан класс JUnit теста в конструкторе.
@@ -385,6 +435,32 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
         } catch (URISyntaxException e) {
             throw new IllegalTestConfigurationException("Ошибка определения каталога сборки проекта.", e);
         }
+    }
+
+    /**
+     * Ожидание доступности подключения из контейнера по заданному адресу и порту в течении заданного количества секунд.
+     *
+     * @param host    адрес по которому ожидать подключение
+     * @param port    порт по которому ожидать подключение
+     * @param seconds время, в течении которого ожидать подключения
+     * @return возвращает true, если удалось дождаться подключения и false в случае таймаута
+     */
+    public boolean waitConnectionOpen(String host, int port, int seconds) throws IOException, InterruptedException {
+        ExecResult execResult = execInContainer("wait4tcp", "-w", Integer.toString(seconds), host, Integer.toString(port));
+        return execResult.getExitCode() == 0;
+    }
+
+    /**
+     * Ожидание закрытия подключения из контейнера по заданному адресу и порту в течении заданного количества секунд.
+     *
+     * @param host    адрес по которому ожидать закрытия подключение
+     * @param port    порт по которому ожидать закрытия подключение
+     * @param seconds время, в течении которого ожидать закрытия подключения
+     * @return возвращает true, если удалось дождаться закрытия подключения и false в случае таймаута
+     */
+    public boolean waitConnectionClose(String host, int port, int seconds) throws IOException, InterruptedException {
+        ExecResult execResult = execInContainer("wait4tcp", "-c", "-w", Integer.toString(seconds), host, Integer.toString(port));
+        return execResult.getExitCode() == 0;
     }
 
     /**

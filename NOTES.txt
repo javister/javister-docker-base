@@ -25,4 +25,10 @@ xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:proper
 https://www.check-run-reporter.com/
 https://www.check-run-reporter.com/docs
 Action: https://github.com/check-run-reporter/action
+----------------------------
+Минималистичный WEB фреймворк jooby
+https://github.com/jooby-project/jooby
+полезен для создания минимального HTTP приложения, для тестирования всяких сетевых ситуаций:
+* Ожидание поднятия сервиса
+* Проверка корректности настройки HTTP Proxy (вместе с MockServer https://www.mock-server.com/)
 
