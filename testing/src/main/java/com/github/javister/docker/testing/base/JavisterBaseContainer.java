@@ -6,7 +6,6 @@ import com.github.javister.docker.testing.TestRunException;
 import com.github.javister.docker.testing.TestServiceContainer;
 import com.github.javister.docker.testing.hack.HostPortWaitStrategyHack;
 import com.github.javister.docker.testing.hack.IsRunningStartupCheckStrategyHack;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.SystemUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -408,7 +407,7 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
                 return null;
             }
             return new File(new File(testClass.getProtectionDomain().getCodeSource().getLocation().toURI()),
-                    "../" + FilenameUtils.getName("docker-" + testClass.getSimpleName()));
+                    "../" + "docker-" + testClass.getSimpleName());
         } catch (URISyntaxException e) {
             throw new IllegalTestConfigurationException("Ошибка определения каталога сборки проекта.", e);
         }
