@@ -37,7 +37,7 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
-#      - name: Upload Test Results
-#        if: always()
-#        shell: bash
-#        run: curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python - -t ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Test Results
+        if: always()
+        shell: bash
+        run: curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python - -t ${{ secrets.REPORTCI_TOKEN }}
