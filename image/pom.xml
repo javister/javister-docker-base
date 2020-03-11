@@ -43,6 +43,8 @@
                     <tag>${revision}</tag>
                     <buildArgs>
                         <CENTOS_VERSION>${centos.version}</CENTOS_VERSION>
+                        <https_proxy>${env.http_proxy}</https_proxy>
+                        <no_proxy>${env.no_proxy}</no_proxy>
                     </buildArgs>
                 </configuration>
             </plugin>
@@ -103,6 +105,8 @@
                             <tag>${revision}</tag>
                             <buildArgs>
                                 <CENTOS_VERSION>${centos.version}</CENTOS_VERSION>
+                                <https_proxy>${env.http_proxy}</https_proxy>
+                                <no_proxy>${env.no_proxy}</no_proxy>
                             </buildArgs>
                         </configuration>
                     </plugin>
