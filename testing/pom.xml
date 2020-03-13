@@ -111,6 +111,16 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-remote-driver</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>annotations</artifactId>
+                    <groupId>org.jetbrains</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.squareup.okio</groupId>
+                    <artifactId>okio</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>

@@ -7,7 +7,6 @@ import org.junit.jupiter.api.condition.OS;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.testcontainers.containers.Container.ExecResult;
-import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -19,18 +18,18 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Testcontainers
 public class SimpleImageTests {
     @Container
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({"rawtypes", "unchecked", "squid:S1905", "squid:S00117"})
     private static final JavisterBaseContainer container = (JavisterBaseContainer) new JavisterBaseContainer(SimpleImageTests.class)
             .withRelativeFileSystemBind(".", "/app")
-            .withImagePullPolicy((__) -> false)
-            .waitingFor(
-                    Wait.forLogMessage(".*---------------------------------------.*", 2)
-            );
+            .withImagePullPolicy(__ -> false);
 
     @BeforeAll
     public static void init() throws IOException, InterruptedException {
@@ -42,7 +41,7 @@ public class SimpleImageTests {
     @ValueSource(ints = {1, 2, 3, 4})
     void waitForPort(int delay) {
         assertFalse(assertTimeout(
-                Duration.ofSeconds(delay + 1),
+                Duration.ofSeconds(delay + 1L),
                 () -> container.waitConnectionOpen("localhost", 1111, delay)),
                 "Слишком короткое ожидание");
     }
@@ -58,7 +57,7 @@ public class SimpleImageTests {
                 ExecResult exec = container.execInContainer("bash", "-c", "echo -n \"" + template + "\" > /app/test.txt");
                 assertEquals(0, exec.getExitCode());
                 Path testPath = Paths.get(volumePath, "test.txt");
-                assertTrue(Files.exists(testPath));
+                assertTrue(testPath.toFile().exists());
                 assertEquals("root", Files.getOwner(testPath).getName());
                 List<String> allLines = Files.readAllLines(testPath);
                 assertEquals(1, allLines.size());
@@ -80,7 +79,7 @@ public class SimpleImageTests {
                 ExecResult exec = container.execInContainer("setuser", "system", "bash", "-c", "echo -n '" + template + "' > /app/test.txt");
                 assertEquals(0, exec.getExitCode());
                 Path testPath = Paths.get(volumePath, "test.txt");
-                assertTrue(Files.exists(testPath));
+                assertTrue(testPath.toFile().exists());
                 assertEquals(System.getProperty("user.name"), Files.getOwner(testPath).getName());
                 List<String> allLines = Files.readAllLines(testPath);
                 assertEquals(1, allLines.size());

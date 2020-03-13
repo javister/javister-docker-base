@@ -30,6 +30,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.Scanner;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -105,6 +106,22 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
      */
     public JavisterBaseContainer(Class<?> testClass) {
         this(getImageTag(JavisterBaseContainer.class), testClass);
+    }
+
+    /**
+     * Создание контейнера из автогенерируемого образа по заданному описанию
+     * <a href="https://github.com/javister/javister-docker-base">
+     * javister-docker-docker.bintray.io/javister/javister-docker-base
+     * </a> для проведения JUnit тестирования.
+     *
+     * <p>Объект класса необходим для нахождения рабочего каталога тестов.
+     *
+     * @param testClass класс JUnit теста.
+     * @param image     описание автогенерируемого образа
+     */
+    public JavisterBaseContainer(Class<?> testClass, Future<String> image) {
+        this(getImageTag(JavisterBaseContainer.class), testClass);
+        setImage(image);
     }
 
     /**
@@ -203,8 +220,7 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
                 this
                         .withPUID(puid)
                         .withPGID(pgid)
-                        .withHttpProxy(System.getenv("http_proxy"))
-                        .withNoProxy(System.getenv("no_proxy"));
+                        .autoHttpProxy(true);
             }
         } catch (InterruptedException | TimeoutException | IOException e) {
             throw new IllegalTestConfigurationException("Ошибка подготовки окружения.", e);
@@ -309,6 +325,7 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
     @NotNull
     public SELF withHttpProxy(String httpProxy) {
         this.withEnv("http_proxy", httpProxy);
+        this.withEnv("https_proxy", httpProxy);
         return self();
     }
 
@@ -321,6 +338,25 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
     @NotNull
     public SELF withNoProxy(String noProxy) {
         this.withEnv("no_proxy", noProxy);
+        return self();
+    }
+
+    /**
+     * Автоопределение параметров HTTP Proxy из переменных окружения системы.
+     *
+     * @param enable если true, то установить настройки proxy из переменных окружения системы. В противном случае очистить настройки proxy
+     * @return возвращает this для fluent API.
+     */
+    public SELF autoHttpProxy(boolean enable) {
+        if (enable) {
+            this
+                    .withHttpProxy(System.getenv("http_proxy"))
+                    .withNoProxy(System.getenv("no_proxy"));
+        } else {
+            this
+                    .withHttpProxy(null)
+                    .withNoProxy(null);
+        }
         return self();
     }
 
@@ -418,17 +454,30 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
      * <p>Для Maven проектов путь будет сформирован в виде: <b>${project.path}/target</b>
      * <p>Данный путь може быть сформирован только если был указан класс JUnit теста в конструкторе.
      *
-     * <p>findsecbugs:PATH_TRAVERSAL_IN - путь формируется отностительно URL класса.
-     * На первый взгляд никакого криминала тут нет.
-     * Могут быть какие-то подводные камни?
-     *
      * @return возвращает this для fluent API.
      * @throws IllegalTestConfigurationException если в конструкторе не был указан класс JUnit теста.
      */
     @NotNull
     @Override
-    @SuppressWarnings("findsecbugs:PATH_TRAVERSAL_IN")
     public final File getTestPath() {
+        return getTestPath(testClass);
+    }
+
+    /**
+     * Формирует и возвращает путь к рабочему каталогу JUnit тестов по заданному классу тестов.
+     * <p>Для Maven проектов путь будет сформирован в виде: <b>${project.path}/target</b>
+     *
+     * <p>findsecbugs:PATH_TRAVERSAL_IN - путь формируется отностительно URL класса.
+     * На первый взгляд никакого криминала тут нет.
+     * Могут быть какие-то подводные камни?
+     *
+     * @param testClass класс, по которому определяется путь к каталогу
+     * @return возвращает this для fluent API.
+     * @throws IllegalTestConfigurationException если в конструкторе не был указан класс JUnit теста.
+     */
+    @NotNull
+    @SuppressWarnings("findsecbugs:PATH_TRAVERSAL_IN")
+    public static File getTestPath(Class<?> testClass) {
         try {
             return new File(new File(testClass.getProtectionDomain().getCodeSource().getLocation().toURI()), "..");
         } catch (URISyntaxException e) {
@@ -538,14 +587,9 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
     }
 
     protected static <SELF extends JavisterBaseContainer<SELF>> String getImageMeta(Class<SELF> clazz, String metaFileName) {
-        try (BufferedReader reader =
-                     new BufferedReader(
-                             new InputStreamReader(
-                                     clazz.getResourceAsStream(getImageCoordinate(clazz) + metaFileName)
-                             )
-                     )
-        ) {
-            return reader.readLine();
+        try (InputStream response = clazz.getResourceAsStream(getImageCoordinate(clazz) + metaFileName);
+             Scanner scanner = new Scanner(response)) {
+            return scanner.nextLine();
         } catch (IOException e) {
             throw new TestRunException("Can't get the Docker image coordinates: " + metaFileName, e);
         }
