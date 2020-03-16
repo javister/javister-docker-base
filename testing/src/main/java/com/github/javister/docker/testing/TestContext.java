@@ -1,5 +1,6 @@
 package com.github.javister.docker.testing;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
@@ -8,9 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testcontainers.containers.BrowserWebDriverContainer;
+import org.testcontainers.lifecycle.TestDescription;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
@@ -222,29 +225,49 @@ public class TestContext {
             TestServiceContainer application, TestInfo testInfo,
             JavisterWebDriverContainer.Browser browserType,
             long implicitlyWait,
-            Consumer<TestContext> test) throws Throwable {
-        JavisterWebDriverContainer container = browserType.createContainer(application);
-        Class<?> testClass = testInfo.getTestClass().orElse(TestContext.class);
-        String testMethod = testInfo.getTestMethod().isPresent() ? testInfo.getTestMethod().get().getName() + "-" : "";
-        TestContext context = new TestContext(
-                testClass,
-                container,
-                implicitlyWait);
-        container.apply(new Statement() {
-            @Override
-            public void evaluate() {
+            Consumer<TestContext> test) {
+        try (JavisterWebDriverContainer container = new JavisterWebDriverContainer(application, browserType.getCapabilities())) {
+            Throwable error = null;
+            try {
+                Class<?> testClass = testInfo.getTestClass().orElse(TestContext.class);
+                TestContext context = new TestContext(testClass, container, implicitlyWait);
+                container.start();
                 context.init();
                 test.accept(context);
+            } catch (Throwable t) {
+                error = t;
+            } finally {
+                TestDescription description = getDescription(testInfo);
+                container.afterTest(description, Optional.ofNullable(error));
             }
-        }, Description.createTestDescription(testClass, testMethod + testInfo.getDisplayName())).evaluate();
+        }
     }
 
     private void init() {
-        WebDriver driver = browser.getWebDriver();
-        if (driver != null) {
-            this.driver = driver;
+        WebDriver webDriver = browser.getWebDriver();
+        if (webDriver != null) {
+            this.driver = webDriver;
             this.driver.manage().timeouts().implicitlyWait(implicitlyWait, TimeUnit.MILLISECONDS);
-            this.wait = new WebDriverWait(driver, implicitlyWait);
+            this.wait = new WebDriverWait(webDriver, implicitlyWait);
         }
+    }
+
+    @NotNull
+    private static TestDescription getDescription(TestInfo testInfo) {
+        String testMethod = testInfo.getTestMethod().map(it -> it.getName() + "-").orElse("");
+        Description description = Description.createTestDescription(
+                testInfo.getTestClass().orElse(TestContext.class),
+                testMethod + testInfo.getDisplayName());
+        return new TestDescription() {
+            @Override
+            public String getTestId() {
+                return description.getDisplayName();
+            }
+
+            @Override
+            public String getFilesystemFriendlyName() {
+                return description.getClassName() + "-" + description.getMethodName();
+            }
+        };
     }
 }

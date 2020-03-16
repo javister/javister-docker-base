@@ -24,6 +24,10 @@ public class HttpAccessWithoutProxyIT {
     @Container
     private static final GenericContainer<?> mserver = new GenericContainer<>(
             new ImageFromDockerfile()
+                    .withFileFromFile(
+                            "app.jar",
+                            new File(JavisterBaseContainer.getTestPath(SimpleImageTests.class) + "/test-app.jar")
+                    )
                     .withDockerfileFromBuilder(builder ->
                             builder
                                     .from("bellsoft/liberica-openjre-alpine:8")
@@ -32,7 +36,7 @@ public class HttpAccessWithoutProxyIT {
                                     .expose(8080)
                                     .build()
                     )
-                    .withFileFromFile("app.jar", new File(JavisterBaseContainer.getTestPath(SimpleImageTests.class) + "/javister-docker-base-tests-simple.jar")))
+    )
             .withExposedPorts(8080)
             .withNetworkAliases("mserver")
             .withNetwork(network)

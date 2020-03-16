@@ -1,5 +1,6 @@
 package com.github.javister.docker.testing;
 
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -121,7 +122,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
                     "к вашему X серверу: https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde");
         }
         if (System.getProperty("os.name").toLowerCase().contains("win") && display.charAt(0) == ':') {
-            throw new IllegalStateException("Для Windows необходимо указать удалённоге подключение к вашему X серверу в переменной " +
+            throw new IllegalStateException("Для Windows необходимо указать удалённое подключение к вашему X серверу в переменной " +
                     "окружения DISPLAY: https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde");
         }
         if (display.charAt(0) == ':') {
@@ -200,22 +201,21 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
     }
 
     public static JavisterWebDriverContainer byName(TestServiceContainer appContainer, String name) {
-        return Browser.valueOf(name.toUpperCase()).createContainer(appContainer);
+        return new JavisterWebDriverContainer(appContainer, Browser.valueOf(name.toUpperCase()).getCapabilities());
     }
 
     public enum Browser {
-        CHROME,
-        FIREFOX;
+        CHROME(DesiredCapabilities.chrome()),
+        FIREFOX(DesiredCapabilities.firefox());
 
-        JavisterWebDriverContainer createContainer(TestServiceContainer appContainer) {
-            switch (this) {
-                case CHROME:
-                    return new JavisterWebDriverContainer(appContainer, DesiredCapabilities.chrome());
-                case FIREFOX:
-                    return new JavisterWebDriverContainer(appContainer, DesiredCapabilities.firefox());
-                default:
-                    throw new IllegalArgumentException("Unknown WEB Browser: " + this.toString());
-            }
+        private DesiredCapabilities desiredCapabilities;
+
+        Browser(DesiredCapabilities desiredCapabilities) {
+            this.desiredCapabilities = desiredCapabilities;
+        }
+
+        public DesiredCapabilities getCapabilities() {
+            return desiredCapabilities;
         }
     }
 }

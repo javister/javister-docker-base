@@ -1,6 +1,5 @@
 package com.github.javister.docker.testing.base;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
@@ -18,10 +17,7 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTimeout;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Testcontainers
 public class SimpleImageTests {
@@ -30,12 +26,6 @@ public class SimpleImageTests {
     private static final JavisterBaseContainer container = (JavisterBaseContainer) new JavisterBaseContainer(SimpleImageTests.class)
             .withRelativeFileSystemBind(".", "/app")
             .withImagePullPolicy(__ -> false);
-
-    @BeforeAll
-    public static void init() throws IOException, InterruptedException {
-        // Warmup run
-        container.waitConnectionOpen("localhost", 1111, 1);
-    }
 
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4})
