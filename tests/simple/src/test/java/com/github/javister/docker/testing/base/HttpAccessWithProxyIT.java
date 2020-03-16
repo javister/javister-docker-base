@@ -1,11 +1,9 @@
 package com.github.javister.docker.testing.base;
 
-import com.github.javister.docker.testing.TestContext;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockserver.client.MockServerClient;
-import org.mockserver.configuration.ConfigurationProperties;
 import org.mockserver.mock.Expectation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,7 +51,7 @@ public class HttpAccessWithProxyIT {
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix("mserver").withRemoveAnsiCodes(false));
 
     @Container
-    private static final MockServerContainer proxyServer = new MockServerContainer()
+    private static final MockServerContainer proxyServer = new MockServerContainer("5.9.0")
             .dependsOn(mserver)
             .withNetworkAliases("proxy")
             .withNetwork(internalNetwork)
@@ -89,10 +87,10 @@ public class HttpAccessWithProxyIT {
                 "http://mserver:8080/");
         Assertions.assertEquals(0, exec.getExitCode(), exec.getStderr());
         Assertions.assertEquals("Hello, world!", exec.getStdout().trim(), "Wrong response body");
-//        Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
-//        Assertions.assertEquals(1, expectations.length, exec.getStderr());
-//        expectations[0].getHttpResponse().withBody("Hello, world!");
-//        proxyClient.clear(request("/"));
+        Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
+        Assertions.assertEquals(1, expectations.length, exec.getStderr());
+        expectations[0].getHttpResponse().withBody("Hello, world!");
+        proxyClient.clear(request("/"));
     }
 
     @Test
@@ -107,10 +105,10 @@ public class HttpAccessWithProxyIT {
                 "http://mserver:8080/");
         Assertions.assertEquals(0, exec.getExitCode(), exec.getStderr());
         Assertions.assertEquals("Hello, world!", exec.getStdout().trim(), "Wrong response body");
-//        Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
-//        Assertions.assertEquals(1, expectations.length, exec.getStderr());
-//        expectations[0].getHttpResponse().withBody("Hello, world!");
-//        proxyClient.clear(request("/"));
+        Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
+        Assertions.assertEquals(1, expectations.length, exec.getStderr());
+        expectations[0].getHttpResponse().withBody("Hello, world!");
+        proxyClient.clear(request("/"));
     }
 
     private static MockServerClient getProxyClient() {
