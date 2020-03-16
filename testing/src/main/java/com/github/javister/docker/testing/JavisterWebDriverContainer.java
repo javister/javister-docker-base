@@ -18,7 +18,7 @@ import java.util.concurrent.TimeoutException;
  * Расширение стандартной обёртки над Selenium WebDrive, добавляющее возможность автоматического подключения к
  * инфраструктуре с приложением на базе НТП.
  */
-public class KristaWebDriverContainer extends BrowserWebDriverContainer {
+public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
     private static final boolean USE_LOCAL_X_SERVER = Boolean.parseBoolean(System.getProperty("stand.use.local.x.server", ""));
     private TestServiceContainer appContainer;
     private DesiredCapabilities desiredCapabilities;
@@ -35,7 +35,7 @@ public class KristaWebDriverContainer extends BrowserWebDriverContainer {
      * @param desiredCapabilities задаёт какой браузер и с какими настройками требуется запускать.
      * @param recordingMode       задаёт режим фидеозаписи тестирования.
      */
-    public KristaWebDriverContainer(
+    public JavisterWebDriverContainer(
             TestServiceContainer appContainer,
             DesiredCapabilities desiredCapabilities,
             VncRecordingMode recordingMode) {
@@ -58,7 +58,7 @@ public class KristaWebDriverContainer extends BrowserWebDriverContainer {
      * @param appContainer        обёртка над приложением, к которому необходимо подключиться.
      * @param desiredCapabilities задаёт какой браузер и с какими настройками требуется запускать.
      */
-    public KristaWebDriverContainer(
+    public JavisterWebDriverContainer(
             TestServiceContainer appContainer,
             DesiredCapabilities desiredCapabilities) {
 
@@ -73,7 +73,7 @@ public class KristaWebDriverContainer extends BrowserWebDriverContainer {
      *
      * @param appContainer обёртка над приложением, к которому необходимо подключиться.
      */
-    public KristaWebDriverContainer(
+    public JavisterWebDriverContainer(
             TestServiceContainer appContainer) {
         this(appContainer, DesiredCapabilities.chrome(), VncRecordingMode.RECORD_ALL);
     }
@@ -87,7 +87,7 @@ public class KristaWebDriverContainer extends BrowserWebDriverContainer {
      * <p>Для работы данного контейнера, его обязательно нужно связать с приложением, с которым он должен работать с помощью
      * метода {@link #withApplication(TestServiceContainer)}.
      */
-    public KristaWebDriverContainer() {
+    public JavisterWebDriverContainer() {
         this.recordingMode = VncRecordingMode.RECORD_ALL;
     }
 
@@ -97,7 +97,7 @@ public class KristaWebDriverContainer extends BrowserWebDriverContainer {
      * @param appContainer приложение, с которым должен работать WebDriver.
      * @return возвращает this для fluent API.
      */
-    public KristaWebDriverContainer withApplication(TestServiceContainer appContainer) {
+    public JavisterWebDriverContainer withApplication(TestServiceContainer appContainer) {
         this.appContainer = appContainer;
         return this;
     }
@@ -113,7 +113,7 @@ public class KristaWebDriverContainer extends BrowserWebDriverContainer {
      *
      * @return возвращает this для fluent API.
      */
-    public KristaWebDriverContainer withLocalXServer() {
+    public JavisterWebDriverContainer withLocalXServer() {
         this.recordingMode = BrowserWebDriverContainer.VncRecordingMode.SKIP;
         String display = System.getenv("DISPLAY");
         if (display == null || display.isEmpty()) {
@@ -174,7 +174,7 @@ public class KristaWebDriverContainer extends BrowserWebDriverContainer {
         if (!super.equals(o)) {
             return false;
         }
-        KristaWebDriverContainer that = (KristaWebDriverContainer) o;
+        JavisterWebDriverContainer that = (JavisterWebDriverContainer) o;
         return recordingMode == that.recordingMode
                 && Objects.equals(desiredCapabilities, that.desiredCapabilities)
                 && Objects.equals(appContainer, that.appContainer);
@@ -199,7 +199,7 @@ public class KristaWebDriverContainer extends BrowserWebDriverContainer {
         return ZonedDateTime.now().getZone().getId();
     }
 
-    public static KristaWebDriverContainer byName(TestServiceContainer appContainer, String name) {
+    public static JavisterWebDriverContainer byName(TestServiceContainer appContainer, String name) {
         return Browser.valueOf(name.toUpperCase()).createContainer(appContainer);
     }
 
@@ -207,12 +207,12 @@ public class KristaWebDriverContainer extends BrowserWebDriverContainer {
         CHROME,
         FIREFOX;
 
-        KristaWebDriverContainer createContainer(TestServiceContainer appContainer) {
+        JavisterWebDriverContainer createContainer(TestServiceContainer appContainer) {
             switch (this) {
                 case CHROME:
-                    return new KristaWebDriverContainer(appContainer, DesiredCapabilities.chrome());
+                    return new JavisterWebDriverContainer(appContainer, DesiredCapabilities.chrome());
                 case FIREFOX:
-                    return new KristaWebDriverContainer(appContainer, DesiredCapabilities.firefox());
+                    return new JavisterWebDriverContainer(appContainer, DesiredCapabilities.firefox());
                 default:
                     throw new IllegalArgumentException("Unknown WEB Browser: " + this.toString());
             }

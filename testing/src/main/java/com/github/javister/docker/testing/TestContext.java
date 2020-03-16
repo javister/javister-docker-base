@@ -220,10 +220,10 @@ public class TestContext {
 
     public static void runTestIn(
             TestServiceContainer application, TestInfo testInfo,
-            KristaWebDriverContainer.Browser browserType,
+            JavisterWebDriverContainer.Browser browserType,
             long implicitlyWait,
             Consumer<TestContext> test) throws Throwable {
-        KristaWebDriverContainer container = browserType.createContainer(application);
+        JavisterWebDriverContainer container = browserType.createContainer(application);
         Class<?> testClass = testInfo.getTestClass().orElse(TestContext.class);
         String testMethod = testInfo.getTestMethod().isPresent() ? testInfo.getTestMethod().get().getName() + "-" : "";
         TestContext context = new TestContext(
