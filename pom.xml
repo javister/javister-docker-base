@@ -43,7 +43,7 @@
         <slf4j-api.version>1.7.30</slf4j-api.version>
         <hamcrest.version>2.2</hamcrest.version>
         <junit.jupiter.version>5.6.0</junit.jupiter.version>
-        <mockserver-client-java.version>5.9.0</mockserver-client-java.version>
+        <mockserver-client-java.version>5.10</mockserver-client-java.version>
         <!-- Plugins Versions -->
         <build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
@@ -79,6 +79,38 @@
                 <version>${testcontainers.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mock-server</groupId>
+                <artifactId>mockserver-client-java</artifactId>
+                <version>${mockserver-client-java.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>guava</artifactId>
+                        <groupId>com.google.guava</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>slf4j-api</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jaxb-api</artifactId>
+                        <groupId>javax.xml.bind</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hamcrest-core</artifactId>
+                        <groupId>org.hamcrest</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>opentest4j</artifactId>
+                        <groupId>org.opentest4j</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
