@@ -1,5 +1,6 @@
 package com.github.javister.docker.testing.base;
 
+import com.github.dockerjava.api.command.InspectContainerResponse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -33,7 +34,7 @@ public class HttpAccessWithProxyIT {
             new ImageFromDockerfile()
                     .withFileFromFile(
                             "app.jar",
-                            new File(JavisterBaseContainer.getTestPath(SimpleImageTests.class) + "/test-app.jar")
+                            new File(JavisterBaseContainer.getTestPath(HttpAccessWithProxyIT.class) + "/test-app.jar")
                     )
                     .withDockerfileFromBuilder(builder ->
                             builder
@@ -51,7 +52,24 @@ public class HttpAccessWithProxyIT {
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix("mserver").withRemoveAnsiCodes(false));
 
     @Container
-    private static final MockServerContainer proxyServer = new MockServerContainer("5.9.0")
+    private static final MockServerContainer proxyServer = new MockServerContainer("5.10.0")
+    {
+        // Workaround for https://github.com/moby/moby/issues/40740
+        @Override
+        protected void containerIsStarting(InspectContainerResponse containerInfo) {
+            LOGGER.info("### Starting proxy");
+            getDockerClient().connectToNetworkCmd()
+                    .withContainerId(getContainerId())
+                    .withNetworkId(externalNetwork.getId())
+                    .exec();
+            super.containerIsStarting(containerInfo);
+        }
+
+        @Override
+        public InspectContainerResponse getContainerInfo() {
+            return getCurrentContainerInfo();
+        }
+    }
             .dependsOn(mserver)
             .withNetworkAliases("proxy")
             .withNetwork(internalNetwork)
@@ -60,26 +78,15 @@ public class HttpAccessWithProxyIT {
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix("proxy").withRemoveAnsiCodes(false));
 
     @Container
-    private static final JavisterBaseContainer<?> container = new JavisterBaseContainer<>(SimpleImageTests.class)
+    private static final JavisterBaseContainer<?> container = new JavisterBaseContainer<>(HttpAccessWithProxyIT.class)
             .withHttpProxy("http://proxy:1080")
             .withNoProxy("")
             .withImagePullPolicy(__ -> false)
             .withNetwork(internalNetwork)
             .dependsOn(proxyServer);
 
-    @BeforeAll
-    @SuppressWarnings("squid:S2095")
-    public static void init() {
-        proxyServer.getDockerClient().connectToNetworkCmd()
-                .withContainerId(proxyServer.getContainerId())
-                .withNetworkId(externalNetwork.getId())
-                .exec();
-    }
-
     @Test
     void testCurl() throws IOException, InterruptedException {
-        MockServerClient proxyClient = getProxyClient();
-
         org.testcontainers.containers.Container.ExecResult exec = container.execInContainer(
                 "curl",
                 "-S",
@@ -87,16 +94,16 @@ public class HttpAccessWithProxyIT {
                 "http://mserver:8080/");
         Assertions.assertEquals(0, exec.getExitCode(), exec.getStderr());
         Assertions.assertEquals("Hello, world!", exec.getStdout().trim(), "Wrong response body");
-//        Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
-//        Assertions.assertEquals(1, expectations.length, exec.getStderr());
-//        expectations[0].getHttpResponse().withBody("Hello, world!");
-//        proxyClient.clear(request("/"));
+
+        MockServerClient proxyClient = getProxyClient();
+        Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
+        Assertions.assertEquals(1, expectations.length, exec.getStderr());
+        expectations[0].getHttpResponse().withBody("Hello, world!");
+        proxyClient.clear(request("/"));
     }
 
     @Test
     void testWget() throws IOException, InterruptedException {
-        MockServerClient proxyClient = getProxyClient();
-
         org.testcontainers.containers.Container.ExecResult exec = container.execInContainer(
                 "wget",
                 "-q",
@@ -105,10 +112,12 @@ public class HttpAccessWithProxyIT {
                 "http://mserver:8080/");
         Assertions.assertEquals(0, exec.getExitCode(), exec.getStderr());
         Assertions.assertEquals("Hello, world!", exec.getStdout().trim(), "Wrong response body");
-//        Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
-//        Assertions.assertEquals(1, expectations.length, exec.getStderr());
-//        expectations[0].getHttpResponse().withBody("Hello, world!");
-//        proxyClient.clear(request("/"));
+
+        MockServerClient proxyClient = getProxyClient();
+        Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
+        Assertions.assertEquals(1, expectations.length, exec.getStderr());
+        expectations[0].getHttpResponse().withBody("Hello, world!");
+        proxyClient.clear(request("/"));
     }
 
     private static MockServerClient getProxyClient() {
