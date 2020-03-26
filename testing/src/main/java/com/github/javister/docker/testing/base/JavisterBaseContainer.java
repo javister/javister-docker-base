@@ -30,7 +30,6 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
 
@@ -153,35 +152,6 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
         super(dockerImageName + ":" + tag);
         this.testClass = testClass;
         initialize();
-    }
-
-    private static Future<String> wrapName(String name) {
-        return new Future<String>() {
-            @Override
-            public boolean cancel(boolean mayInterruptIfRunning) {
-                return false;
-            }
-
-            @Override
-            public boolean isCancelled() {
-                return false;
-            }
-
-            @Override
-            public boolean isDone() {
-                return true;
-            }
-
-            @Override
-            public String get() {
-                return name;
-            }
-
-            @Override
-            public String get(long timeout, @NotNull TimeUnit unit) {
-                return name;
-            }
-        };
     }
 
     @Override

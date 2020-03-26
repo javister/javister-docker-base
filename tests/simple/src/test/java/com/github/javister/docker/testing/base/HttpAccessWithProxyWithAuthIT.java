@@ -30,19 +30,19 @@ import java.util.stream.Stream;
 import static org.mockserver.model.HttpRequest.request;
 
 @Testcontainers
-public class HttpAccessWithProxyIT {
-    private static final Logger LOGGER = LoggerFactory.getLogger(HttpAccessWithProxyIT.class);
+public class HttpAccessWithProxyWithAuthIT {
+    private static final Logger LOGGER = LoggerFactory.getLogger(HttpAccessWithProxyWithAuthIT.class);
     private static final Network externalNetwork = Network.newNetwork();
     private static final Network internalNetwork = Network.newNetwork();
 
     private static final Map<String, String> ENV_MAP = new HashMap<>();
 
     static {
-        ENV_MAP.put("http_proxy", "http://proxy:1080");
-        ENV_MAP.put("https_proxy", "https://proxy:1080");
-        ENV_MAP.put("PROXY", "http://proxy:1080");
-        ENV_MAP.put("PROXY_USER", "");
-        ENV_MAP.put("PROXY_PASS", "");
+        ENV_MAP.put("http_proxy", "http://system:masterkey@proxy:1080");
+        ENV_MAP.put("https_proxy", "https://system:masterkey@proxy:1080");
+        ENV_MAP.put("PROXY", "http://system:masterkey@proxy:1080");
+        ENV_MAP.put("PROXY_USER", "system");
+        ENV_MAP.put("PROXY_PASS", "masterkey");
         ENV_MAP.put("PROXY_HOST", "proxy");
         ENV_MAP.put("PROXY_PORT", "1080");
     }
@@ -53,7 +53,7 @@ public class HttpAccessWithProxyIT {
             new ImageFromDockerfile()
                     .withFileFromFile(
                             "app.jar",
-                            new File(JavisterBaseContainer.getTestPath(HttpAccessWithProxyIT.class) + "/test-app.jar")
+                            new File(JavisterBaseContainer.getTestPath(HttpAccessWithProxyWithAuthIT.class) + "/test-app.jar")
                     )
                     .withDockerfileFromBuilder(builder ->
                             builder
@@ -92,12 +92,12 @@ public class HttpAccessWithProxyIT {
             .withNetworkAliases("proxy")
             .withNetwork(internalNetwork)
             .withExposedPorts(1080)
-            .waitingFor(Wait.forHttp("/").forPort(1080).forStatusCode(404))
+//            .waitingFor(Wait.forHttp("/").forPort(1080).forStatusCode(404))
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix("proxy").withRemoveAnsiCodes(false));
 
     @Container
-    private static final JavisterBaseContainer<?> container = new JavisterBaseContainer<>(HttpAccessWithProxyIT.class)
-            .withHttpProxy("http://proxy:1080")
+    private static final JavisterBaseContainer<?> container = new JavisterBaseContainer<>(HttpAccessWithProxyWithAuthIT.class)
+            .withHttpProxy("http://system:masterkey@proxy:1080")
             .withNoProxy("")
             .withImagePullPolicy(__ -> false)
             .withNetwork(internalNetwork)
@@ -117,7 +117,7 @@ public class HttpAccessWithProxyIT {
         Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
         Assertions.assertEquals(1, expectations.length, exec.getStderr());
         Assertions.assertEquals("Hello, world!", expectations[0].getHttpResponse().getBodyAsString());
-        Assertions.assertFalse(expectations[0].getHttpRequest().containsHeader("Proxy-Authorization"), "Авторизация на прокси должна отсутствовать");
+        Assertions.assertTrue(expectations[0].getHttpRequest().containsHeader("Proxy-Authorization"), "Авторизация на прокси должна присутствовать");
         proxyClient.clear(request("/"));
     }
 
@@ -136,7 +136,7 @@ public class HttpAccessWithProxyIT {
         Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
         Assertions.assertEquals(1, expectations.length, exec.getStderr());
         Assertions.assertEquals("Hello, world!", expectations[0].getHttpResponse().getBodyAsString());
-        Assertions.assertFalse(expectations[0].getHttpRequest().containsHeader("Proxy-Authorization"), "Авторизация на прокси должна отсутствовать");
+        Assertions.assertTrue(expectations[0].getHttpRequest().containsHeader("Proxy-Authorization"), "Авторизация на прокси должна присутствовать");
         proxyClient.clear(request("/"));
     }
 
