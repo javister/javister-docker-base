@@ -1,6 +1,7 @@
-FROM centos:7 as BASE
+ARG CENTOS_VERSION
+FROM centos:${CENTOS_VERSION} as BASE
 
-COPY files /
+COPY src/main/docker /
 
 ENV PUID=911 \
     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc iproute" \
@@ -69,7 +70,5 @@ ENV PUID=911 \
     BUILD_RPMLIST="" \
     BASE_RPMLIST="syslog-ng cronie inotify-tools zip unzip wget less psmisc" \
     LOG_LEVEL="INFO"
-
-#    LANG="ru_RU.UTF-8" \
 
 CMD ["/usr/local/bin/my_init"]

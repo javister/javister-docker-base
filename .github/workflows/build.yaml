@@ -1,0 +1,43 @@
+name: Build on push
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+          server-id: bintray-javister
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+      - name: Set up Python 3.7 For Reporting
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build and Check
+        run: mvn --no-transfer-progress -Dstyle.color=always --fail-at-end verify
+        env:
+          MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
+          MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
+          MAVEN_OPTS: -Djansi.force=true
+      - name: Login to Bintray Javister
+        run: docker login -u ${{ secrets.BINTRAY_USER }} -p ${{ secrets.BINTRAY_PASSWORD }} javister-docker-docker.bintray.io
+      - name: Push Docker image
+        run: mvn --no-transfer-progress -Dstyle.color=always -DforcePush -DskipTests verify
+        env:
+          MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
+          MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
+          MAVEN_OPTS: -Djansi.force=true
+      - name: Upload Test Results
+        if: always()
+        shell: bash
+        run: curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python - -t ${{ secrets.REPORTCI_TOKEN }}

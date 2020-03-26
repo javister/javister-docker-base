@@ -1,0 +1,56 @@
+name: Check updates
+on:
+  schedule:
+  - cron: "*/15 * * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install xmlstarlet
+        run: sudo apt-get install xmlstarlet
+      - name: Get the Docker image meta
+        run: |
+          echo ::set-output name=imageName::$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:docker.image" pom.xml)
+          echo ::set-output name=imageTag::$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:revision" pom.xml)
+          echo ::set-output name=doRebuild::false
+      - name: Pull old Docker image
+        run: |
+          if docker pull ${{steps.vars.outputs.imageName}}:${{steps.vars.outputs.imageTag}}; then
+              echo ::set-output name=oldImagePresent::true
+          else
+              echo ::set-output name=oldImagePresent::false
+              echo ::set-output name=doRebuild::true
+          fi
+      - name: Check updates in image
+        if: steps.vars.outputs.oldImagePresent
+        run: |
+          if [[ "$(docker run --rm ${{steps.vars.outputs.imageName}}:${{steps.vars.outputs.imageTag}} yum check-update -q | wc --lines)" -gt "2" ]]; then
+              echo ::set-output name=doRebuild::true
+          fi
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        if: steps.vars.outputs.doRebuild
+        with:
+          java-version: 1.8
+          server-id: bintray-javister
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+      - name: Build and Check
+        if: steps.vars.outputs.doRebuild
+        run: mvn --no-transfer-progress -Dstyle.color=always verify
+        env:
+          MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
+          MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
+          MAVEN_OPTS: -Djansi.force=true
+      - name: Login to Bintray Javister
+        if: steps.vars.outputs.doRebuild
+        run: docker login -u ${{ secrets.BINTRAY_USER }} -p ${{ secrets.BINTRAY_PASSWORD }} javister-docker-docker.bintray.io
+      - name: Push Docker image
+        if: steps.vars.outputs.doRebuild
+        run: mvn --no-transfer-progress -Dstyle.color=always -DforcePush verify
+        env:
+          MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
+          MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
+          MAVEN_OPTS: -Djansi.force=true

@@ -1,0 +1,35 @@
+Проверка наличия обновлений yum:
+
+docker run --rm javister-docker-docker.bintray.io/javister/javister-docker-base:2.0 yum check-update -q | wc --lines
+
+Если вернёт больше 2, значит есть обновлённые пакеты.
+-----------------------------
+Modify a key-value in a json using jq: https://stackoverflow.com/questions/42716734/modify-a-key-value-in-a-json-using-jq
+How to publish GitHub event data with GitHub Actions and Pages: https://www.freecodecamp.org/news/publishing-github-event-data-with-github-actions-and-pages/
+Dependabot API docs: https://github.com/dependabot/api-docs
+Creating a Docker Image with GitHub Actions: https://www.prestonlamb.com/blog/creating-a-docker-image-with-github-actions
+Setting up Webhooks for Github Actions: http://www.btellez.com/posts/triggering-github-actions-with-webhooks.html
+Drafts your next release notes as pull requests are merged into master: https://github.com/release-drafter/release-drafter
+Integration Testing with Maven: https://www.baeldung.com/maven-integration-test
+-----------------------------
+Установка обработчика XML:
+
+- name: Install xmllint
+  run: sudo apt-get install xmlstarlet
+
+Использование: https://stackoverflow.com/questions/6873070/how-to-edit-xml-using-bash-script
+
+Выборка версии из pom.xml:
+xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:revision" pom.xml
+----------------------------
+Отчёты тестов:
+https://www.check-run-reporter.com/
+https://www.check-run-reporter.com/docs
+Action: https://github.com/check-run-reporter/action
+----------------------------
+Минималистичный WEB фреймворк jooby
+https://github.com/jooby-project/jooby
+полезен для создания минимального HTTP приложения, для тестирования всяких сетевых ситуаций:
+* Ожидание поднятия сервиса
+* Проверка корректности настройки HTTP Proxy (вместе с MockServer https://www.mock-server.com/)
+
