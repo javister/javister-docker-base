@@ -26,8 +26,8 @@ jobs:
       - name: Check updates in image
         if: env.oldImagePresent
         run: |
-          docker run --rm ${imageName}:${imageTag} yum check-update -q
-          if [[ "$(docker run --rm ${imageName}:${imageTag} yum check-update -q | wc --lines)" -gt "2" ]]; then
+          docker run --rm ${imageName}:${imageTag} yum check-update -q || true
+          if [[ "$(docker run --rm ${imageName}:${imageTag} yum check-update -q | wc --lines)" -gt "3" ]]; then
               echo "::set-env name=doRebuild::true"
           fi
       - name: Set up JDK 1.8
