@@ -12,14 +12,14 @@ jobs:
         run: sudo apt-get install xmlstarlet
       - name: Get the Docker image meta
         run: |
-          echo "name=imageName::$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:docker.image" pom.xml)"
-          echo ::set-output name=imageName::javister-docker-docker.bintray.io/javister/$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:docker.image.artifactId" pom.xml)
+          echo "name=imageName::$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:docker.image.artifactId" pom.xml)"
+          echo "::set-output name=imageName::javister-docker-docker.bintray.io/javister/$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:docker.image.artifactId" pom.xml)"
 
           echo "name=imageTag::$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:revision" pom.xml)"
-          echo ::set-output name=imageTag::$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:revision" pom.xml)
+          echo "::set-output name=imageTag::$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:revision" pom.xml)"
 
           echo "name=doRebuild::false"
-          echo ::set-output name=doRebuild::false
+          echo "::set-output name=doRebuild::false"
       - name: Pull old Docker image
         run: |
           if docker pull ${{steps.vars.outputs.imageName}}:${{steps.vars.outputs.imageTag}}; then
