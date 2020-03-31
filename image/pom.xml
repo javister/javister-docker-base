@@ -48,34 +48,47 @@
                     </buildArgs>
                 </configuration>
             </plugin>
-            <!-- Хак для IDEA, чтобы она добавиляла этот артефакт в classpath. Иначе не будет работать запуск jUnit тестов. -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>${build-helper-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>attach-artifact</goal>
-                        </goals>
-                        <configuration>
-                            <artifacts>
-                                <artifact>
-                                    <file>${basedir}/target/javister-docker-base-docker-info.jar</file>
-                                    <type>jar</type>
-                                    <classifier>docker-info</classifier>
-                                </artifact>
-                            </artifacts>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
     <profiles>
+        <profile>
+            <!-- Активировать данный профиль для работы из IntelliJ IDEA -->
+            <id>dev</id>
+            <activation>
+                <property>
+                    <name>dev</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <!-- Хак для IDEA, чтобы она добавляла этот артефакт в classpath. Иначе не будет работать запуск jUnit тестов. -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <version>${build-helper-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>compile</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>attach-artifact</goal>
+                                </goals>
+                                <configuration>
+                                    <artifacts>
+                                        <artifact>
+                                            <file>${basedir}/target/javister-docker-base-docker-info.jar</file>
+                                            <type>jar</type>
+                                            <classifier>docker-info</classifier>
+                                        </artifact>
+                                    </artifacts>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <profile>
             <id>force-push</id>
             <activation>
