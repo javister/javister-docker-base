@@ -275,4 +275,12 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <repositories>
+        <repository>
+            <id>bintray-javister-dockertesting</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/javister/dockertesting</url>
+        </repository>
+    </repositories>
 </project>
