@@ -62,7 +62,7 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
      * </a>.
      */
     public JavisterBaseContainer() {
-        this(getImageTag(JavisterBaseContainer.class));
+        this(getImageTag(JavisterBaseContainer.class, null));
     }
 
     /**
@@ -74,7 +74,7 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
      * @param tag имя тега (версии) образа
      */
     public JavisterBaseContainer(String tag) {
-        this(getImageRepository(JavisterBaseContainer.class), tag);
+        this(getImageRepository(JavisterBaseContainer.class, null), tag);
     }
 
     /**
@@ -102,7 +102,7 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
      * @param testClass класс JUnit теста.
      */
     public JavisterBaseContainer(Class<?> testClass) {
-        this(getImageTag(JavisterBaseContainer.class), testClass);
+        this(getImageTag(JavisterBaseContainer.class, null), testClass);
     }
 
     /**
@@ -117,7 +117,7 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
      * @param image     описание автогенерируемого образа
      */
     public JavisterBaseContainer(Class<?> testClass, Future<String> image) {
-        this(getImageTag(JavisterBaseContainer.class), testClass);
+        this(getImageTag(JavisterBaseContainer.class, null), testClass);
         setImage(image);
     }
 
@@ -133,7 +133,7 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
      * @param testClass класс JUnit теста.
      */
     public JavisterBaseContainer(String tag, Class<?> testClass) {
-        this(getImageRepository(JavisterBaseContainer.class), tag, testClass);
+        this(getImageRepository(JavisterBaseContainer.class, null), tag, testClass);
     }
 
     /**
@@ -538,24 +538,35 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
         return Collections.emptyList();
     }
 
-    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageId(Class<SELF> clazz) {
-        return getImageMeta(clazz, "image-id");
+    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageId(
+            @NotNull Class<SELF> clazz,
+            @Nullable String version) {
+        return getImageMeta(clazz, "image-id", version);
     }
 
-    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageName(Class<SELF> clazz) {
-        return getImageMeta(clazz, "image-name");
+    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageName(
+            @NotNull Class<SELF> clazz,
+            @Nullable String version) {
+        return getImageMeta(clazz, "image-name", version);
     }
 
-    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageRepository(Class<SELF> clazz) {
-        return getImageMeta(clazz, "repository");
+    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageRepository(
+            @NotNull Class<SELF> clazz,
+            @Nullable String version) {
+        return getImageMeta(clazz, "repository", version);
     }
 
-    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageTag(Class<SELF> clazz) {
-        return getImageMeta(clazz, "tag");
+    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageTag(
+            @NotNull Class<SELF> clazz,
+            @Nullable String version) {
+        return getImageMeta(clazz, "tag", version);
     }
 
-    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageMeta(Class<SELF> clazz, String metaFileName) {
-        try (InputStream response = clazz.getResourceAsStream(getImageCoordinate(clazz) + metaFileName);
+    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageMeta(
+            @NotNull Class<SELF> clazz,
+            @NotNull String metaFileName,
+            @Nullable String version) {
+        try (InputStream response = clazz.getResourceAsStream(getImageCoordinate(clazz, version) + metaFileName);
              Scanner scanner = new Scanner(response)) {
             return scanner.nextLine();
         } catch (IOException e) {
@@ -563,11 +574,17 @@ public class JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> ext
         }
     }
 
-    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageCoordinate(Class<SELF> clazz) {
+    protected static <SELF extends JavisterBaseContainer<SELF>> String getImageCoordinate(
+            @NotNull Class<SELF> clazz,
+            @Nullable String version) {
         try (InputStream propStream = clazz.getResourceAsStream("image.properties")) {
             Properties props = new Properties();
             props.load(propStream);
-            return "/META-INF/docker/" + props.getProperty("groupId") + "/" + props.getProperty("artifactId") + "/";
+            return "/META-INF/docker/"
+                    + props.getProperty("groupId")
+                    + "/" + props.getProperty("artifactId")
+                    + (version == null || version.isEmpty() ? "" : "-" + version)
+                    + "/";
         } catch (IOException e) {
             throw new TestRunException("Can't get the Docker image coordinates", e);
         }

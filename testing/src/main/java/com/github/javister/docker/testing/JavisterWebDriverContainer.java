@@ -208,7 +208,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
         CHROME(DesiredCapabilities.chrome()),
         FIREFOX(DesiredCapabilities.firefox());
 
-        private DesiredCapabilities desiredCapabilities;
+        private final DesiredCapabilities desiredCapabilities;
 
         Browser(DesiredCapabilities desiredCapabilities) {
             this.desiredCapabilities = desiredCapabilities;
