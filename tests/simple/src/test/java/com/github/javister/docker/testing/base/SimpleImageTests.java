@@ -22,8 +22,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @Testcontainers
 public class SimpleImageTests {
     @Container
-    @SuppressWarnings({"rawtypes", "unchecked", "squid:S1905", "squid:S00117"})
-    private static final JavisterBaseContainer container = (JavisterBaseContainer) new JavisterBaseContainer(SimpleImageTests.class)
+    @SuppressWarnings({"squid:S1905", "squid:S00117"})
+    private static final JavisterBaseContainer<?> container = new JavisterBaseContainerImpl<>(SimpleImageTests.class)
             .withRelativeFileSystemBind(".", "/app")
             .withImagePullPolicy(__ -> false);
 

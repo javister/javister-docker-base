@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.Network;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.images.builder.ImageFromDockerfile;
 import org.testcontainers.junit.jupiter.Container;
@@ -20,11 +21,10 @@ import java.io.File;
 
 @Testcontainers
 public class JavisterWebDriverIT {
-    private static final Logger LOGGER = LoggerFactory.getLogger(HttpAccessWithoutProxyIT.class);
     private static final Network network = Network.newNetwork();
 
     @Container
-    private static final JavisterBaseContainer<?> mserver = new JavisterBaseContainer<>(
+    private static final JavisterBaseContainer<?> mserver = new JavisterBaseContainerImpl<>(
             JavisterWebDriverIT.class,
             new ImageFromDockerfile()
                     .withFileFromFile(

@@ -96,7 +96,7 @@ public class HttpAccessWithProxyWithAuthIT {
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix("proxy").withRemoveAnsiCodes(false));
 
     @Container
-    private static final JavisterBaseContainer<?> container = new JavisterBaseContainer<>(HttpAccessWithProxyWithAuthIT.class)
+    private static final JavisterBaseContainer<?> container = new JavisterBaseContainerImpl<>(HttpAccessWithProxyWithAuthIT.class)
             .withHttpProxy("http://system:masterkey@proxy:1080")
             .withNoProxy("")
             .withImagePullPolicy(__ -> false)
