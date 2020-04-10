@@ -22,6 +22,7 @@ public class HttpAccessWithoutProxyIT {
     private static final Network network = Network.newNetwork();
 
     @Container
+    @SuppressWarnings("unused")
     private static final GenericContainer<?> mserver = new GenericContainer<>(
             new ImageFromDockerfile()
                     .withFileFromFile(
@@ -44,7 +45,7 @@ public class HttpAccessWithoutProxyIT {
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix("mserver").withRemoveAnsiCodes(false));
 
     @Container
-    private static final JavisterBaseContainer<?> container = new JavisterBaseContainer<>(SimpleImageTests.class)
+    private static final JavisterBaseContainer<?> container = new JavisterBaseContainerImpl<>(SimpleImageTests.class)
             .autoHttpProxy(false)
             .withImagePullPolicy(__ -> false)
             .withNetwork(network);
