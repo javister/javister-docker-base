@@ -44,6 +44,8 @@
         <hamcrest.version>2.2</hamcrest.version>
         <junit.jupiter.version>5.6.2</junit.jupiter.version>
         <mockserver-client-java.version>5.10.0</mockserver-client-java.version>
+        <lombok.version>1.18.12</lombok.version>
+        <commons-io.version>1.3.2</commons-io.version>
         <!-- Plugins Versions -->
         <build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
@@ -70,6 +72,15 @@
             <url>https://api.bintray.com/maven/javister/dockertesting/javister-docker-base/;publish=1</url>
         </repository>
     </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
