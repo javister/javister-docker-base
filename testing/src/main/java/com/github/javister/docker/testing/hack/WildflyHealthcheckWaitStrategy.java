@@ -1,6 +1,7 @@
 package com.github.javister.docker.testing.hack;
 
 import org.rnorth.ducttape.TimeoutException;
+import org.rnorth.ducttape.unreliables.Unreliables;
 import org.testcontainers.containers.Container;
 import org.testcontainers.containers.ContainerLaunchException;
 import org.testcontainers.containers.wait.strategy.AbstractWaitStrategy;
@@ -15,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class WildflyHealthcheckWaitStrategy extends AbstractWaitStrategy {
 
-    private Container<?> container;
+    private final Container<?> container;
 
     public WildflyHealthcheckWaitStrategy(Container<?> container) {
         this.container = container;
@@ -26,7 +27,7 @@ public class WildflyHealthcheckWaitStrategy extends AbstractWaitStrategy {
 
         try {
             String host = DockerClientProviderStrategyHack.overrideHost.get();
-            Utils.retryUntilTrue((int) startupTimeout.getSeconds(), TimeUnit.SECONDS, () -> {
+            Unreliables.retryUntilSuccess((int) startupTimeout.getSeconds(), TimeUnit.SECONDS, () -> {
                 Thread.sleep(10);
                 if (host != null) {
                     return DockerClientProviderStrategyHack.onServerDo(host, waitStrategyTarget::isHealthy);

@@ -2,15 +2,14 @@ package com.github.javister.docker.testing.hack;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
-import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.core.DockerClientConfig;
+import com.github.dockerjava.core.DockerClientImpl;
+import com.github.dockerjava.okhttp.OkHttpDockerCmdExecFactory;
 import org.testcontainers.DockerClientFactory;
 import org.testcontainers.dockerclient.AuditLoggingDockerClient;
 import org.testcontainers.dockerclient.DockerClientConfigUtils;
 import org.testcontainers.dockerclient.DockerClientProviderStrategy;
-import org.testcontainers.dockerclient.InvalidConfigurationException;
 import org.testcontainers.dockerclient.auth.AuthDelegatingDockerClientConfig;
-import org.testcontainers.dockerclient.transport.okhttp.OkHttpDockerCmdExecFactory;
 import org.testcontainers.utility.TestcontainersConfiguration;
 
 import java.io.IOException;
@@ -26,22 +25,22 @@ import java.util.concurrent.atomic.AtomicReference;
  * Стратегия для хакинга Testcontainers.
  * <p>Необходимо для того, чтобы для Testcontainers можно было динамически указать целевой хост с Docker.
  * TODO: это временное решение, за неимением лучших вариантов. Разработчики Testcontainers обещают выделить основные
- *  функции фреймворка в отдельное ядро, что должно позволить обходиться без данных хаков. Необходимо мониторить ситуацию
- *  и избавиться от данного кода, как только представится такая возможность.
+ * функции фреймворка в отдельное ядро, что должно позволить обходиться без данных хаков. Необходимо мониторить ситуацию
+ * и избавиться от данного кода, как только представится такая возможность.
  */
 public class DockerClientProviderStrategyHack extends DockerClientProviderStrategy {
     static ThreadLocal<String> overrideHost = new ThreadLocal<>();
-    private static ThreadLocal<DockerClient> overrideClient = new ThreadLocal<>();
-    private static ThreadLocal<DockerClientConfig> overrideConfig = new ThreadLocal<>();
-    private static AtomicReference<DockerClientProviderStrategy> defaultStrategy = new AtomicReference<>();
-    private static AtomicInteger initRecursionCounter = new AtomicInteger(0);
+    private static final ThreadLocal<DockerClient> overrideClient = new ThreadLocal<>();
+    private static final ThreadLocal<DockerClientConfig> overrideConfig = new ThreadLocal<>();
+    private static final AtomicReference<DockerClientProviderStrategy> defaultStrategy = new AtomicReference<>();
+    private static final AtomicInteger initRecursionCounter = new AtomicInteger(0);
 
     public DockerClientProviderStrategyHack() {
         TestcontainersConfiguration.getInstance().updateGlobalConfig("docker.client.strategy", "");
     }
 
     @Override
-    public void test() throws InvalidConfigurationException {
+    public void test() {
         if (defaultStrategy.get() == null) {
             try {
                 initRecursionCounter.incrementAndGet();
@@ -85,9 +84,9 @@ public class DockerClientProviderStrategyHack extends DockerClientProviderStrate
     }
 
     @Override
-    public String getDockerHostIpAddress() {
+    public synchronized String getDockerHostIpAddress() {
         return overrideConfig.get() != null ?
-                DockerClientConfigUtils.getDockerHostIpAddress(overrideConfig.get()) :
+                DockerClientConfigUtils.getDockerHostIpAddress(overrideConfig.get().getDockerHost()) :
                 defaultStrategy.get().getDockerHostIpAddress();
     }
 
@@ -113,9 +112,9 @@ public class DockerClientProviderStrategyHack extends DockerClientProviderStrate
                 client.close();
             }
         } finally {
-            overrideClient.set(null);
-            overrideConfig.set(null);
-            overrideHost.set(null);
+            overrideClient.remove();
+            overrideConfig.remove();
+            overrideHost.remove();
         }
     }
 
@@ -141,20 +140,9 @@ public class DockerClientProviderStrategyHack extends DockerClientProviderStrate
     }
 
     private static DockerClient getClientForConfigInt(DockerClientConfig config) {
-        DockerClientBuilder clientBuilder = DockerClientBuilder
-                .getInstance(new AuthDelegatingDockerClientConfig(config));
-
-        String transportType = TestcontainersConfiguration.getInstance().getTransportType();
-        if ("okhttp".equals(transportType)) {
-            clientBuilder
-                    .withDockerCmdExecFactory(new OkHttpDockerCmdExecFactory());
-        } else {
-            throw new IllegalArgumentException("Unknown transport type: " + transportType);
-        }
-
-        LOGGER.trace("Will use '{}' transport", transportType);
-
-        return clientBuilder.build();
+        return DockerClientImpl
+                .getInstance(new AuthDelegatingDockerClientConfig(config))
+                .withDockerCmdExecFactory(new OkHttpDockerCmdExecFactory());
     }
 
     private static void checkContext() {

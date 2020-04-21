@@ -4,7 +4,7 @@ import com.github.dockerjava.api.DockerClient;
 import org.testcontainers.containers.startupcheck.IsRunningStartupCheckStrategy;
 
 public class IsRunningStartupCheckStrategyHack extends IsRunningStartupCheckStrategy {
-    private String host;
+    private final String host;
 
     public IsRunningStartupCheckStrategyHack() {
         host = DockerClientProviderStrategyHack.overrideHost.get();

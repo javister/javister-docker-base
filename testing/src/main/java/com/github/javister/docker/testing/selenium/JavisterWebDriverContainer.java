@@ -1,6 +1,7 @@
-package com.github.javister.docker.testing;
+package com.github.javister.docker.testing.selenium;
 
-import org.openqa.selenium.chrome.ChromeOptions;
+import com.github.javister.docker.testing.TestRunException;
+import com.github.javister.docker.testing.TestServiceContainer;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -19,11 +20,12 @@ import java.util.concurrent.TimeoutException;
  * Расширение стандартной обёртки над Selenium WebDrive, добавляющее возможность автоматического подключения к
  * инфраструктуре с приложением на базе НТП.
  */
-public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
+public class JavisterWebDriverContainer extends BrowserWebDriverContainer<JavisterWebDriverContainer> {
     private static final boolean USE_LOCAL_X_SERVER = Boolean.parseBoolean(System.getProperty("stand.use.local.x.server", ""));
     private TestServiceContainer appContainer;
     private DesiredCapabilities desiredCapabilities;
     private VncRecordingMode recordingMode;
+    private long implicitlyWait = 100;
 
     /**
      * Создаёт контейнер, подключенный к заданному приложению и с заданными характеристиками.
@@ -110,7 +112,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
      * <p>Для Windows машин необходимо запустить
      * <a href="https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde">локальный X сервер</a>.
      * <p>Для удалённо запускаемых контейнеров и для Windows необходимо явно указать переменную окружения DISPLAY с именем/IP вашей
-     * локальной машины и номеров X экрана.
+     * локальной машины и номером X экрана.
      *
      * @return возвращает this для fluent API.
      */
@@ -145,6 +147,32 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
             withEnv("START_XVFB", "false");
         }
         return this;
+    }
+
+    /**
+     * Величина имплицитного ожидания у создаваемого для этого контейнера WebDriver.
+     *
+     * @param millisec величина имплицитного ожидания у содаваемого для этого контейнера WebDriver.
+     * @return возвращает this для fluent API.
+     */
+    public JavisterWebDriverContainer withImplicitlyWait(long millisec) {
+        implicitlyWait = millisec;
+        return this;
+    }
+
+    @Override
+    public JavisterWebDriverContainer withDesiredCapabilities(DesiredCapabilities desiredCapabilities) {
+        this.desiredCapabilities = desiredCapabilities;
+        return this;
+    }
+
+    /**
+     * Получение желаемых свойств браузера.
+     *
+     * @return желаемые свойства браузера.
+     */
+    public DesiredCapabilities getDesiredCapabilities() {
+        return desiredCapabilities;
     }
 
     /**
@@ -183,7 +211,6 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(super.hashCode(), appContainer, desiredCapabilities, recordingMode);
     }
 
@@ -191,7 +218,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
     public RemoteWebDriver getWebDriver() {
         RemoteWebDriver driver = super.getWebDriver();
         if (driver != null) {
-            driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
+            driver.manage().timeouts().implicitlyWait(implicitlyWait, TimeUnit.MILLISECONDS);
         }
         return driver;
     }
@@ -204,6 +231,9 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer {
         return new JavisterWebDriverContainer(appContainer, Browser.valueOf(name.toUpperCase()).getCapabilities());
     }
 
+    /**
+     * Перечисление поддерживаемых вариантов браузеров.
+     */
     public enum Browser {
         CHROME(DesiredCapabilities.chrome()),
         FIREFOX(DesiredCapabilities.firefox());

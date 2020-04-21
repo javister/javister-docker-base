@@ -1,6 +1,7 @@
 package com.github.javister.docker.testing.hack;
 
 import org.rnorth.ducttape.TimeoutException;
+import org.rnorth.ducttape.unreliables.Unreliables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.ContainerLaunchException;
@@ -41,7 +42,7 @@ public class HostPortWaitStrategyHack extends AbstractWaitStrategy {
 
         try {
             String host = DockerClientProviderStrategyHack.overrideHost.get();
-            Utils.retryUntilTrue((int) startupTimeout.getSeconds(), TimeUnit.SECONDS, () -> getRateLimiter().getWhenReady(() -> {
+            Unreliables.retryUntilSuccess((int) startupTimeout.getSeconds(), TimeUnit.SECONDS, () -> getRateLimiter().getWhenReady(() -> {
                     Thread.sleep(1);
                     if (host != null) {
                         return DockerClientProviderStrategyHack.onServerDo(host, () -> internalCheck.call() && externalCheck.call());

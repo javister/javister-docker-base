@@ -205,7 +205,6 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
         try {
             this
                     .withLang("ru_RU.UTF-8")
-                    .withImagePullPolicy(it -> false)
                     .withStartupCheckStrategy(new IsRunningStartupCheckStrategyHack())
                     .setWaitStrategy(new HostPortWaitStrategyHack());
             if (SystemUtils.IS_OS_LINUX) {
