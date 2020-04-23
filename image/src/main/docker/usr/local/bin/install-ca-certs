@@ -2,7 +2,7 @@
 
 set -e
 
-if [ -d /config/ca-certificates ]; then
+if [[ -d /config/ca-certificates ]]; then
     cp --archive --force /config/ca-certificates/* /etc/pki/ca-trust/source/anchors/
 fi
 update-ca-trust

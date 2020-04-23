@@ -23,10 +23,10 @@ function printLog() {
             ;;
     esac
 
-    ([ "${doMessage}" == "yes" ] && echo "$@") || true
+    ([[ "${doMessage}" == "yes" ]] && echo "$@") || true
 }
 
-if [ -f "/tmp/SYSLOG_STARTED" ]; then
+if [[ -f "/tmp/SYSLOG_STARTED" ]]; then
     PARENT_COMMAND="$(ps -o comm= $PPID)"
     logger --priority debug --tag "${PARENT_COMMAND}" "# $@"
 else
