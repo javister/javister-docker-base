@@ -10,7 +10,6 @@ import org.apache.commons.lang.SystemUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.junit.rules.TestRule;
 import org.testcontainers.containers.BindMode;
 import org.testcontainers.containers.Container;
 import org.testcontainers.containers.Network;
@@ -51,7 +50,7 @@ import java.util.function.Consumer;
  * @param <SELF> параметр, необходимый для организации паттерна fluent API.
  */
 @SuppressWarnings({"java:S119", "UnusedReturnValue", "unused"})
-public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> extends TestRule, Container<SELF>, AutoCloseable, WaitStrategyTarget, Startable, TestServiceContainer {
+public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>> extends Container<SELF>, AutoCloseable, WaitStrategyTarget, Startable, TestServiceContainer {
     /**
      * Получение объекта класса JUnit теста.
      *
@@ -409,6 +408,21 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
         if (path != null) {
             this.withFileSystemBind(path.toString() + "/" + hostPath, containerPath, mode);
         }
+        return self();
+    }
+
+    /**
+     * Задаёт логин пользователя по умолчанию.
+     * <p>Если этот параметр не задан, то пользователь по умолчанию имеет логин {@code system}.
+     * <p>Данный параметр переопределяет логин на указанный. В качестве одного из примеров, когда
+     * это может быть необходимо: образ с PostgreSQL, которому требуется наличие системного
+     * пользователя {@code postgres}.
+     *
+     * @param username логин пользователя по умолчанию.
+     * @return возвращает this для fluent API.
+     */
+    default SELF withUserName(String username) {
+        withEnv("PUSER", username);
         return self();
     }
 

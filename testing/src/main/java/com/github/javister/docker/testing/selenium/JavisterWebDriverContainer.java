@@ -183,15 +183,13 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer<Javist
         if (desiredCapabilities != null) {
             this.withCapabilities(desiredCapabilities);
         }
-        if (appContainer == null) {
-            throw new IllegalStateException("Для контейнера KristaWebDriverContainer не установлен контейнер с приложением.");
+        if (appContainer != null) {
+            this.withRecordingMode(recordingMode, appContainer.getTestPath())
+                    .withNetwork(appContainer.getNetwork());
         }
         if (USE_LOCAL_X_SERVER) {
             withLocalXServer();
         }
-        this
-                .withRecordingMode(recordingMode, appContainer.getTestPath())
-                .withNetwork(appContainer.getNetwork());
         super.start();
     }
 

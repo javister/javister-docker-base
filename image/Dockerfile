@@ -18,9 +18,9 @@ RUN echo '*** Set permissions for the support tools' && \
     yum -y --setopt=tsflags=nodocs update && \
     echo '*** Install additional softvare' && \
     yum -y install epel-release && \
-    yum -y --setopt=tsflags=nodocs install $BASE_RPMLIST && \
+    yum -y --setopt=tsflags=nodocs install ${BASE_RPMLIST} && \
     echo '*** Add user "system"' && \
-    useradd -u $PUID -U -d /config -s /bin/false system && \
+    useradd -u ${PUID} -U -d /config -s /bin/false system && \
     usermod -G users system && \
     echo '*** Prepare application rirectories' && \
     mkdir -p /app /config /defaults && \
@@ -32,7 +32,7 @@ RUN echo '*** Set permissions for the support tools' && \
     chmod 700 /etc/container_environment /etc/container_environment.sh /etc/container_environment.json && \
     ln -s /etc/container_environment.sh /etc/profile.d/ && \
     echo '*** Install runit (http://smarden.org/runit/).' && \
-    https_proxy=$https_proxy curl -s "https://packagecloud.io/install/repositories/imeyer/runit/config_file.repo?os=el&dist=7&name=javister-docker-base" > /etc/yum.repos.d/imeyer_runit.repo && \
+    https_proxy=${https_proxy} curl -s "https://packagecloud.io/install/repositories/imeyer/runit/config_file.repo?os=el&dist=7&name=javister-docker-base" > /etc/yum.repos.d/imeyer_runit.repo && \
     yum -y --setopt=tsflags=nodocs install runit && \
     rm -f /tmp/* && \
     echo '*** Configure a syslog daemon and logrotate.' && \
@@ -54,7 +54,7 @@ MAINTAINER Viktor Verbitsky <vektory79@gmail.com>
 
 LABEL \
     os.vendor="CentOS" \
-    os.version="7.4" \
+    os.version="${CENTOS_VERSION}" \
     os.license="GPLv2" \
     image.vendor="Javister"
 
@@ -62,6 +62,7 @@ COPY --from=BASE / /
 
 ENV PUID=911 \
     PGID=911 \
+    PUSER=system \
     TERM="xterm" \
     TZ="Europe/Moscow" \
     KILL_PROCESS_TIMEOUT=5 \
