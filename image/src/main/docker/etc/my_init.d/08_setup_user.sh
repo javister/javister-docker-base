@@ -30,3 +30,8 @@ if [[  "$(id -nu ${PUID})" != "${PUSER}" ]]; then
     mdebug "Change user name from [$(id -nu ${PUID})] to [${PUSER}]";
     usermod -l ${PUSER} $(id -nu ${PUID});
 fi
+
+if [[  "$(id -ng ${PUID})" != "${PUSER}" ]]; then
+    mdebug "Change user group from [$(id -ng ${PUID})] to [${PUSER}]";
+    groupmod --new-name ${PUSER} $(id -ng ${PUID});
+fi

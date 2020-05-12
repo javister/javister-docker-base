@@ -17,7 +17,7 @@ public class UserTests {
     @Container
     @SuppressWarnings({"squid:S1905", "squid:S00117"})
     private static final JavisterBaseContainer<?> container = new JavisterBaseContainerImpl<>(UserTests.class)
-            .withUserName("user1")
+            .withUsername("user1")
             .withEnv("LOG_LEVEL", "DEBUG")
             .waitingFor(new LogMessageWaitStrategy()
                     .withRegEx(".*syslog-ng starting up.*\\s")
@@ -27,10 +27,18 @@ public class UserTests {
             .withImagePullPolicy(__ -> false);
 
     @Test
-    void testRootPrivileges() throws IOException, InterruptedException {
+    void testCustomUsername() throws IOException, InterruptedException {
         ExecResult result;
-        result = container.execInContainer("setuser", "user1", "whoami");
+        result = container.execInContainer("setuser user1 whoami".split(" "));
         Assertions.assertEquals(0, result.getExitCode(), result.getStderr());
         Assertions.assertEquals("user1", result.getStdout().trim(), "Должно быть установлено новое имя пользователя");
+    }
+
+    @Test
+    void testCustomGroupname() throws IOException, InterruptedException {
+        ExecResult result;
+        result = container.execInContainer("setuser user1 id -ng user1".split(" "));
+        Assertions.assertEquals(0, result.getExitCode(), result.getStderr());
+        Assertions.assertEquals("user1", result.getStdout().trim(), "Должно быть установлено новое имя группы");
     }
 }
