@@ -104,7 +104,6 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
      *
      * @return все консумеры лога контейнера.
      */
-    @NotNull
     List<Consumer<OutputFrame>> getLogConsumers();
 
     /**
@@ -395,7 +394,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
 
     /**
      * Добавляет биндинг файловой системы, относительно каталога {@link JavisterBaseContainer#getTestVolumePath()}.
-     * <p>Если каталог {@link JavisterBaseContainer#getTestVolumePath()} не определён - вернёт null.
+     * <p>Если каталог {@link JavisterBaseContainer#getTestVolumePath()} не определён - операция игнорируется.
      *
      * @param hostPath      путь на хосте
      * @param containerPath путь внутри контейнера
@@ -421,7 +420,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
      * @param username логин пользователя по умолчанию.
      * @return возвращает this для fluent API.
      */
-    default SELF withUserName(String username) {
+    default SELF withUsername(String username) {
         withEnv("PUSER", username);
         return self();
     }
@@ -442,20 +441,15 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     @Override
     @SuppressWarnings("findsecbugs:PATH_TRAVERSAL_IN")
     default File getTestVolumePath() {
-        try {
-            if (System.getenv().containsKey("DOCKER_HOST") || getTestClass() == null) {
-                return null;
-            }
-            return new File(
-                    new File(getTestClass().getProtectionDomain().getCodeSource().getLocation().toURI()),
-                    "../" +
-                            "docker-" +
-                            getTestClass().getSimpleName() +
-                            (getVariant() != null ? "-" + getVariant() : "")
-            );
-        } catch (URISyntaxException e) {
-            throw new IllegalTestConfigurationException("Ошибка определения каталога сборки проекта.", e);
+        if (System.getenv().containsKey("DOCKER_HOST") || getTestClass() == null) {
+            return null;
         }
+        return new File(
+                getTestPath(),
+                "docker-" +
+                        getTestClass().getSimpleName() +
+                        (getVariant() != null ? "-" + getVariant() : "")
+        );
     }
 
     /**
