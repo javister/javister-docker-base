@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockserver.client.MockServerClient;
 import org.mockserver.mock.Expectation;
+import org.mockserver.model.HttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.Container.ExecResult;
@@ -71,8 +72,7 @@ public class HttpAccessWithProxyWithAuthIT {
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix("mserver").withRemoveAnsiCodes(false));
 
     @Container
-    private static final MockServerContainer proxyServer = new MockServerContainer("5.10.0")
-    {
+    private static final MockServerContainer proxyServer = new MockServerContainer("5.11.1") {
         // Workaround for https://github.com/moby/moby/issues/40740
         @Override
         protected void containerIsStarting(InspectContainerResponse containerInfo) {
@@ -92,7 +92,7 @@ public class HttpAccessWithProxyWithAuthIT {
             .withNetworkAliases("proxy")
             .withNetwork(internalNetwork)
             .withExposedPorts(1080)
-//            .waitingFor(Wait.forHttp("/").forPort(1080).forStatusCode(404))
+            .waitingFor(Wait.forHttp("/").forPort(1080).forStatusCode(404))
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix("proxy").withRemoveAnsiCodes(false));
 
     @Container
@@ -117,7 +117,7 @@ public class HttpAccessWithProxyWithAuthIT {
         Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
         Assertions.assertEquals(1, expectations.length, exec.getStderr());
         Assertions.assertEquals("Hello, world!", expectations[0].getHttpResponse().getBodyAsString());
-        Assertions.assertTrue(expectations[0].getHttpRequest().containsHeader("Proxy-Authorization"), "Авторизация на прокси должна присутствовать");
+        Assertions.assertTrue(((HttpRequest) expectations[0].getHttpRequest()).containsHeader("Proxy-Authorization"), "Авторизация на прокси должна присутствовать");
         proxyClient.clear(request("/"));
     }
 
@@ -136,7 +136,7 @@ public class HttpAccessWithProxyWithAuthIT {
         Expectation[] expectations = proxyClient.retrieveRecordedExpectations(request("/"));
         Assertions.assertEquals(1, expectations.length, exec.getStderr());
         Assertions.assertEquals("Hello, world!", expectations[0].getHttpResponse().getBodyAsString());
-        Assertions.assertTrue(expectations[0].getHttpRequest().containsHeader("Proxy-Authorization"), "Авторизация на прокси должна присутствовать");
+        Assertions.assertTrue(((HttpRequest) expectations[0].getHttpRequest()).containsHeader("Proxy-Authorization"), "Авторизация на прокси должна присутствовать");
         proxyClient.clear(request("/"));
     }
 
