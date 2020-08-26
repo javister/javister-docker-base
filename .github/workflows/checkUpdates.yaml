@@ -51,7 +51,7 @@ jobs:
         run: docker login -u ${{ secrets.BINTRAY_USER }} -p ${{ secrets.BINTRAY_PASSWORD }} javister-docker-docker.bintray.io
       - name: Push Docker image
         if: env.doRebuild == 'true'
-        run: mvn --no-transfer-progress -Dstyle.color=always -DforcePush -DskipTests clear verify
+        run: mvn --no-transfer-progress -Dstyle.color=always -DforcePush -DskipTests clean verify
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
