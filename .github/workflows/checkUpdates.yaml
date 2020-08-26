@@ -8,6 +8,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: release-v2.5
       - name: Install xmlstarlet
         run: sudo apt-get install xmlstarlet
       - name: Get the Docker image meta
