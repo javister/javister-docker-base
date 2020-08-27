@@ -45,10 +45,10 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
       - name: Login to Bintray Javister
-        if: env.doRebuild == 'true'
+        if: env.doRebuild == 'true' || contains(github.ref, 'release-')
         run: docker login -u ${{ secrets.BINTRAY_USER }} -p ${{ secrets.BINTRAY_PASSWORD }} javister-docker-docker.bintray.io
       - name: Push Docker image
-        if: env.doRebuild == 'true'
+        if: env.doRebuild == 'true' || contains(github.ref, 'release-')
         run: mvn --no-transfer-progress -Dstyle.color=always -DforcePush -DskipTests clean verify
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
