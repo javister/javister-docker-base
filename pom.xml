@@ -391,9 +391,21 @@
 
     <repositories>
         <repository>
+            <id>central</id>
+            <name>central</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+        <repository>
             <id>bintray-javister-dockertesting</id>
             <name>bintray</name>
             <url>https://dl.bintray.com/javister/dockertesting</url>
         </repository>
     </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <name>central</name>
+            <url>https://jcenter.bintray.com</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
