@@ -1,4 +1,4 @@
-name: Check updates
+name: Check updates (default)
 on:
   schedule:
   - cron: "0 */24 * * *"
