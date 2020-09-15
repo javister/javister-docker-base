@@ -18,8 +18,7 @@ public class JavisterWebDriverMethodConfiguratorIT extends JavisterWebDriverBase
 
         webContainer.start();
         RemoteWebDriver driver = webContainer.getWebDriver();
-        driver.get("http://mserver:8080/");
-        Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+        simpleTest(driver);
     }
 
     @JavisterWebDriverProvider
@@ -27,32 +26,27 @@ public class JavisterWebDriverMethodConfiguratorIT extends JavisterWebDriverBase
         Assertions.assertTrue(webContainer.isRunning(), "Сонтейнер должен быть запущен");
 
         RemoteWebDriver driver = webContainer.getWebDriver();
-        driver.get("http://mserver:8080/");
-        Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+        simpleTest(driver);
     }
 
     @JavisterWebDriverProvider(autostart = false)
     void testCustomRemoteWebDriver(RemoteWebDriver driver) {
-        driver.get("http://mserver:8080/");
-        Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+        simpleTest(driver);
     }
 
     @JavisterWebDriverProvider
     void testCustomRemoteWebDriverAutostart(RemoteWebDriver driver) {
-        driver.get("http://mserver:8080/");
-        Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+        simpleTest(driver);
     }
 
     @JavisterWebDriverProvider(autostart = false)
     void testCustomWebDriver(WebDriver driver) {
-        driver.get("http://mserver:8080/");
-        Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+        simpleTest(driver);
     }
 
     @JavisterWebDriverProvider
     void testCustomWebDriverAutostart(WebDriver driver) {
-        driver.get("http://mserver:8080/");
-        Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+        simpleTest(driver);
     }
 
     @JavisterWebDriverConfigurator

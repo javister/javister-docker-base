@@ -1,5 +1,9 @@
 package com.github.javister.docker.testing.base;
 
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testcontainers.containers.Network;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.images.builder.ImageFromDockerfile;
@@ -30,4 +34,9 @@ public class JavisterWebDriverBase {
             .withNetworkAliases("mserver")
             .withNetwork(network)
             .waitingFor(Wait.forHttp("/").forPort(8080));
+
+    protected void simpleTest(WebDriver driver) {
+        driver.get("http://mserver:8080/");
+        Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+    }
 }

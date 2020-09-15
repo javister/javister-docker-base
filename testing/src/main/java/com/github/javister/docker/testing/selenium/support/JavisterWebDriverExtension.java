@@ -17,7 +17,9 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Stream;
 
-public class JavisterWebDriverExtension implements AfterEachCallback, TestTemplateInvocationContextProvider {
+public class JavisterWebDriverExtension implements
+        AfterEachCallback,
+        TestTemplateInvocationContextProvider {
     private final ConcurrentLinkedQueue<WebDriverParamResolver> browsers = new ConcurrentLinkedQueue<>();
 
     @Override
@@ -52,21 +54,19 @@ public class JavisterWebDriverExtension implements AfterEachCallback, TestTempla
             JavisterWebDriverProvider annotation = testMethod.get().getAnnotation(JavisterWebDriverProvider.class);
             if (annotation.value().length > 0) {
                 return Stream.of(annotation.value())
-                        .map(browser -> new TemplateInvocationContext(context, browser));
+                        .map(TemplateInvocationContext::new);
             } else {
                 return Stream.of(JavisterWebDriverContainer.Browser.values())
-                        .map(browser -> new TemplateInvocationContext(context, browser));
+                        .map(TemplateInvocationContext::new);
             }
         }
         return Stream.empty();
     }
 
     private class TemplateInvocationContext implements TestTemplateInvocationContext {
-        private final ExtensionContext context;
         private final JavisterWebDriverContainer.Browser browserType;
 
-        public TemplateInvocationContext(ExtensionContext context, JavisterWebDriverContainer.Browser browserType) {
-            this.context = context;
+        public TemplateInvocationContext(JavisterWebDriverContainer.Browser browserType) {
             this.browserType = browserType;
         }
 
@@ -77,7 +77,7 @@ public class JavisterWebDriverExtension implements AfterEachCallback, TestTempla
 
         @Override
         public List<Extension> getAdditionalExtensions() {
-            WebDriverParamResolver driverParamResolver = new WebDriverParamResolver(context, browserType);
+            WebDriverParamResolver driverParamResolver = new WebDriverParamResolver(browserType);
             browsers.add(driverParamResolver);
             return Collections.singletonList(driverParamResolver);
         }

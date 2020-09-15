@@ -4,8 +4,6 @@ import com.github.javister.docker.testing.ExternalLogConsumer;
 import com.github.javister.docker.testing.IllegalTestConfigurationException;
 import com.github.javister.docker.testing.TestRunException;
 import com.github.javister.docker.testing.TestServiceContainer;
-import com.github.javister.docker.testing.hack.HostPortWaitStrategyHack;
-import com.github.javister.docker.testing.hack.IsRunningStartupCheckStrategyHack;
 import org.apache.commons.lang.SystemUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -201,10 +199,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
      */
     default void initialize() {
         try {
-            this
-                    .withLang("ru_RU.UTF-8")
-                    .withStartupCheckStrategy(new IsRunningStartupCheckStrategyHack())
-                    .setWaitStrategy(new HostPortWaitStrategyHack());
+            this.withLang("ru_RU.UTF-8");
             if (SystemUtils.IS_OS_LINUX) {
                 String puid = new ProcessExecutor().command("id", "-u")
                         .readOutput(true).execute()

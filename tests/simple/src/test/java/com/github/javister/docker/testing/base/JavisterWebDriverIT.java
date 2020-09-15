@@ -1,21 +1,20 @@
 package com.github.javister.docker.testing.base;
 
+import com.github.javister.docker.testing.selenium.JavisterWebDriverConfigurator;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer.Browser;
-import com.github.javister.docker.testing.selenium.JavisterWebDriverConfigurator;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverProvider;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
-import org.openqa.selenium.By;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
-public class JavisterWebDriverIT extends JavisterWebDriverBase {
+class JavisterWebDriverIT extends JavisterWebDriverBase {
 
     @ParameterizedTest
     @EnumSource(Browser.class)
@@ -25,8 +24,7 @@ public class JavisterWebDriverIT extends JavisterWebDriverBase {
             webContainer.start();
 
             RemoteWebDriver driver = webContainer.getWebDriver();
-            driver.get("http://mserver:8080/");
-            Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+            simpleTest(driver);
         }
     }
 
@@ -37,17 +35,13 @@ public class JavisterWebDriverIT extends JavisterWebDriverBase {
                 .withApplication(mserver)
                 .start();
 
-        RemoteWebDriver driver = webContainer.getWebDriver();
-        driver.get("http://mserver:8080/");
-        Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+        simpleTest(webContainer.getWebDriver());
     }
 
     @JavisterWebDriverProvider(configuratorClass = TestConfigurator.class, autostart = false)
     void testCustomWebDriverContainerWithConfigurator(JavisterWebDriverContainer webContainer) {
         webContainer.start();
-        RemoteWebDriver driver = webContainer.getWebDriver();
-        driver.get("http://mserver:8080/");
-        Assertions.assertEquals("Hello, world!", driver.findElement(By.tagName("body")).getText(), "Wrong response body");
+        simpleTest(webContainer.getWebDriver());
     }
 
     @JavisterWebDriverProvider(value = Browser.CHROME, autostart = false)

@@ -7,8 +7,10 @@ import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer.Br
 import com.github.javister.docker.testing.selenium.JavisterWebDriverProvider;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.InvocationInterceptor;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolver;
+import org.junit.jupiter.api.extension.ReflectiveInvocationContext;
 import org.junit.platform.commons.support.AnnotationSupport;
 import org.junit.platform.commons.support.HierarchyTraversalMode;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -22,14 +24,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class WebDriverParamResolver implements ParameterResolver, Closeable {
+public class WebDriverParamResolver implements
+        ParameterResolver,
+        InvocationInterceptor,
+        Closeable {
     private static final AtomicInteger counter = new AtomicInteger(1);
-    private final ExtensionContext context;
+    private ExtensionContext context;
     private final Browser browserType;
     private JavisterWebDriverContainer container;
 
-    public WebDriverParamResolver(ExtensionContext context, Browser browserType) {
-        this.context = context;
+    public WebDriverParamResolver(Browser browserType) {
         this.browserType = browserType;
     }
 
@@ -61,9 +65,17 @@ public class WebDriverParamResolver implements ParameterResolver, Closeable {
     }
 
     @Override
+    public void interceptTestTemplateMethod(Invocation<Void> invocation, ReflectiveInvocationContext<Method> invocationContext, ExtensionContext extensionContext) throws Throwable {
+        context = extensionContext;
+        invocation.proceed();
+    }
+
+    @Override
     public void close() {
         if (container != null && container.isRunning()) {
-            container.afterTest(getDescription(), context.getExecutionException());
+            if (context != null) {
+                container.afterTest(getDescription(), context.getExecutionException());
+            }
             container.close();
         }
     }
