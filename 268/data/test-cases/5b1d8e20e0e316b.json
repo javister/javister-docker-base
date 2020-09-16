@@ -1,0 +1,57 @@
+{
+  "uid" : "5b1d8e20e0e316b",
+  "name" : "testRootPrivileges()",
+  "fullName" : "com.github.javister.docker.testing.base.SimpleImageTests.testRootPrivileges",
+  "historyId" : "c5b55e60ec57abf656506c1aaf5b3619",
+  "time" : {
+    "start" : 1600291302693,
+    "stop" : 1600291303534,
+    "duration" : 841
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32"
+  }, {
+    "name" : "thread",
+    "value" : "4788@fv-az32.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.SimpleImageTests"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.SimpleImageTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "testRootPrivileges"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.SimpleImageTests"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5b1d8e20e0e316b.json",
+  "parameterValues" : [ ]
+}

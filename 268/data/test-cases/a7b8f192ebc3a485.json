@@ -1,0 +1,96 @@
+{
+  "uid" : "a7b8f192ebc3a485",
+  "name" : "[1] CHROME",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverVideoIT.testVideoRecordingTemplateSuccess",
+  "historyId" : "45d41414bea5a3bec1f4595dee878e2b",
+  "time" : {
+    "start" : 1600291586522,
+    "stop" : 1600291591952,
+    "duration" : 5430
+  },
+  "description" : "Запись видео: удачный параметризированный тест",
+  "descriptionHtml" : "<p>Запись видео: удачный параметризированный тест</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "cleanBeforeAll",
+    "time" : {
+      "start" : 1600291586517,
+      "stop" : 1600291586519,
+      "duration" : 2
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "Запись видео: удачный параметризированный тест",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "239cda8940e96472",
+      "name" : "PASSED-com.github.javister.docker.testing.base.JavisterWebDriverVideoIT.testVideoRecordingTemplateSuccess-CHROME-20200916-212631.flv",
+      "source" : "239cda8940e96472.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    }, {
+      "uid" : "54d475f20feceddd",
+      "name" : "Stdout",
+      "source" : "54d475f20feceddd.txt",
+      "type" : "text/plain",
+      "size" : 1507
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32"
+  }, {
+    "name" : "thread",
+    "value" : "5885@fv-az32.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverVideoIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverVideoIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testVideoRecordingTemplateSuccess"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverVideoIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a7b8f192ebc3a485.json",
+  "parameterValues" : [ ]
+}

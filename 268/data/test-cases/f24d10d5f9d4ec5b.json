@@ -1,0 +1,75 @@
+{
+  "uid" : "f24d10d5f9d4ec5b",
+  "name" : "[1] CHROME",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverIT.testCustomWebDriverContainer",
+  "historyId" : "21d8f7130f45adbe9c2838e154ca57d",
+  "time" : {
+    "start" : 1600291366698,
+    "stop" : 1600291425153,
+    "duration" : 58455
+  },
+  "description" : "WebDriver: перебор вариантов браузеров с ручной настройкой и запуском",
+  "descriptionHtml" : "<p>WebDriver: перебор вариантов браузеров с ручной настройкой и запуском</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriver: перебор вариантов браузеров с ручной настройкой и запуском",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "c40e061a2a62144a",
+      "name" : "Stdout",
+      "source" : "c40e061a2a62144a.txt",
+      "type" : "text/plain",
+      "size" : 1442
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32"
+  }, {
+    "name" : "thread",
+    "value" : "5885@fv-az32.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomWebDriverContainer"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f24d10d5f9d4ec5b.json",
+  "parameterValues" : [ ]
+}
