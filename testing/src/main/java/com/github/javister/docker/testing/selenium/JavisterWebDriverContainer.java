@@ -133,7 +133,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer<Javist
                 new ProcessExecutor().command(
                         "sh",
                         "-c",
-                        "xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.Xauthority nmerge -"
+                        "xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.Xauthority nmerge -; xhost local:root"
                 ).redirectOutput(Slf4jStream.ofCaller().asInfo()).execute();
                 withEnv("XAUTHORITY", "/tmp/.docker.Xauthority");
                 withFileSystemBind("/tmp/.X11-unix", "/tmp/.X11-unix", BindMode.READ_WRITE);
@@ -183,12 +183,12 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer<Javist
         if (desiredCapabilities != null) {
             this.withCapabilities(desiredCapabilities);
         }
-        if (appContainer != null) {
-            this.withRecordingMode(recordingMode, appContainer.getTestPath())
-                    .withNetwork(appContainer.getNetwork());
-        }
         if (USE_LOCAL_X_SERVER) {
             withLocalXServer();
+        }
+        if (appContainer != null) {
+            this.withNetwork(appContainer.getNetwork());
+            this.withRecordingMode(recordingMode, appContainer.getTestPath());
         }
         super.start();
     }

@@ -295,7 +295,7 @@
     </dependencyManagement>
 
     <build>
-        <defaultGoal>verify</defaultGoal>
+        <defaultGoal>clean install</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -399,6 +399,15 @@
             <id>bintray-javister-dockertesting</id>
             <name>bintray</name>
             <url>https://dl.bintray.com/javister/dockertesting</url>
+        </repository>
+        <repository>
+            <id>krista-oss</id>
+            <name>krista-oss</name>
+            <url>http://artifactory.krista.ru/artifactory/maven-krista-nexus-open-source</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
     <pluginRepositories>

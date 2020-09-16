@@ -20,7 +20,7 @@ public class UserTests {
             .withUsername("user1")
             .withEnv("LOG_LEVEL", "DEBUG")
             .waitingFor(new LogMessageWaitStrategy()
-                    .withRegEx(".*syslog-ng starting up.*\\s")
+                    .withRegEx(".*Runit started as PID.*\\s")
                     .withTimes(1)
                     .withStartupTimeout(Duration.of(60, SECONDS))
             )
