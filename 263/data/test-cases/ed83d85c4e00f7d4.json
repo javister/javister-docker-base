@@ -1,0 +1,75 @@
+{
+  "uid" : "ed83d85c4e00f7d4",
+  "name" : "[2] FIREFOX",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriverContainer",
+  "historyId" : "a1e3459768f79fa955ee44805f473101",
+  "time" : {
+    "start" : 1600291113154,
+    "stop" : 1600291120494,
+    "duration" : 7340
+  },
+  "description" : "WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как JavisterWebDriverContainer",
+  "descriptionHtml" : "<p>WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как JavisterWebDriverContainer</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как JavisterWebDriverContainer",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "f274a97be7f51754",
+      "name" : "Stdout",
+      "source" : "f274a97be7f51754.txt",
+      "type" : "text/plain",
+      "size" : 1093
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az87"
+  }, {
+    "name" : "thread",
+    "value" : "6200@fv-az87.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomWebDriverContainer"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ed83d85c4e00f7d4.json",
+  "parameterValues" : [ ]
+}

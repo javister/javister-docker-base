@@ -1,0 +1,81 @@
+{
+  "uid" : "31b737279529d264",
+  "name" : "[2] FIREFOX",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriver",
+  "historyId" : "8f3c401cdf835fd9ca0fbd5ab6abe94d",
+  "time" : {
+    "start" : 1600291125450,
+    "stop" : 1600291132864,
+    "duration" : 7414
+  },
+  "description" : "WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как WebDriver",
+  "descriptionHtml" : "<p>WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как WebDriver</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как WebDriver",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "c7e097b3fdf2aadd",
+      "name" : "PASSED-com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriver-FIREFOX-20200916-211851.flv",
+      "source" : "c7e097b3fdf2aadd.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    }, {
+      "uid" : "1a3b97ab0e7c0f9f",
+      "name" : "Stdout",
+      "source" : "1a3b97ab0e7c0f9f.txt",
+      "type" : "text/plain",
+      "size" : 1509
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az87"
+  }, {
+    "name" : "thread",
+    "value" : "6200@fv-az87.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomWebDriver"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "31b737279529d264.json",
+  "parameterValues" : [ ]
+}

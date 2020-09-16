@@ -1,0 +1,81 @@
+{
+  "uid" : "ed694022da42901d",
+  "name" : "[1] CHROME",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomRemoteWebDriver",
+  "historyId" : "6146a7b01bb4f1f260f6f8d22176b376",
+  "time" : {
+    "start" : 1600291095687,
+    "stop" : 1600291100774,
+    "duration" : 5087
+  },
+  "description" : "WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как RemoteWebDriver",
+  "descriptionHtml" : "<p>WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как RemoteWebDriver</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как RemoteWebDriver",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "4e60c4c6ef2a2eeb",
+      "name" : "PASSED-com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomRemoteWebDriver-CHROME-20200916-211820.flv",
+      "source" : "4e60c4c6ef2a2eeb.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    }, {
+      "uid" : "870455f6a529b514",
+      "name" : "Stdout",
+      "source" : "870455f6a529b514.txt",
+      "type" : "text/plain",
+      "size" : 1517
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az87"
+  }, {
+    "name" : "thread",
+    "value" : "6200@fv-az87.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomRemoteWebDriver"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ed694022da42901d.json",
+  "parameterValues" : [ ]
+}
