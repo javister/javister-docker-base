@@ -4,6 +4,7 @@ import com.github.javister.docker.testing.selenium.JavisterWebDriverConfigurator
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer.Browser;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverProvider;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -47,28 +48,34 @@ class JavisterWebDriverVideoIT extends JavisterWebDriverBase {
 
     @Order(1)
     @JavisterWebDriverProvider()
+    @Description("Запись видео: удачный параметризированный тест")
     void testVideoRecordingTemplateSuccess(JavisterWebDriverContainer webContainer) {
         simpleTest(webContainer.getWebDriver());
     }
 
     @Order(2)
     @JavisterWebDriverProvider(autostart = false)
+    @Description("Запись видео: неудачный параметризированный тест")
     void testVideoRecordingTemplateFail(JavisterWebDriverContainer webContainer) {
         String name = "testVideoRecordingTemplateFail";
-        webContainer
-                .withImplicitlyWait(200L)
-                .withApplication(mserver)
-                .start();
+        try {
+            webContainer
+                    .withImplicitlyWait(200L)
+                    .withApplication(mserver)
+                    .start();
 
-        RemoteWebDriver driver = webContainer.getWebDriver();
-        driver.get("http://mserver:8080/");
-        Throwable throwable = Assertions.assertThrows(Throwable.class, () -> driver.findElement(By.id("zzz")).click());
-        webContainer.afterTest(getDescription(name, webContainer.getDesiredCapabilities().getBrowserName().toUpperCase()), Optional.of(throwable));
-        webContainer.close();
+            RemoteWebDriver driver = webContainer.getWebDriver();
+            driver.get("http://mserver:8080/");
+            Throwable throwable = Assertions.assertThrows(Throwable.class, () -> driver.findElement(By.id("zzz")).click());
+            webContainer.afterTest(getDescription(name, webContainer.getDesiredCapabilities().getBrowserName().toUpperCase()), Optional.of(throwable));
+        } finally {
+            webContainer.close();
+        }
     }
 
     @Test
     @Order(3)
+    @Description("Запись видео: проверка корректности формирования файлов с видео")
     void testVideoRecordingTemplateFiles() throws IOException {
         checkFilesSuccess("testVideoRecordingTemplateSuccess");
         checkFilesFailed("testVideoRecordingTemplateFail");
@@ -77,6 +84,7 @@ class JavisterWebDriverVideoIT extends JavisterWebDriverBase {
 
     @Test
     @Order(100)
+    @Description("Запись видео: ручной запуск с имитацией корректного теста")
     void testVideoRecordingTestSuccess() throws IOException {
         String name = "testVideoRecordingTestSuccess";
         getVideoFiles(name).forEach(path -> {
@@ -107,6 +115,7 @@ class JavisterWebDriverVideoIT extends JavisterWebDriverBase {
 
     @Test
     @Order(100)
+    @Description("Запись видео: ручной запуск с имитацией некорректного теста")
     void testVideoRecordingTestFailed() throws IOException {
         String name = "testVideoRecordingTestFailed";
         getVideoFiles(name).forEach(path -> {

@@ -20,14 +20,14 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Testcontainers
-public class SimpleImageTests {
+class SimpleImageTests {
     @Container
     @SuppressWarnings({"squid:S1905", "squid:S00117"})
     private static final JavisterBaseContainer<?> container = new JavisterBaseContainerImpl<>(SimpleImageTests.class)
             .withRelativeFileSystemBind(".", "/app")
             .withImagePullPolicy(__ -> false);
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "[{index}] ожидание доступности недоступного порта {0}")
     @ValueSource(ints = {1, 2, 3, 4})
     void waitForPort(int delay) {
         assertFalse(assertTimeout(

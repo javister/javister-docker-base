@@ -1,6 +1,7 @@
 package com.github.javister.docker.testing.base;
 
 import com.github.dockerjava.api.command.InspectContainerResponse;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -104,6 +105,7 @@ public class HttpAccessWithProxyIT {
             .dependsOn(proxyServer);
 
     @Test
+    @Description("Тест работы HTTP Proxy из контейнера через curl")
     void testCurl() throws IOException, InterruptedException {
         ExecResult exec = container.execInContainer(
                 "curl",
@@ -122,6 +124,7 @@ public class HttpAccessWithProxyIT {
     }
 
     @Test
+    @Description("Тест работы HTTP Proxy из контейнера через wget")
     void testWget() throws IOException, InterruptedException {
         ExecResult exec = container.execInContainer(
                 "wget",
@@ -142,6 +145,7 @@ public class HttpAccessWithProxyIT {
 
     @ParameterizedTest(name = "{0}={1}")
     @MethodSource("envParams")
+    @Description("Тест настройки HTTP Proxy")
     void testProxyenvs(String envName, String envVal) throws IOException, InterruptedException {
         ExecResult exec = container.execInContainer(
                 "bash",

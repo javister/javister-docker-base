@@ -2,7 +2,6 @@ package com.github.javister.docker.testing.selenium.support;
 
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverProvider;
-import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.Extension;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestTemplateInvocationContext;
@@ -14,22 +13,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Stream;
 
 public class JavisterWebDriverExtension implements
-        AfterEachCallback,
         TestTemplateInvocationContextProvider {
-    private final ConcurrentLinkedQueue<WebDriverParamResolver> browsers = new ConcurrentLinkedQueue<>();
-
-    @Override
-    public void afterEach(ExtensionContext context) {
-        WebDriverParamResolver webDriverParamResolver = browsers.poll();
-        while (webDriverParamResolver != null) {
-            webDriverParamResolver.close();
-            webDriverParamResolver = browsers.poll();
-        }
-    }
 
     @Override
     public boolean supportsTestTemplate(ExtensionContext context) {
@@ -63,7 +50,7 @@ public class JavisterWebDriverExtension implements
         return Stream.empty();
     }
 
-    private class TemplateInvocationContext implements TestTemplateInvocationContext {
+    private static class TemplateInvocationContext implements TestTemplateInvocationContext {
         private final JavisterWebDriverContainer.Browser browserType;
 
         public TemplateInvocationContext(JavisterWebDriverContainer.Browser browserType) {
@@ -78,7 +65,6 @@ public class JavisterWebDriverExtension implements
         @Override
         public List<Extension> getAdditionalExtensions() {
             WebDriverParamResolver driverParamResolver = new WebDriverParamResolver(browserType);
-            browsers.add(driverParamResolver);
             return Collections.singletonList(driverParamResolver);
         }
     }

@@ -1,11 +1,16 @@
 name: Build master branch
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - 'gh-pages'
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
@@ -13,25 +18,57 @@ jobs:
           server-id: bintray-javister
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
+
       - name: Set up Python 3.7 For Reporting
         uses: actions/setup-python@v1
         with:
           python-version: 3.7
+
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+
       - name: Build and Check
         run: mvn --no-transfer-progress -Dstyle.color=always --fail-at-end verify
+        if: always()
+        continue-on-error: true
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
+
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action
+        uses: simple-elf/allure-report-action@master
+        #uses: ./allure-report-action
+        if: always()
+        #id: allure-report
+        with:
+          allure_results: '*/**/target/allure-results'
+          allure_history: allure-history
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
+
       - name: Login to Bintray Javister
         if: github.ref == 'refs/heads/master'
         run: docker login -u ${{ secrets.BINTRAY_USER }} -p ${{ secrets.BINTRAY_PASSWORD }} javister-docker-docker.bintray.io
+
       - name: Push Docker image
         if: github.ref == 'refs/heads/master'
         run: mvn --no-transfer-progress -Dstyle.color=always -DforcePush -DskipTests verify
@@ -39,7 +76,3 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
-      - name: Upload Test Results
-        if: always()
-        shell: bash
-        run: curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python - -t ${{ secrets.REPORTCI_TOKEN }}

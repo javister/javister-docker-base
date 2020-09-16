@@ -1,5 +1,6 @@
 package com.github.javister.docker.testing.base;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -51,6 +52,7 @@ public class HttpAccessWithoutProxyIT {
             .withNetwork(network);
 
     @Test
+    @Description("Проверка доступности curl в контейнере")
     void testCurl() throws IOException, InterruptedException {
         ExecResult exec = container.execInContainer(
                 "curl",
@@ -62,6 +64,7 @@ public class HttpAccessWithoutProxyIT {
     }
 
     @Test
+    @Description("Проверка доступности wget в контейнере")
     void testWget() throws IOException, InterruptedException {
         ExecResult exec = container.execInContainer(
                 "wget",

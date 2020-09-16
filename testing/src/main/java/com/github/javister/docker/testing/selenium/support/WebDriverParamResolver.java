@@ -5,6 +5,7 @@ import com.github.javister.docker.testing.selenium.JavisterWebDriverConfigurator
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer.Browser;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverProvider;
+import io.qameta.allure.Allure;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.InvocationInterceptor;
@@ -17,9 +18,16 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testcontainers.lifecycle.TestDescription;
 
 import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -32,6 +40,7 @@ public class WebDriverParamResolver implements
     private ExtensionContext context;
     private final Browser browserType;
     private JavisterWebDriverContainer container;
+    private JavisterWebDriverProvider provider;
 
     public WebDriverParamResolver(Browser browserType) {
         this.browserType = browserType;
@@ -46,14 +55,12 @@ public class WebDriverParamResolver implements
     @Override
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
         container = new JavisterWebDriverContainer().withDesiredCapabilities(browserType.getCapabilities());
+        Optional<Method> testMethod = extensionContext.getTestMethod();
+        provider = testMethod.map(method -> method.getAnnotation(JavisterWebDriverProvider.class)).orElse(null);
         configure(parameterContext, extensionContext, container);
 
-        Optional<Method> testMethod = extensionContext.getTestMethod();
-        if (testMethod.isPresent()) {
-            JavisterWebDriverProvider provider = testMethod.get().getAnnotation(JavisterWebDriverProvider.class);
-            if (provider.autostart()) {
-                container.start();
-            }
+        if (provider != null && provider.autostart()) {
+            container.start();
         }
         if (parameterContext.getParameter().getType() == JavisterWebDriverContainer.class) {
             return container;
@@ -68,15 +75,55 @@ public class WebDriverParamResolver implements
     public void interceptTestTemplateMethod(Invocation<Void> invocation, ReflectiveInvocationContext<Method> invocationContext, ExtensionContext extensionContext) throws Throwable {
         context = extensionContext;
         invocation.proceed();
+        close();
     }
 
     @Override
     public void close() {
         if (container != null && container.isRunning()) {
-            if (context != null) {
-                container.afterTest(getDescription(), context.getExecutionException());
+            try {
+                if (context != null) {
+                    TestDescription description = getDescription();
+                    container.afterTest(description, context.getExecutionException());
+
+                    attachVideo(description);
+                }
+            } finally {
+                container.close();
+                container = null;
             }
-            container.close();
+        }
+    }
+
+    public void attachVideo(TestDescription description) {
+        URL workDir = context.getTestClass()
+                .map(Class::getProtectionDomain)
+                .map(domain -> domain.getCodeSource().getLocation())
+                .orElse(null);
+
+        if (detectAllure() && workDir != null && provider != null && provider.attachVideo()) {
+            try {
+                Files.list(Paths.get(workDir.toURI()).resolve(".."))
+                        .filter(file -> file.toString().contains(description.getFilesystemFriendlyName()))
+                        .forEach(file -> {
+                            try (InputStream content = Files.newInputStream(file)) {
+                                Allure.addAttachment(file.getFileName().toString(), content);
+                            } catch (IOException e) {
+                                throw new TestRunException("Can't attach the video files to Allure report", e);
+                            }
+                        });
+            } catch (IOException | URISyntaxException e) {
+                throw new TestRunException("Can't list test the work directory for video files", e);
+            }
+        }
+    }
+
+    private boolean detectAllure() {
+        try {
+            Class<?> allureClass = this.getClass().getClassLoader().loadClass("io.qameta.allure.Allure");
+            return allureClass != null;
+        } catch (ClassNotFoundException e) {
+            return false;
         }
     }
 
@@ -122,7 +169,6 @@ public class WebDriverParamResolver implements
         if (!testMethod.isPresent()) {
             return;
         }
-        JavisterWebDriverProvider provider = testMethod.get().getAnnotation(JavisterWebDriverProvider.class);
         if (provider != null) {
             Class<? extends JavisterWebDriverProvider.Configurator> configuratorClass = provider.configuratorClass();
             if (configuratorClass != JavisterWebDriverProvider.EmptyConfigurator.class) {

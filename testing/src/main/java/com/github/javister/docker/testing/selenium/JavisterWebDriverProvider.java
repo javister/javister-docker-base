@@ -1,6 +1,5 @@
 package com.github.javister.docker.testing.selenium;
 
-import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer.Browser;
 import com.github.javister.docker.testing.selenium.support.JavisterWebDriverExtension;
 import org.junit.jupiter.api.TestTemplate;
@@ -34,7 +33,7 @@ import java.lang.annotation.Target;
  *         Данный метод хорош, если для какого-то тестового метода необходимы индивидуальные настройки.
  * </ul>
  * <p>Если в тестовом классе одновременно используются оба метода, то сначала буде вызван метод,
- * поаннотированный с помощью {@link JavisterWebDriverConfigurator}, а потом имплементация
+ * проаннотированный с помощью {@link JavisterWebDriverConfigurator}, а потом имплементация
  * {@link JavisterWebDriverProvider.Configurator}. И туда и туда будет передан один и тот же
  * объект контейнера для настройки.
  *
@@ -49,7 +48,7 @@ import java.lang.annotation.Target;
 public @interface JavisterWebDriverProvider {
     /**
      * Перечисление браузеров для тестирования.
-     * <p>Если данное значение не установлено, то это эквиволентно перечислению
+     * <p>Если данное значение не установлено, то это эквивалентно перечислению
      * всех вариантов из {@link Browser}.
      * Проаннотированный данной аннотацией метод теста будет вызван последовательно
      * для каждого элемента из массива данного свойства.
@@ -73,11 +72,18 @@ public @interface JavisterWebDriverProvider {
     Class<? extends Configurator> configuratorClass() default EmptyConfigurator.class;
 
     /**
+     * Флаг, обозначающий необходимость добавления файла с записью теста к отчёту Allure.
+     *
+     * @return флаг, обозначающий необходимость добавления файла с записью теста к отчёту Allure.
+     */
+    boolean attachVideo() default true;
+
+    /**
      * Интерфейс конфигуратора для настройки контейнеров WebDriver.
      */
     interface Configurator {
         /**
-         * Конфигурирование сонтейнера WebDriver.
+         * Конфигурирование контейнера WebDriver.
          * <p>Имплементации данного метода используются для настройки контейнеров перед запуском тестов.
          *
          * @param webContainer контейнер, требующий настройки перед запуском.
@@ -89,7 +95,7 @@ public @interface JavisterWebDriverProvider {
     class EmptyConfigurator implements Configurator {
         @Override
         public void configure(JavisterWebDriverContainer webContainer, Browser type) {
-
+            // Do nothing
         }
     }
 }

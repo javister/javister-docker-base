@@ -4,6 +4,7 @@ import com.github.javister.docker.testing.selenium.JavisterWebDriverConfigurator
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverContainer.Browser;
 import com.github.javister.docker.testing.selenium.JavisterWebDriverProvider;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
@@ -18,6 +19,7 @@ class JavisterWebDriverIT extends JavisterWebDriverBase {
 
     @ParameterizedTest
     @EnumSource(Browser.class)
+    @Description("WebDriver: перебор вариантов браузеров с ручной настройкой и запуском")
     void testCustomWebDriverContainer(Browser browserType) {
         try (JavisterWebDriverContainer webContainer = new JavisterWebDriverContainer(mserver, browserType.getCapabilities())
                 .withImplicitlyWait(2000L)) {
@@ -29,22 +31,33 @@ class JavisterWebDriverIT extends JavisterWebDriverBase {
     }
 
     @JavisterWebDriverProvider(autostart = false)
+    @Description("WebDriver: JavisterWebDriverProvider без автостарта")
     void testCustomWebDriverContainer(JavisterWebDriverContainer webContainer) {
-        webContainer
-                .withImplicitlyWait(2000L)
-                .withApplication(mserver)
-                .start();
+        try {
+            webContainer
+                    .withImplicitlyWait(2000L)
+                    .withApplication(mserver)
+                    .start();
 
-        simpleTest(webContainer.getWebDriver());
+            simpleTest(webContainer.getWebDriver());
+        } finally {
+            webContainer.close();
+        }
     }
 
     @JavisterWebDriverProvider(configuratorClass = TestConfigurator.class, autostart = false)
+    @Description("WebDriver: JavisterWebDriverProvider без автостарта и с кастомным провайдером настройки контейнера")
     void testCustomWebDriverContainerWithConfigurator(JavisterWebDriverContainer webContainer) {
-        webContainer.start();
-        simpleTest(webContainer.getWebDriver());
+        try {
+            webContainer.start();
+            simpleTest(webContainer.getWebDriver());
+        } finally {
+            webContainer.close();
+        }
     }
 
     @JavisterWebDriverProvider(value = Browser.CHROME, autostart = false)
+    @Description("WebDriver: JavisterWebDriverProvider без автостарта и только Chrome")
     void testCustomWebDriverContainerChrome(JavisterWebDriverContainer webContainer) {
         Assertions.assertNotNull(webContainer.getDesiredCapabilities(), "Свойства браузера должны быть установлены.");
         Assertions.assertEquals(
@@ -55,6 +68,7 @@ class JavisterWebDriverIT extends JavisterWebDriverBase {
     }
 
     @JavisterWebDriverProvider(value = Browser.FIREFOX, autostart = false)
+    @Description("WebDriver: JavisterWebDriverProvider без автостарта и только Firefox")
     void testCustomWebDriverContainerFirefox(JavisterWebDriverContainer webContainer) {
         Assertions.assertNotNull(webContainer.getDesiredCapabilities(), "Свойства браузера должны быть установлены.");
         Assertions.assertEquals(
@@ -87,8 +101,7 @@ class JavisterWebDriverIT extends JavisterWebDriverBase {
             Assertions.assertNotNull(webContainer, "Контейнер не должен быть null");
             webContainer
                     .withImplicitlyWait(2000L)
-                    .withApplication(mserver)
-                    .start();
+                    .withApplication(mserver);
         }
     }
 }
