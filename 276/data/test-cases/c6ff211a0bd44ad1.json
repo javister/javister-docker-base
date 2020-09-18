@@ -1,0 +1,77 @@
+{
+  "uid" : "c6ff211a0bd44ad1",
+  "name" : "getImageRepository()",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest.getImageRepository",
+  "historyId" : "e936fc61b962b80169c035a660be4fde",
+  "time" : {
+    "start" : 1600429448492,
+    "stop" : 1600429448494,
+    "duration" : 2
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32"
+  }, {
+    "name" : "thread",
+    "value" : "4725@fv-az32.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "getImageRepository"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "3ee03588b28f5f21",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/275//#testresult/3ee03588b28f5f21",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600428365029,
+          "stop" : 1600428365030,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "c6ff211a0bd44ad1.json",
+  "parameterValues" : [ ]
+}
