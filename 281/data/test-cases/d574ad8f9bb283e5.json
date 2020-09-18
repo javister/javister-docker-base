@@ -1,0 +1,140 @@
+{
+  "uid" : "d574ad8f9bb283e5",
+  "name" : "[1] CHROME",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverIT.testCustomWebDriverContainer",
+  "historyId" : "21d8f7130f45adbe9c2838e154ca57d",
+  "time" : {
+    "start" : 1600438477144,
+    "stop" : 1600438539955,
+    "duration" : 62811
+  },
+  "description" : "WebDriver: перебор вариантов браузеров с ручной настройкой и запуском",
+  "descriptionHtml" : "<p>WebDriver: перебор вариантов браузеров с ручной настройкой и запуском</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriver: перебор вариантов браузеров с ручной настройкой и запуском",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "74bf3859f8ad4f72",
+      "name" : "Stdout",
+      "source" : "74bf3859f8ad4f72.txt",
+      "type" : "text/plain",
+      "size" : 1442
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az121"
+  }, {
+    "name" : "thread",
+    "value" : "5719@fv-az121.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomWebDriverContainer"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 7,
+        "unknown" : 0,
+        "total" : 7
+      },
+      "items" : [ {
+        "uid" : "5a0626adb79985e5",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/280//#testresult/5a0626adb79985e5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600438213464,
+          "stop" : 1600438269164,
+          "duration" : 55700
+        }
+      }, {
+        "uid" : "57f2b773198682b6",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/279//#testresult/57f2b773198682b6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600431057259,
+          "stop" : 1600431113409,
+          "duration" : 56150
+        }
+      }, {
+        "uid" : "546efad682a070c7",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/278//#testresult/546efad682a070c7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600430521982,
+          "stop" : 1600430579578,
+          "duration" : 57596
+        }
+      }, {
+        "uid" : "513ccb1800c7b4b7",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/276//#testresult/513ccb1800c7b4b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600429525420,
+          "stop" : 1600429582029,
+          "duration" : 56609
+        }
+      }, {
+        "uid" : "895e5b44caa7d1ed",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/275//#testresult/895e5b44caa7d1ed",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600428550047,
+          "stop" : 1600428604902,
+          "duration" : 54855
+        }
+      }, {
+        "uid" : "c9499a553059e464",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/274//#testresult/c9499a553059e464",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600428256967,
+          "stop" : 1600428309952,
+          "duration" : 52985
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "d574ad8f9bb283e5.json",
+  "parameterValues" : [ ]
+}
