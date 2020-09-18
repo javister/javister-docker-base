@@ -1,9 +1,9 @@
 # Базовый образ CentOS, адаптированный для комфортной работы в Docker
 
-[ ![Download](https://api.bintray.com/packages/javister/docker/javister%3Ajavister-docker-base/images/download.svg) ](https://bintray.com/javister/docker/javister%3Ajavister-docker-base/_latestVersion)
-[ ![Download](https://api.bintray.com/packages/javister/dockertesting/javister-docker-base/images/download.svg) ](https://bintray.com/javister/dockertesting/javister-docker-base/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/javister/docker/javister%3Ajavister-docker-base/images/download.svg?version=2.6) ](https://bintray.com/javister/docker/javister%3Ajavister-docker-base/2.6/link)
+[ ![Download](https://api.bintray.com/packages/javister/dockertesting/javister-docker-base/images/download.svg?version=2.6) ](https://bintray.com/javister/dockertesting/javister-docker-base/2.6/link)
 ![Build master branch](https://github.com/javister/javister-docker-base/workflows/Build%20master%20branch/badge.svg)
-![Check updates](https://github.com/javister/javister-docker-base/workflows/Check%20updates/badge.svg)
+![Check updates (v2.6)](https://github.com/javister/javister-docker-base/workflows/Check%20updates%20(v2.6)/badge.svg)
 
 TODO: дополнительно описать вспомогательные скрипты для уменьшения бойлерплейта
 
