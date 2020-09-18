@@ -40,7 +40,7 @@
                 <configuration>
                     <repository>${docker.image}</repository>
                     <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <tag>${revision}</tag>
+                    <tag>${project.version}</tag>
                     <buildArgs>
                         <CENTOS_VERSION>${centos.version}</CENTOS_VERSION>
                         <https_proxy>${env.http_proxy}</https_proxy>
@@ -115,7 +115,7 @@
                         <configuration>
                             <repository>${docker.image}</repository>
                             <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                            <tag>${revision}</tag>
+                            <tag>${project.version}</tag>
                             <buildArgs>
                                 <CENTOS_VERSION>${centos.version}</CENTOS_VERSION>
                                 <https_proxy>${env.http_proxy}</https_proxy>
