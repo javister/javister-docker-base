@@ -386,7 +386,8 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <systemPropertyVariables>
-                        <allure.results.directory>target/allure-results</allure.results.directory>
+                        <!-- https://stackoverflow.com/a/49528226/5506571 -->
+                        <allure.results.directory>${maven.multiModuleProjectDirectory}/target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                     <properties>
                         <configurationParameters>
@@ -418,7 +419,8 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <systemPropertyVariables>
-                        <allure.results.directory>target/allure-results</allure.results.directory>
+                        <!-- https://stackoverflow.com/a/49528226/5506571 -->
+                        <allure.results.directory>${maven.multiModuleProjectDirectory}/target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                     <properties>
                         <configurationParameters>

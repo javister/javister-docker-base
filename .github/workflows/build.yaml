@@ -40,6 +40,8 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
 
+      # Thanks to @simple1elf (Telegram) for the working template
+      # https://github.com/simple-elf/github-allure-history
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
@@ -54,7 +56,7 @@ jobs:
         if: always()
         #id: allure-report
         with:
-          allure_results: '*/**/target/allure-results'
+          allure_results: 'target/allure-results'
           allure_history: allure-history
 
       - name: Deploy report to Github Pages
