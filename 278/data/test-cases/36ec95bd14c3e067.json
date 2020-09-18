@@ -1,0 +1,113 @@
+{
+  "uid" : "36ec95bd14c3e067",
+  "name" : "[2] FIREFOX",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriverContainer",
+  "historyId" : "a1e3459768f79fa955ee44805f473101",
+  "time" : {
+    "start" : 1600430683715,
+    "stop" : 1600430690598,
+    "duration" : 6883
+  },
+  "description" : "WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как JavisterWebDriverContainer",
+  "descriptionHtml" : "<p>WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как JavisterWebDriverContainer</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriverMethodConfigurator: запуск контейнера без автостарта и инжекция как JavisterWebDriverContainer",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "f60bfa6ca358a834",
+      "name" : "Stdout",
+      "source" : "f60bfa6ca358a834.txt",
+      "type" : "text/plain",
+      "size" : 1095
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az76"
+  }, {
+    "name" : "thread",
+    "value" : "5724@fv-az76.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomWebDriverContainer"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "5745f3f229f9c385",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/276//#testresult/5745f3f229f9c385",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600429697710,
+          "stop" : 1600429705217,
+          "duration" : 7507
+        }
+      }, {
+        "uid" : "2500f723116ad33",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/275//#testresult/2500f723116ad33",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600428709813,
+          "stop" : 1600428716909,
+          "duration" : 7096
+        }
+      }, {
+        "uid" : "6a832c60583047b5",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/274//#testresult/6a832c60583047b5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600428421865,
+          "stop" : 1600428429505,
+          "duration" : 7640
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "36ec95bd14c3e067.json",
+  "parameterValues" : [ ]
+}

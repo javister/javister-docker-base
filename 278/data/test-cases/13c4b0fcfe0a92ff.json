@@ -1,0 +1,119 @@
+{
+  "uid" : "13c4b0fcfe0a92ff",
+  "name" : "[1] CHROME",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomRemoteWebDriverAutostart",
+  "historyId" : "c42121a136ed33478e4c826d3064ed78",
+  "time" : {
+    "start" : 1600430702190,
+    "stop" : 1600430706865,
+    "duration" : 4675
+  },
+  "description" : "WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как RemoteWebDriver",
+  "descriptionHtml" : "<p>WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как RemoteWebDriver</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как RemoteWebDriver",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "565f9516b7b616b9",
+      "name" : "PASSED-com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomRemoteWebDriverAutostart-CHROME-20200918-120506.flv",
+      "source" : "565f9516b7b616b9.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    }, {
+      "uid" : "6c0562ac6e209f8a",
+      "name" : "Stdout",
+      "source" : "6c0562ac6e209f8a.txt",
+      "type" : "text/plain",
+      "size" : 1535
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az76"
+  }, {
+    "name" : "thread",
+    "value" : "5724@fv-az76.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomRemoteWebDriverAutostart"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "3711fbb6fe2c6be6",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/276//#testresult/3711fbb6fe2c6be6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600429718289,
+          "stop" : 1600429723585,
+          "duration" : 5296
+        }
+      }, {
+        "uid" : "ecbd36bcb304b8aa",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/275//#testresult/ecbd36bcb304b8aa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600428728764,
+          "stop" : 1600428733777,
+          "duration" : 5013
+        }
+      }, {
+        "uid" : "924a79a5e84e7818",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/274//#testresult/924a79a5e84e7818",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600428442125,
+          "stop" : 1600428447306,
+          "duration" : 5181
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "13c4b0fcfe0a92ff.json",
+  "parameterValues" : [ ]
+}
