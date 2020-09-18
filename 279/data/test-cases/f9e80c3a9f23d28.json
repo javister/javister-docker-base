@@ -1,0 +1,128 @@
+{
+  "uid" : "f9e80c3a9f23d28",
+  "name" : "[1] CHROME",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriverContainerAutostart",
+  "historyId" : "8f2a1194bf23ab0a20a1c8cd2c0c3515",
+  "time" : {
+    "start" : 1600431200907,
+    "stop" : 1600431206451,
+    "duration" : 5544
+  },
+  "description" : "WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как JavisterWebDriverContainer",
+  "descriptionHtml" : "<p>WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как JavisterWebDriverContainer</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как JavisterWebDriverContainer",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "586598188554f197",
+      "name" : "PASSED-com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriverContainerAutostart-CHROME-20200918-121325.flv",
+      "source" : "586598188554f197.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    }, {
+      "uid" : "f8b4c46400c99f0d",
+      "name" : "Stdout",
+      "source" : "f8b4c46400c99f0d.txt",
+      "type" : "text/plain",
+      "size" : 1541
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32"
+  }, {
+    "name" : "thread",
+    "value" : "5954@fv-az32.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomWebDriverContainerAutostart"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 5,
+        "unknown" : 0,
+        "total" : 5
+      },
+      "items" : [ {
+        "uid" : "e76627e5c03a221",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/278//#testresult/e76627e5c03a221",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600430655855,
+          "stop" : 1600430660613,
+          "duration" : 4758
+        }
+      }, {
+        "uid" : "97100c6f2c8c2c7f",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/276//#testresult/97100c6f2c8c2c7f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600429666085,
+          "stop" : 1600429671561,
+          "duration" : 5476
+        }
+      }, {
+        "uid" : "79e1ed5e34c676b5",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/275//#testresult/79e1ed5e34c676b5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600428680537,
+          "stop" : 1600428686027,
+          "duration" : 5490
+        }
+      }, {
+        "uid" : "2b57bb440fc86e2c",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/274//#testresult/2b57bb440fc86e2c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1600428391449,
+          "stop" : 1600428396664,
+          "duration" : 5215
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "f9e80c3a9f23d28.json",
+  "parameterValues" : [ ]
+}
