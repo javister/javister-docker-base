@@ -20,7 +20,7 @@ jobs:
           server-password: MAVEN_PASSWORD
 
       - name: Set up Python 3.7 For Reporting
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2.1.2
         with:
           python-version: 3.7
 
