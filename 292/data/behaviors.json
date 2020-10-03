@@ -1,0 +1,785 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "children" : [ {
+    "name" : "getImageCoordinate()",
+    "uid" : "e5e1d16295779c25",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715337269,
+      "stop" : 1601715337339,
+      "duration" : 70
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "getImageId()",
+    "uid" : "2c243c05421429f8",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715337472,
+      "stop" : 1601715337482,
+      "duration" : 10
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "getImageName()",
+    "uid" : "223ac7bf0db34d24",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715337486,
+      "stop" : 1601715337487,
+      "duration" : 1
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "getImageRepository()",
+    "uid" : "53b2ab69d253f46b",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715337493,
+      "stop" : 1601715337495,
+      "duration" : 2
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "getImageTag()",
+    "uid" : "73e638018226cde2",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715337497,
+      "stop" : 1601715337498,
+      "duration" : 1
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testRootPrivileges()",
+    "uid" : "267b99e8c9a38fdf",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715352945,
+      "stop" : 1601715353608,
+      "duration" : 663
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] ожидание доступности недоступного порта 1",
+    "uid" : "7263d1a960b2733",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715354334,
+      "stop" : 1601715355609,
+      "duration" : 1275
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] ожидание доступности недоступного порта 2",
+    "uid" : "a677f45b73578bcf",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715355623,
+      "stop" : 1601715357750,
+      "duration" : 2127
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[3] ожидание доступности недоступного порта 3",
+    "uid" : "4ad6ade34dc4e77c",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715357759,
+      "stop" : 1601715360900,
+      "duration" : 3141
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[4] ожидание доступности недоступного порта 4",
+    "uid" : "ba56aeec39c45cb9",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715360906,
+      "stop" : 1601715365050,
+      "duration" : 4144
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testUserPrivileges()",
+    "uid" : "c1cbf2d2a4071fa",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715365062,
+      "stop" : 1601715365356,
+      "duration" : 294
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testCustomUsername()",
+    "uid" : "af417b52ba7c61ed",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715368497,
+      "stop" : 1601715368660,
+      "duration" : 163
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testCustomGroupname()",
+    "uid" : "e280c44d7f4b58d1",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715368664,
+      "stop" : 1601715368788,
+      "duration" : 124
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testCurl()",
+    "uid" : "fbf8521ca2e25170",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715397987,
+      "stop" : 1601715404524,
+      "duration" : 6537
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testWget()",
+    "uid" : "47ed2b51afb708f2",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715404664,
+      "stop" : 1601715405059,
+      "duration" : 395
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "http_proxy=http://system:masterkey@proxy:1080",
+    "uid" : "3798640988b3d0b3",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715405154,
+      "stop" : 1601715405940,
+      "duration" : 786
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY=http://system:masterkey@proxy:1080",
+    "uid" : "deb422748d99d570",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715405947,
+      "stop" : 1601715406668,
+      "duration" : 721
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "https_proxy=https://system:masterkey@proxy:1080",
+    "uid" : "38bd5e889671f00b",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715406680,
+      "stop" : 1601715407422,
+      "duration" : 742
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY_HOST=proxy",
+    "uid" : "e0ff64271ae75a83",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715407436,
+      "stop" : 1601715408143,
+      "duration" : 707
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY_PASS=masterkey",
+    "uid" : "7a13cf707fdd729a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715408146,
+      "stop" : 1601715408925,
+      "duration" : 779
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY_PORT=1080",
+    "uid" : "ae0ced64d2533085",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715408933,
+      "stop" : 1601715409693,
+      "duration" : 760
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY_USER=system",
+    "uid" : "8ec614fa4af7465e",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715409708,
+      "stop" : 1601715410501,
+      "duration" : 793
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "a87f7a733aa1d4a6",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715413636,
+      "stop" : 1601715475021,
+      "duration" : 61385
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "29e5a7994ef807c9",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715475073,
+      "stop" : 1601715500809,
+      "duration" : 25736
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "2383601deb5a850d",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715500873,
+      "stop" : 1601715507078,
+      "duration" : 6205
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "2ea024f99d4d3443",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715507086,
+      "stop" : 1601715516731,
+      "duration" : 9645
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "eef000c7b08e063a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715516742,
+      "stop" : 1601715516743,
+      "duration" : 1
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] FIREFOX",
+    "uid" : "1df2aebaac0080e3",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715516747,
+      "stop" : 1601715516748,
+      "duration" : 1
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "fad66945b6797416",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715516751,
+      "stop" : 1601715521723,
+      "duration" : 4972
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "813437fc96e32ce4",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715521738,
+      "stop" : 1601715529771,
+      "duration" : 8033
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testCurl()",
+    "uid" : "d4a16e2f9d2e8670",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715534830,
+      "stop" : 1601715537120,
+      "duration" : 2290
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testWget()",
+    "uid" : "a10606c7475555d6",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715537123,
+      "stop" : 1601715537523,
+      "duration" : 400
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "http_proxy=http://proxy:1080",
+    "uid" : "aa6e484b134e2b63",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715537547,
+      "stop" : 1601715538336,
+      "duration" : 789
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY=http://proxy:1080",
+    "uid" : "8caa4c18a0f2028",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715538340,
+      "stop" : 1601715539068,
+      "duration" : 728
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "https_proxy=https://proxy:1080",
+    "uid" : "d749ccfcb0f8c725",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715539071,
+      "stop" : 1601715539792,
+      "duration" : 721
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY_HOST=proxy",
+    "uid" : "ae7723d6b525680a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715539797,
+      "stop" : 1601715540509,
+      "duration" : 712
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY_PASS=",
+    "uid" : "f24bff9d5352d5ef",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715540511,
+      "stop" : 1601715541218,
+      "duration" : 707
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY_PORT=1080",
+    "uid" : "49bc84e5e33f119",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715541222,
+      "stop" : 1601715541980,
+      "duration" : 758
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "PROXY_USER=",
+    "uid" : "83b3314ccad1564",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715541983,
+      "stop" : 1601715542725,
+      "duration" : 742
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "8735c08764cb7e0a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715544998,
+      "stop" : 1601715550077,
+      "duration" : 5079
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "686a5336424c2cb",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715550080,
+      "stop" : 1601715558097,
+      "duration" : 8017
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "ae4098a71e44fd92",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715558141,
+      "stop" : 1601715563214,
+      "duration" : 5073
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "904252db5b4b2cf7",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715563217,
+      "stop" : 1601715571026,
+      "duration" : 7809
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "87e45def922c50ac",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715571039,
+      "stop" : 1601715576352,
+      "duration" : 5313
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "641b5bc73e793de4",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715576358,
+      "stop" : 1601715584082,
+      "duration" : 7724
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "bc39fedf70a23d27",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715584123,
+      "stop" : 1601715589300,
+      "duration" : 5177
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "4270b3b67a591392",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715589307,
+      "stop" : 1601715596819,
+      "duration" : 7512
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "60cb7422fd5b5e37",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715596860,
+      "stop" : 1601715601978,
+      "duration" : 5118
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "94afaddf2eecf782",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715601984,
+      "stop" : 1601715609720,
+      "duration" : 7736
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "ee7ceb23e4f86e9b",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715609769,
+      "stop" : 1601715614877,
+      "duration" : 5108
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "a3e93564e001d82",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715614881,
+      "stop" : 1601715622346,
+      "duration" : 7465
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testCurl()",
+    "uid" : "47034ba36bbe8ec5",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715625177,
+      "stop" : 1601715625359,
+      "duration" : 182
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testWget()",
+    "uid" : "7d6d5e68c8ecc982",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715625362,
+      "stop" : 1601715625494,
+      "duration" : 132
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "ef4d4543ccc24207",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715627427,
+      "stop" : 1601715632568,
+      "duration" : 5141
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "af05d38b50cb1f01",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715632583,
+      "stop" : 1601715640144,
+      "duration" : 7561
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[1] CHROME",
+    "uid" : "42d8e566940470fc",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715640172,
+      "stop" : 1601715645450,
+      "duration" : 5278
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[2] FIREFOX",
+    "uid" : "e61f03295ccc011a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715645461,
+      "stop" : 1601715653153,
+      "duration" : 7692
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testVideoRecordingTemplateFiles()",
+    "uid" : "c48f221a5dffd74b",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715653188,
+      "stop" : 1601715653191,
+      "duration" : 3
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testVideoRecordingTestSuccess()",
+    "uid" : "5de8bf56927e6ce0",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715653192,
+      "stop" : 1601715665997,
+      "duration" : 12805
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "testVideoRecordingTestFailed()",
+    "uid" : "a75d2276cc0b7020",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1601715666042,
+      "stop" : 1601715678843,
+      "duration" : 12801
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  } ],
+  "name" : "behaviors"
+}
