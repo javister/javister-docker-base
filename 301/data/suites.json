@@ -1,0 +1,821 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest",
+    "children" : [ {
+      "name" : "getImageCoordinate()",
+      "uid" : "e25bb62529cdf334",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227456893,
+        "stop" : 1602227456972,
+        "duration" : 79
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getImageId()",
+      "uid" : "587d60adb6f70aac",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227457104,
+        "stop" : 1602227457117,
+        "duration" : 13
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getImageName()",
+      "uid" : "acd8996a1af55292",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227457121,
+        "stop" : 1602227457122,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getImageRepository()",
+      "uid" : "a517812b1eab1489",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227457129,
+        "stop" : 1602227457131,
+        "duration" : 2
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getImageTag()",
+      "uid" : "d1c07fe818fdc65b",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227457135,
+        "stop" : 1602227457138,
+        "duration" : 3
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "027071a0c5db2eae7ea06765411530f4"
+  }, {
+    "name" : "com.github.javister.docker.testing.base.UserTests",
+    "children" : [ {
+      "name" : "testCustomUsername()",
+      "uid" : "86d1fcc955fbdc06",
+      "parentUid" : "4d0689c7a6d09118f3a6d7faf8ded6af",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227470864,
+        "stop" : 1602227471160,
+        "duration" : 296
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testCustomGroupname()",
+      "uid" : "69be4cb0251bebcb",
+      "parentUid" : "4d0689c7a6d09118f3a6d7faf8ded6af",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227471378,
+        "stop" : 1602227471592,
+        "duration" : 214
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "4d0689c7a6d09118f3a6d7faf8ded6af"
+  }, {
+    "name" : "com.github.javister.docker.testing.base.SimpleImageTests",
+    "children" : [ {
+      "name" : "testRootPrivileges()",
+      "uid" : "4294cd0c4dd92e3e",
+      "parentUid" : "7e9bd0d148ca97575986984f67e26351",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227473656,
+        "stop" : 1602227474225,
+        "duration" : 569
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] ожидание доступности недоступного порта 1",
+      "uid" : "e8ce6987d6533311",
+      "parentUid" : "7e9bd0d148ca97575986984f67e26351",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227474716,
+        "stop" : 1602227476039,
+        "duration" : 1323
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] ожидание доступности недоступного порта 2",
+      "uid" : "1f276e309cf0fd1d",
+      "parentUid" : "7e9bd0d148ca97575986984f67e26351",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227476043,
+        "stop" : 1602227478190,
+        "duration" : 2147
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[3] ожидание доступности недоступного порта 3",
+      "uid" : "b2a1ef32c686f406",
+      "parentUid" : "7e9bd0d148ca97575986984f67e26351",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227478199,
+        "stop" : 1602227481332,
+        "duration" : 3133
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[4] ожидание доступности недоступного порта 4",
+      "uid" : "ee97a3136ffd45f1",
+      "parentUid" : "7e9bd0d148ca97575986984f67e26351",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227481347,
+        "stop" : 1602227485503,
+        "duration" : 4156
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testUserPrivileges()",
+      "uid" : "e49e8e83815f667f",
+      "parentUid" : "7e9bd0d148ca97575986984f67e26351",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227485518,
+        "stop" : 1602227485787,
+        "duration" : 269
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "7e9bd0d148ca97575986984f67e26351"
+  }, {
+    "name" : "com.github.javister.docker.testing.base.HttpAccessWithProxyIT",
+    "children" : [ {
+      "name" : "testCurl()",
+      "uid" : "9431ea5abfd950c3",
+      "parentUid" : "6a703f62db9da3e689b5a95219b696fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227514703,
+        "stop" : 1602227520695,
+        "duration" : 5992
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testWget()",
+      "uid" : "28be5c7814517369",
+      "parentUid" : "6a703f62db9da3e689b5a95219b696fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227520829,
+        "stop" : 1602227521284,
+        "duration" : 455
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "http_proxy=http://proxy:1080",
+      "uid" : "bce8c81ebb6b398b",
+      "parentUid" : "6a703f62db9da3e689b5a95219b696fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227521393,
+        "stop" : 1602227522150,
+        "duration" : 757
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY=http://proxy:1080",
+      "uid" : "5ad2bcd9654c852b",
+      "parentUid" : "6a703f62db9da3e689b5a95219b696fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227522155,
+        "stop" : 1602227522828,
+        "duration" : 673
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "https_proxy=https://proxy:1080",
+      "uid" : "85fd71500465fa4c",
+      "parentUid" : "6a703f62db9da3e689b5a95219b696fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227522832,
+        "stop" : 1602227523506,
+        "duration" : 674
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY_HOST=proxy",
+      "uid" : "39ef3e4c1dcf3eb8",
+      "parentUid" : "6a703f62db9da3e689b5a95219b696fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227523514,
+        "stop" : 1602227524231,
+        "duration" : 717
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY_PASS=",
+      "uid" : "9d6944a7d396d7ee",
+      "parentUid" : "6a703f62db9da3e689b5a95219b696fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227524234,
+        "stop" : 1602227524918,
+        "duration" : 684
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY_PORT=1080",
+      "uid" : "daa9634a9ce4c33c",
+      "parentUid" : "6a703f62db9da3e689b5a95219b696fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227524923,
+        "stop" : 1602227525591,
+        "duration" : 668
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY_USER=",
+      "uid" : "19c3daae2135cd4a",
+      "parentUid" : "6a703f62db9da3e689b5a95219b696fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227525606,
+        "stop" : 1602227526315,
+        "duration" : 709
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "6a703f62db9da3e689b5a95219b696fd"
+  }, {
+    "name" : "com.github.javister.docker.testing.base.HttpAccessWithoutProxyIT",
+    "children" : [ {
+      "name" : "testCurl()",
+      "uid" : "d17045d4d129c412",
+      "parentUid" : "fba93707384846f2771464a307a2b3e3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227531779,
+        "stop" : 1602227531939,
+        "duration" : 160
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testWget()",
+      "uid" : "2e2d1b4a75bf53f8",
+      "parentUid" : "fba93707384846f2771464a307a2b3e3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227531942,
+        "stop" : 1602227532061,
+        "duration" : 119
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "fba93707384846f2771464a307a2b3e3"
+  }, {
+    "name" : "com.github.javister.docker.testing.base.JavisterWebDriverIT",
+    "children" : [ {
+      "name" : "[1] CHROME",
+      "uid" : "3714a7935ac58af8",
+      "parentUid" : "02ff6a414cab4b5d250bd1b57f69b207",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227534752,
+        "stop" : 1602227586642,
+        "duration" : 51890
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "ba78005304d2792d",
+      "parentUid" : "02ff6a414cab4b5d250bd1b57f69b207",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227586669,
+        "stop" : 1602227611185,
+        "duration" : 24516
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] CHROME",
+      "uid" : "59a48ce7e27f4c22",
+      "parentUid" : "02ff6a414cab4b5d250bd1b57f69b207",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227611243,
+        "stop" : 1602227617279,
+        "duration" : 6036
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "de976c4222936c4f",
+      "parentUid" : "02ff6a414cab4b5d250bd1b57f69b207",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227617294,
+        "stop" : 1602227626711,
+        "duration" : 9417
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] CHROME",
+      "uid" : "77ff1bceb24b040d",
+      "parentUid" : "02ff6a414cab4b5d250bd1b57f69b207",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227626756,
+        "stop" : 1602227626758,
+        "duration" : 2
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] FIREFOX",
+      "uid" : "3f462e55037e110",
+      "parentUid" : "02ff6a414cab4b5d250bd1b57f69b207",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227626763,
+        "stop" : 1602227626764,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] CHROME",
+      "uid" : "3c795ade2b437db",
+      "parentUid" : "02ff6a414cab4b5d250bd1b57f69b207",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227626767,
+        "stop" : 1602227632182,
+        "duration" : 5415
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "c64170a05f414c92",
+      "parentUid" : "02ff6a414cab4b5d250bd1b57f69b207",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227632189,
+        "stop" : 1602227639699,
+        "duration" : 7510
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "02ff6a414cab4b5d250bd1b57f69b207"
+  }, {
+    "name" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT",
+    "children" : [ {
+      "name" : "[1] CHROME",
+      "uid" : "aad1697848f6de43",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227641457,
+        "stop" : 1602227646526,
+        "duration" : 5069
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "25dcb654d0bbafeb",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227646535,
+        "stop" : 1602227654529,
+        "duration" : 7994
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] CHROME",
+      "uid" : "c5ed18be4a146edf",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227654579,
+        "stop" : 1602227659603,
+        "duration" : 5024
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "9b823daebed231ef",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227659608,
+        "stop" : 1602227667096,
+        "duration" : 7488
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] CHROME",
+      "uid" : "4834261b9e651600",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227667138,
+        "stop" : 1602227672305,
+        "duration" : 5167
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "6c7a3a49f98e0beb",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227672312,
+        "stop" : 1602227679842,
+        "duration" : 7530
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] CHROME",
+      "uid" : "44a85b313d775c50",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227679885,
+        "stop" : 1602227684787,
+        "duration" : 4902
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "e0cd9b9dd8cb84db",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227684792,
+        "stop" : 1602227692367,
+        "duration" : 7575
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] CHROME",
+      "uid" : "809b2c0f312b4333",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227692377,
+        "stop" : 1602227697479,
+        "duration" : 5102
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "b32599d7a7fc4cba",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227697485,
+        "stop" : 1602227705281,
+        "duration" : 7796
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] CHROME",
+      "uid" : "2f524dd26bca273b",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227705321,
+        "stop" : 1602227710477,
+        "duration" : 5156
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "5f5dde0bbc30b88a",
+      "parentUid" : "7411983d9a8a82ee3047c01a4264d77e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227710482,
+        "stop" : 1602227718196,
+        "duration" : 7714
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "7411983d9a8a82ee3047c01a4264d77e"
+  }, {
+    "name" : "com.github.javister.docker.testing.base.JavisterWebDriverVideoIT",
+    "children" : [ {
+      "name" : "[1] CHROME",
+      "uid" : "61bd2f3dc162d6c1",
+      "parentUid" : "a624142a73bf2a30297f8d01c47b0575",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227719966,
+        "stop" : 1602227725146,
+        "duration" : 5180
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "99e7e9c2979b0c00",
+      "parentUid" : "a624142a73bf2a30297f8d01c47b0575",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227725160,
+        "stop" : 1602227732867,
+        "duration" : 7707
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[1] CHROME",
+      "uid" : "e41f720454044a48",
+      "parentUid" : "a624142a73bf2a30297f8d01c47b0575",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227732877,
+        "stop" : 1602227738321,
+        "duration" : 5444
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "[2] FIREFOX",
+      "uid" : "80b15395f08d102a",
+      "parentUid" : "a624142a73bf2a30297f8d01c47b0575",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227738327,
+        "stop" : 1602227745799,
+        "duration" : 7472
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testVideoRecordingTemplateFiles()",
+      "uid" : "831c86c187703ec5",
+      "parentUid" : "a624142a73bf2a30297f8d01c47b0575",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227745811,
+        "stop" : 1602227745813,
+        "duration" : 2
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testVideoRecordingTestSuccess()",
+      "uid" : "58dd564e0d08d06",
+      "parentUid" : "a624142a73bf2a30297f8d01c47b0575",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227745815,
+        "stop" : 1602227758440,
+        "duration" : 12625
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testVideoRecordingTestFailed()",
+      "uid" : "39f9c1e88e3f4864",
+      "parentUid" : "a624142a73bf2a30297f8d01c47b0575",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227758451,
+        "stop" : 1602227771199,
+        "duration" : 12748
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "a624142a73bf2a30297f8d01c47b0575"
+  }, {
+    "name" : "com.github.javister.docker.testing.base.HttpAccessWithProxyWithAuthIT",
+    "children" : [ {
+      "name" : "testCurl()",
+      "uid" : "2dada10ea0b99195",
+      "parentUid" : "86806abb5c2254d352da2eef9a58bd0c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227776161,
+        "stop" : 1602227778287,
+        "duration" : 2126
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testWget()",
+      "uid" : "1422b967e9e68d97",
+      "parentUid" : "86806abb5c2254d352da2eef9a58bd0c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227778289,
+        "stop" : 1602227778687,
+        "duration" : 398
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "http_proxy=http://system:masterkey@proxy:1080",
+      "uid" : "14c2df00bd809d8",
+      "parentUid" : "86806abb5c2254d352da2eef9a58bd0c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227778704,
+        "stop" : 1602227779453,
+        "duration" : 749
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY=http://system:masterkey@proxy:1080",
+      "uid" : "7ab8d5432885ba53",
+      "parentUid" : "86806abb5c2254d352da2eef9a58bd0c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227779456,
+        "stop" : 1602227780146,
+        "duration" : 690
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "https_proxy=https://system:masterkey@proxy:1080",
+      "uid" : "531463cb2cf9e427",
+      "parentUid" : "86806abb5c2254d352da2eef9a58bd0c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227780149,
+        "stop" : 1602227780842,
+        "duration" : 693
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY_HOST=proxy",
+      "uid" : "c4c61ef86aa3bf39",
+      "parentUid" : "86806abb5c2254d352da2eef9a58bd0c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227780844,
+        "stop" : 1602227781577,
+        "duration" : 733
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY_PASS=masterkey",
+      "uid" : "8679760f0ce591b8",
+      "parentUid" : "86806abb5c2254d352da2eef9a58bd0c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227781592,
+        "stop" : 1602227782290,
+        "duration" : 698
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY_PORT=1080",
+      "uid" : "50f1ca74b9e8f2d8",
+      "parentUid" : "86806abb5c2254d352da2eef9a58bd0c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227782293,
+        "stop" : 1602227782982,
+        "duration" : 689
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "PROXY_USER=system",
+      "uid" : "1a39468baec15b1a",
+      "parentUid" : "86806abb5c2254d352da2eef9a58bd0c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1602227782986,
+        "stop" : 1602227783673,
+        "duration" : 687
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "86806abb5c2254d352da2eef9a58bd0c"
+  } ],
+  "name" : "suites"
+}
