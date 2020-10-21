@@ -42,7 +42,7 @@ import java.util.function.Consumer;
  * javister-docker-docker.bintray.io/javister/javister-docker-base
  * </a> и его наследниками.
  *
- * <p>Образ данного контейнера содержит расширеные средства построения кастомных контейнеров и содержин множество
+ * <p>Образ данного контейнера содержит расширенные средства построения кастомных контейнеров и содержит множество
  * дополнительных параметров запуска. Обёртка даёт возможность настраивать некоторые из этих параметров.
  *
  * @param <SELF> параметр, необходимый для организации паттерна fluent API.
@@ -77,23 +77,23 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     void setLogPrefix(@NotNull String logPrefix);
 
     /**
-     * Получение флага, обознаяающего необходимость подавления вывода логгирования в SLF4J.
+     * Получение флага, обозначающего необходимость подавления вывода логгирования в SLF4J.
      *
-     * @return флаг, обознаяающий необходимость подавления вывода логгирования в SLF4J.
+     * @return флаг, обозначающий необходимость подавления вывода логгирования в SLF4J.
      */
     boolean isSuppressSlfLogger();
 
     /**
-     * Устанока флага, обознаяающего необходимость подавления вывода логгирования в SLF4J.
+     * Установка флага, обозначающего необходимость подавления вывода логгирования в SLF4J.
      *
-     * @param suppressSlfLogger значение флага, обознаяающего необходимость подавления вывода логгирования в SLF4J.
+     * @param suppressSlfLogger значение флага, обозначающего необходимость подавления вывода логгирования в SLF4J.
      */
     void setSuppressSlfLogger(boolean suppressSlfLogger);
 
     /**
-     * Получение консумера лога контейнера, который перенаправляет вывод в систему логирования теста.
+     * Получение консумера лога контейнера, который перенаправляет вывод в систему логгирования теста.
      *
-     * @return консумер лога, который перенаправляет вывод в систему логирования теста.
+     * @return консумер лога, который перенаправляет вывод в систему логгирования теста.
      */
     Slf4jLogConsumer getLogConsumer();
 
@@ -125,7 +125,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
      * Формирует и возвращает путь к рабочему каталогу JUnit тестов по заданному классу тестов.
      * <p>Для Maven проектов путь будет сформирован в виде: <b>${project.path}/target</b>
      *
-     * <p>findsecbugs:PATH_TRAVERSAL_IN - путь формируется отностительно URL класса.
+     * <p>findsecbugs:PATH_TRAVERSAL_IN - путь формируется относительно URL класса.
      * На первый взгляд никакого криминала тут нет.
      * Могут быть какие-то подводные камни?
      *
@@ -193,7 +193,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     }
 
     /**
-     * Производит настройку контейнера по уморчанию.
+     * Производит настройку контейнера по умолчанию.
      *
      * <p> Данный метод должен вызываться в конструкторе имплементирующего класса.
      */
@@ -238,7 +238,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
 
     /**
      * Задаёт префикс лога Docker контейнера.
-     * <p>Если запускается система из нескольких контейнеров, то с момощью данного префикса удобно помечать какой
+     * <p>Если запускается система из нескольких контейнеров, то с помощью данного префикса удобно помечать какой
      * лог какому контейнеру принадлежит.
      *
      * @param prefix префикс лога. Желательно задавать имя приложения
@@ -252,7 +252,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     }
 
     /**
-     * Задание настроки очистки лога контейнера от ANSI кодов.
+     * Задание настройки очистки лога контейнера от ANSI кодов.
      * <p>По умолчанию выводимый лог очищается от ANSI кодов (значение true). Это в частности убирает цветовую подсветку
      * из лога. Если цвета требуется сохранить, то необходимо установить данное значение в false.
      *
@@ -344,7 +344,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     /**
      * Устанавливает язык и локаль и кодировку внутри контейнера.
      * <p>Данное значение необходимо устанавливать в случае, когда ожидается, что приложение может выводить логи не в
-     * английской локали, или использовать спицифичные настройки локали для форматировани дат, времени, денежных единиц
+     * английской локали, или использовать специфичные настройки локали для форматирования дат, времени, денежных единиц
      * и т.п.
      * <p>Пример значения: <b>ru_RU.UTF-8</b>
      *
@@ -393,7 +393,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
      *
      * @param hostPath      путь на хосте
      * @param containerPath путь внутри контейнера
-     * @param mode          режым монтирования
+     * @param mode          режим монтирования
      * @return возвращает this для fluent API.
      */
     @NotNull
@@ -423,9 +423,9 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     /**
      * Формирует и возвращает путь к каталогу, который необходимо примонтировать при выполнении JUnit тестов.
      * <p>Для Maven проектов путь будет сформирован в виде: <b>${project.path}/target/docker-&lt;junit-class-name&gt;</b>
-     * <p>Данный путь може быть сформирован только если был указан класс JUnit теста в конструкторе.
+     * <p>Данный путь может быть сформирован только если был указан класс JUnit теста в конструкторе.
      *
-     * <p>findsecbugs:PATH_TRAVERSAL_IN - путь формируется отностительно URL класса.
+     * <p>findsecbugs:PATH_TRAVERSAL_IN - путь формируется относительно URL класса.
      * На первый взгляд никакого криминала тут нет.
      * Могут быть какие-то подводные камни?
      *
@@ -450,7 +450,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     /**
      * Формирует и возвращает путь к рабочему каталогу JUnit тестов.
      * <p>Для Maven проектов путь будет сформирован в виде: <b>${project.path}/target</b>
-     * <p>Данный путь може быть сформирован только если был указан класс JUnit теста в конструкторе.
+     * <p>Данный путь может быть сформирован только если был указан класс JUnit теста в конструкторе.
      *
      * @return возвращает this для fluent API.
      * @throws IllegalTestConfigurationException если в конструкторе не был указан класс JUnit теста.
@@ -518,7 +518,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
      * @return список зависимостей
      */
     @NotNull
-    default List<JavisterBaseContainer<SELF>> getInternalDependencies() {
+    default List<? extends JavisterBaseContainer<?>> getInternalDependencies() {
         return Collections.emptyList();
     }
 
@@ -536,15 +536,15 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
      * @return список зависимостей
      */
     @NotNull
-    default List<JavisterBaseContainer<SELF>> getExternalDependencies() {
+    default List<? extends JavisterBaseContainer<?>> getExternalDependencies() {
         return Collections.emptyList();
     }
 
     /**
-     * Ролучение идентификатора образа (хеша) для указанной обёртки с учётом её версии и варианта.
+     * Получение идентификатора образа (хеша) для указанной обёртки с учётом её версии и варианта.
      *
-     * @param clazz   класс обёртки контейнера, для которого ищятся метаданные.
-     * @param variant вариант образа, для которого ищятся метаданные. Или null, если вариантов не предусмотренно.
+     * @param clazz   класс обёртки контейнера, для которого ищутся метаданные.
+     * @param variant вариант образа, для которого ищутся метаданные. Или null, если вариантов не предусмотренно.
      * @param <SELF>  параметр, необходимый для организации паттерна fluent API.
      * @return идентификатор образа (хеша) для указанной обёртки с учётом её версии и варианта.
      */
@@ -558,10 +558,10 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     /**
      * Получение полного имени образа для указанной обёртки с учётом её версии и варианта.
      *
-     * @param clazz   класс обёртки контейнера, для которого ищятся метаданные.
-     * @param variant вариант образа, для которого ищятся метаданные. Или null, если вариантов не предусмотренно.
+     * @param clazz   класс обёртки контейнера, для которого ищутся метаданные.
+     * @param variant вариант образа, для которого ищутся метаданные. Или null, если вариантов не предусмотренно.
      * @param <SELF>  параметр, необходимый для организации паттерна fluent API.
-     * @return полне имя образа для указанной обёртки с учётом её версии и варианта.
+     * @return поле имя образа для указанной обёртки с учётом её версии и варианта.
      */
     @NotNull
     static <SELF extends JavisterBaseContainer<SELF>> String getImageName(
@@ -573,8 +573,8 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     /**
      * Получение имени Docker образа (без тега) для указанной обёртки с учётом её версии и варианта.
      *
-     * @param clazz   класс обёртки контейнера, для которого ищятся метаданные.
-     * @param variant вариант образа, для которого ищятся метаданные. Или null, если вариантов не предусмотренно.
+     * @param clazz   класс обёртки контейнера, для которого ищутся метаданные.
+     * @param variant вариант образа, для которого ищутся метаданные. Или null, если вариантов не предусмотренно.
      * @param <SELF>  параметр, необходимый для организации паттерна fluent API.
      * @return имя Docker образа (без тега) для указанной обёртки с учётом её версии и варианта.
      */
@@ -588,8 +588,8 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     /**
      * Получение тега Docker образа для указанной обёртки с учётом её версии и варианта.
      *
-     * @param clazz   класс обёртки контейнера, для которого ищятся метаданные.
-     * @param variant вариант образа, для которого ищятся метаданные. Или null, если вариантов не предусмотренно.
+     * @param clazz   класс обёртки контейнера, для которого ищутся метаданные.
+     * @param variant вариант образа, для которого ищутся метаданные. Или null, если вариантов не предусмотренно.
      * @param <SELF>  параметр, необходимый для организации паттерна fluent API.
      * @return тег Docker образа для указанной обёртки с учётом её версии и варианта.
      */
@@ -601,13 +601,13 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     }
 
     /**
-     * Поучение конкретного знячения метаданных образа по классу обёртки и варианту.
+     * Поучение конкретного значения метаданных образа по классу обёртки и варианту.
      * <p>Метаданные формируются при сборке образа с помощью
      * <a href="https://github.com/spotify/dockerfile-maven">dockerfile-maven-plugin</a>.
      *
-     * @param clazz        класс обёртки контейнера, для которого ищятся метаданные.
-     * @param variant      вариант образа, для которого ищятся метаданные. Или null, если вариантов не предусмотренно.
-     * @param metaFileName имя файла метаданных, из которого необходимо извлеч значение.
+     * @param clazz        класс обёртки контейнера, для которого ищутся метаданные.
+     * @param variant      вариант образа, для которого ищутся метаданные. Или null, если вариантов не предусмотренно.
+     * @param metaFileName имя файла метаданных, из которого необходимо извлечь значение.
      * @param <SELF>       параметр, необходимый для организации паттерна fluent API.
      * @return конкретное значение метаданных.
      */
@@ -635,10 +635,10 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
      * </pre>
      * Макроподстановки должны заполняться при сборке Maven проекта.
      *
-     * @param clazz   класс обёртки контейнера, для которого ищятся метаданные.
-     * @param variant вариант образа, для которого ищятся метаданные. Или null, если вариантов не предусмотренно.
+     * @param clazz   класс обёртки контейнера, для которого ищутся метаданные.
+     * @param variant вариант образа, для которого ищутся метаданные. Или null, если вариантов не предусмотренно.
      * @param <SELF>  параметр, необходимый для организации паттерна fluent API.
-     * @return путь в class path до методанных
+     * @return путь в class path до метаданных
      */
     @NotNull
     static <SELF extends JavisterBaseContainer<SELF>> String getImageCoordinate(
@@ -676,7 +676,7 @@ public interface JavisterBaseContainer<SELF extends JavisterBaseContainer<SELF>>
     }
 
     /**
-     * Обработчик лога контейнера, добавляющий префик контейнера к записям лога.
+     * Обработчик лога контейнера, добавляющий префикс контейнера к записям лога.
      */
     class OutputFrameDecorator extends OutputFrame {
         private final String prefix;

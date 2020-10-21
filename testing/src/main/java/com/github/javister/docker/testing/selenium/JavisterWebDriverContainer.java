@@ -36,7 +36,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer<Javist
      *
      * @param appContainer        обёртка над приложением, к которому необходимо подключиться.
      * @param desiredCapabilities задаёт какой браузер и с какими настройками требуется запускать.
-     * @param recordingMode       задаёт режим фидеозаписи тестирования.
+     * @param recordingMode       задаёт режим видеозаписи тестирования.
      */
     public JavisterWebDriverContainer(
             TestServiceContainer appContainer,
@@ -95,7 +95,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer<Javist
     }
 
     /**
-     * Привязывает WebDriver в укзанному приложению.
+     * Привязывает WebDriver к указанному приложению.
      *
      * @param appContainer приложение, с которым должен работать WebDriver.
      * @return возвращает this для fluent API.
@@ -107,7 +107,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer<Javist
 
     /**
      * Запустить браузер на локальном X сервере.
-     * <p>Позволяет видеть процесс прохождения теста и смотреть состояние старницы при отладке.
+     * <p>Позволяет видеть процесс прохождения теста и смотреть состояние страницы при отладке.
      * <p>Запись видео будет форсированно выключена, т.к. она не совместима с переопределением адреса X сервера.
      * <p>Для Windows машин необходимо запустить
      * <a href="https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde">локальный X сервер</a>.
@@ -120,7 +120,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer<Javist
         this.recordingMode = BrowserWebDriverContainer.VncRecordingMode.SKIP;
         String display = System.getenv("DISPLAY");
         if (display == null || display.isEmpty()) {
-            throw new IllegalStateException("Пременная окружения DISPLAY не установлена. Установите её явно для подключения браузера " +
+            throw new IllegalStateException("Переменная окружения DISPLAY не установлена. Установите её явно для подключения браузера " +
                     "к вашему X серверу: https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde");
         }
         if (System.getProperty("os.name").toLowerCase().contains("win") && display.charAt(0) == ':') {
@@ -152,7 +152,7 @@ public class JavisterWebDriverContainer extends BrowserWebDriverContainer<Javist
     /**
      * Величина имплицитного ожидания у создаваемого для этого контейнера WebDriver.
      *
-     * @param millisec величина имплицитного ожидания у содаваемого для этого контейнера WebDriver.
+     * @param millisec величина имплицитного ожидания у создаваемого для этого контейнера WebDriver.
      * @return возвращает this для fluent API.
      */
     public JavisterWebDriverContainer withImplicitlyWait(long millisec) {

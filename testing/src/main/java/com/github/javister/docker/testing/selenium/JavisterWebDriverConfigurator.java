@@ -10,7 +10,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Аннотация, обозначающая метод для конфигурирования контецнеров WebDriver перед запуском тестов.
+ * Аннотация, обозначающая метод для конфигурирования контейнеров WebDriver перед запуском тестов.
  * <p>Используется совместно с аннотацией {@link JavisterWebDriverProvider}.
  * <p>Метод, отмеченный данной аннотацией должен иметь как минимум один параметр типа
  * {@link JavisterWebDriverContainer}. Так же допускаются параметры следующих типов:

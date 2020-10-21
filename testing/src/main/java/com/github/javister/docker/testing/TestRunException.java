@@ -17,7 +17,7 @@ public class TestRunException extends RuntimeException {
      * Создаёт исключение с заданными описанием и сходным исключением.
      *
      * @param message описание исключения.
-     * @param cause   исходное сключение.
+     * @param cause   исходное исключение.
      */
     public TestRunException(String message, Throwable cause) {
         super(message, cause);
