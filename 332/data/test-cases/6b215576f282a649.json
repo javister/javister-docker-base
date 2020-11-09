@@ -1,0 +1,78 @@
+{
+  "uid" : "6b215576f282a649",
+  "name" : "PROXY_PASS=",
+  "fullName" : "com.github.javister.docker.testing.base.HttpAccessWithProxyIT.testProxyenvs",
+  "historyId" : "22ab3fce749ec1d22cffa17a936bcb43",
+  "time" : {
+    "start" : 1604934430879,
+    "stop" : 1604934431538,
+    "duration" : 659
+  },
+  "description" : "Тест настройки HTTP Proxy",
+  "descriptionHtml" : "<p>Тест настройки HTTP Proxy</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32-829"
+  }, {
+    "name" : "thread",
+    "value" : "5550@fv-az32-829.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.HttpAccessWithProxyIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.HttpAccessWithProxyIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testProxyenvs"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.HttpAccessWithProxyIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "11450306a8725dd7",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/323//#testresult/11450306a8725dd7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1604906354447,
+          "stop" : 1604906355314,
+          "duration" : 867
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "6b215576f282a649.json",
+  "parameterValues" : [ ]
+}

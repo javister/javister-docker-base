@@ -1,0 +1,77 @@
+{
+  "uid" : "f964c30135941d21",
+  "name" : "[2] ожидание доступности недоступного порта 2",
+  "fullName" : "com.github.javister.docker.testing.base.SimpleImageTests.waitForPort",
+  "historyId" : "a3f6d32278b6bd75dbfceb2741d2c49a",
+  "time" : {
+    "start" : 1604934277166,
+    "stop" : 1604934279352,
+    "duration" : 2186
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32-829"
+  }, {
+    "name" : "thread",
+    "value" : "4449@fv-az32-829.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.SimpleImageTests"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.SimpleImageTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "waitForPort"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.SimpleImageTests"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "f92b7b752f2fc8f2",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/323//#testresult/f92b7b752f2fc8f2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1604906174577,
+          "stop" : 1604906176863,
+          "duration" : 2286
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "f964c30135941d21.json",
+  "parameterValues" : [ ]
+}
