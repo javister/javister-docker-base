@@ -1,0 +1,74 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest",
+    "children" : [ {
+      "name" : "getImageCoordinate()",
+      "uid" : "cfe4018694891f14",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1604917732652,
+        "stop" : 1604917732735,
+        "duration" : 83
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getImageId()",
+      "uid" : "46fb01a2502e6a21",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1604917732839,
+        "stop" : 1604917732848,
+        "duration" : 9
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getImageName()",
+      "uid" : "c77b58e43d703e71",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1604917732851,
+        "stop" : 1604917732852,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getImageRepository()",
+      "uid" : "2bcc0ff57fbe338a",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1604917732855,
+        "stop" : 1604917732856,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getImageTag()",
+      "uid" : "b3710d08388a71b0",
+      "parentUid" : "027071a0c5db2eae7ea06765411530f4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1604917732858,
+        "stop" : 1604917732859,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "027071a0c5db2eae7ea06765411530f4"
+  } ],
+  "name" : "suites"
+}
