@@ -1,0 +1,77 @@
+{
+  "uid" : "6abc1639d2667eac",
+  "name" : "getImageRepository()",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest.getImageRepository",
+  "historyId" : "e936fc61b962b80169c035a660be4fde",
+  "time" : {
+    "start" : 1604906151605,
+    "stop" : 1604906151607,
+    "duration" : 2
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az50-217"
+  }, {
+    "name" : "thread",
+    "value" : "4356@fv-az50-217.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "getImageRepository"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "f7e34857a3e8c7a2",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/322//#testresult/f7e34857a3e8c7a2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1604904267094,
+          "stop" : 1604904267095,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "6abc1639d2667eac.json",
+  "parameterValues" : [ ]
+}
