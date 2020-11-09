@@ -1,0 +1,95 @@
+{
+  "uid" : "c6ef52535862521",
+  "name" : "[4] ожидание доступности недоступного порта 4",
+  "fullName" : "com.github.javister.docker.testing.base.SimpleImageTests.waitForPort",
+  "historyId" : "baf85e5c06ce0b84de1063ee5ae55325",
+  "time" : {
+    "start" : 1604946176631,
+    "stop" : 1604946180777,
+    "duration" : 4146
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az76-634"
+  }, {
+    "name" : "thread",
+    "value" : "4446@fv-az76-634.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.SimpleImageTests"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.SimpleImageTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "waitForPort"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.SimpleImageTests"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "204d3fd2504ee349",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/333//#testresult/204d3fd2504ee349",
+        "status" : "passed",
+        "time" : {
+          "start" : 1604935204706,
+          "stop" : 1604935208862,
+          "duration" : 4156
+        }
+      }, {
+        "uid" : "9ddc54392eb34b8a",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/332//#testresult/9ddc54392eb34b8a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1604934282514,
+          "stop" : 1604934286687,
+          "duration" : 4173
+        }
+      }, {
+        "uid" : "731b02eea8405b47",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/323//#testresult/731b02eea8405b47",
+        "status" : "passed",
+        "time" : {
+          "start" : 1604906180075,
+          "stop" : 1604906184240,
+          "duration" : 4165
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "c6ef52535862521.json",
+  "parameterValues" : [ ]
+}

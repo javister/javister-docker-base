@@ -1,0 +1,119 @@
+{
+  "uid" : "9d21695de0251d4f",
+  "name" : "[2] FIREFOX",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriverAutostart",
+  "historyId" : "71b41fe32f8e2256ae1265e2eda36e59",
+  "time" : {
+    "start" : 1604946325994,
+    "stop" : 1604946333771,
+    "duration" : 7777
+  },
+  "description" : "WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как WebDriver",
+  "descriptionHtml" : "<p>WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как WebDriver</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как WebDriver",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "4d90af9ddb57454b",
+      "name" : "PASSED-com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriverAutostart-FIREFOX-20201109-182532.flv",
+      "source" : "4d90af9ddb57454b.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    }, {
+      "uid" : "bf054f7e700cfb04",
+      "name" : "Stdout",
+      "source" : "bf054f7e700cfb04.txt",
+      "type" : "text/plain",
+      "size" : 1528
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az76-634"
+  }, {
+    "name" : "thread",
+    "value" : "5540@fv-az76-634.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomWebDriverAutostart"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "a19ebc718ee03e6c",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/333//#testresult/a19ebc718ee03e6c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1604935374842,
+          "stop" : 1604935382378,
+          "duration" : 7536
+        }
+      }, {
+        "uid" : "28f0dc258b85000a",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/332//#testresult/28f0dc258b85000a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1604934441822,
+          "stop" : 1604934449369,
+          "duration" : 7547
+        }
+      }, {
+        "uid" : "59724ed60a5bcbb",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/323//#testresult/59724ed60a5bcbb",
+        "status" : "passed",
+        "time" : {
+          "start" : 1604906366880,
+          "stop" : 1604906375410,
+          "duration" : 8530
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "9d21695de0251d4f.json",
+  "parameterValues" : [ ]
+}
