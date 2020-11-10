@@ -33,7 +33,7 @@
         <docker.image>javister-docker-docker.bintray.io/javister/${docker.image.artifactId}</docker.image>
         <!-- Dependency versions -->
         <centos.version>7</centos.version>
-        <testcontainers.version>1.14.3</testcontainers.version>
+        <testcontainers.version>1.15.0</testcontainers.version>
         <selenium.version>3.141.59</selenium.version>
         <guava.version>30.0-jre</guava.version>
         <checkerframework.version>3.7.1</checkerframework.version>
@@ -53,6 +53,7 @@
         <jackson.version>2.11.3</jackson.version>
         <allure.version>2.13.6</allure.version>
         <aspectj.version>1.9.6</aspectj.version>
+        <jetbrains-annotations.version>19.0.0</jetbrains-annotations.version>
         <!-- Plugins Versions -->
         <build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
@@ -85,6 +86,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${jetbrains-annotations.version}</version>
             <scope>provided</scope>
         </dependency>
 
