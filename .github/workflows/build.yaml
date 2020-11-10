@@ -29,7 +29,6 @@ jobs:
       - name: Build and Check
         run: mvn --no-transfer-progress -Dstyle.color=always --fail-at-end verify
         if: always()
-        continue-on-error: true
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}

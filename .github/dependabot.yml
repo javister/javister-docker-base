@@ -5,6 +5,12 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    reviewers:
+      - vektory79
+      - ykrupin
+    assignees:
+      - vektory79
+      - ykrupin
 
   - package-ecosystem: maven
     directory: "/"
@@ -13,6 +19,8 @@ updates:
     open-pull-requests-limit: 10
     target-branch: master
     reviewers:
-    - vektory79
+      - vektory79
+      - ykrupin
     assignees:
-    - vektory79
+      - vektory79
+      - ykrupin
