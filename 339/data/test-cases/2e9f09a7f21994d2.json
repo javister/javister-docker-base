@@ -1,0 +1,93 @@
+{
+  "uid" : "2e9f09a7f21994d2",
+  "name" : "testVideoRecordingTemplateFiles()",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverVideoIT.testVideoRecordingTemplateFiles",
+  "historyId" : "ff31e479752854460caa4348cd527355",
+  "time" : {
+    "start" : 1605004275989,
+    "stop" : 1605004275991,
+    "duration" : 2
+  },
+  "description" : "Запись видео: проверка корректности формирования файлов с видео",
+  "descriptionHtml" : "<p>Запись видео: проверка корректности формирования файлов с видео</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "cleanBeforeAll",
+    "time" : {
+      "start" : 1605004248624,
+      "stop" : 1605004248628,
+      "duration" : 4
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32-868"
+  }, {
+    "name" : "thread",
+    "value" : "5677@fv-az32-868.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverVideoIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverVideoIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testVideoRecordingTemplateFiles"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverVideoIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "c3063907937253f4",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/338//#testresult/c3063907937253f4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605003543930,
+          "stop" : 1605003543935,
+          "duration" : 5
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "2e9f09a7f21994d2.json",
+  "parameterValues" : [ ]
+}

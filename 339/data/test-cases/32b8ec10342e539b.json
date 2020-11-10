@@ -1,0 +1,78 @@
+{
+  "uid" : "32b8ec10342e539b",
+  "name" : "[1] CHROME",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverIT.testCustomWebDriverContainerChrome",
+  "historyId" : "7f76e768256946d7c949f15a738a2411",
+  "time" : {
+    "start" : 1605004104269,
+    "stop" : 1605004104272,
+    "duration" : 3
+  },
+  "description" : "WebDriver: JavisterWebDriverProvider без автостарта и только Chrome",
+  "descriptionHtml" : "<p>WebDriver: JavisterWebDriverProvider без автостарта и только Chrome</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32-868"
+  }, {
+    "name" : "thread",
+    "value" : "5677@fv-az32-868.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomWebDriverContainerChrome"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "d1bd65565aedbe5e",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/338//#testresult/d1bd65565aedbe5e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605003375771,
+          "stop" : 1605003375773,
+          "duration" : 2
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "32b8ec10342e539b.json",
+  "parameterValues" : [ ]
+}

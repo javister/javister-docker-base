@@ -1,0 +1,77 @@
+{
+  "uid" : "368733c7ecde3943",
+  "name" : "getImageId()",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest.getImageId",
+  "historyId" : "1899d5fe2fe046bcc875255827827c67",
+  "time" : {
+    "start" : 1605003961415,
+    "stop" : 1605003961428,
+    "duration" : 13
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32-868"
+  }, {
+    "name" : "thread",
+    "value" : "4495@fv-az32-868.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "getImageId"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterBaseContainerTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "1ba552fd28a0013e",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/338//#testresult/1ba552fd28a0013e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605003227621,
+          "stop" : 1605003227635,
+          "duration" : 14
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "368733c7ecde3943.json",
+  "parameterValues" : [ ]
+}
