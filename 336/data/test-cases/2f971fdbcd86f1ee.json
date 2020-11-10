@@ -1,0 +1,57 @@
+{
+  "uid" : "2f971fdbcd86f1ee",
+  "name" : "testCustomGroupname()",
+  "fullName" : "com.github.javister.docker.testing.base.UserTests.testCustomGroupname",
+  "historyId" : "5ffd06ee356b40a0aa2fd4db870523dd",
+  "time" : {
+    "start" : 1604998115183,
+    "stop" : 1604998115415,
+    "duration" : 232
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az76-634"
+  }, {
+    "name" : "thread",
+    "value" : "4495@fv-az76-634.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.UserTests"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.UserTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomGroupname"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.UserTests"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2f971fdbcd86f1ee.json",
+  "parameterValues" : [ ]
+}

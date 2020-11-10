@@ -1,0 +1,75 @@
+{
+  "uid" : "95edc11717916801",
+  "name" : "[2] FIREFOX",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverIT.testCustomWebDriverContainer",
+  "historyId" : "3db9b2a696e3b1a8773b271a36c4ecbc",
+  "time" : {
+    "start" : 1604998202847,
+    "stop" : 1604998228615,
+    "duration" : 25768
+  },
+  "description" : "WebDriver: перебор вариантов браузеров с ручной настройкой и запуском",
+  "descriptionHtml" : "<p>WebDriver: перебор вариантов браузеров с ручной настройкой и запуском</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriver: перебор вариантов браузеров с ручной настройкой и запуском",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "fc3499356c8e10a4",
+      "name" : "Stdout",
+      "source" : "fc3499356c8e10a4.txt",
+      "type" : "text/plain",
+      "size" : 1271
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az76-634"
+  }, {
+    "name" : "thread",
+    "value" : "5611@fv-az76-634.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomWebDriverContainer"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "95edc11717916801.json",
+  "parameterValues" : [ ]
+}
