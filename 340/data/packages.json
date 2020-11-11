@@ -1,0 +1,825 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "com.github.javister.docker.testing.base",
+    "children" : [ {
+      "name" : "JavisterBaseContainerTest",
+      "children" : [ {
+        "name" : "getImageCoordinate",
+        "uid" : "3051e19b70c0a0d9",
+        "parentUid" : "b6cb5a92484a3ffe8021e90ce54bfef1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074365124,
+          "stop" : 1605074365189,
+          "duration" : 65
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "getImageId",
+        "uid" : "7cf4687018a204e4",
+        "parentUid" : "b6cb5a92484a3ffe8021e90ce54bfef1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074365326,
+          "stop" : 1605074365341,
+          "duration" : 15
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "getImageName",
+        "uid" : "706f43194fbb7c06",
+        "parentUid" : "b6cb5a92484a3ffe8021e90ce54bfef1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074365347,
+          "stop" : 1605074365348,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "getImageRepository",
+        "uid" : "57c28a6af1f90147",
+        "parentUid" : "b6cb5a92484a3ffe8021e90ce54bfef1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074365355,
+          "stop" : 1605074365357,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "getImageTag",
+        "uid" : "c65fb41d615fc97",
+        "parentUid" : "b6cb5a92484a3ffe8021e90ce54bfef1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074365362,
+          "stop" : 1605074365365,
+          "duration" : 3
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "b6cb5a92484a3ffe8021e90ce54bfef1"
+    }, {
+      "name" : "UserTests",
+      "children" : [ {
+        "name" : "testCustomUsername",
+        "uid" : "d31f933d8d4339ec",
+        "parentUid" : "8cee39156197a6fe9ddb7bfac806db94",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074380554,
+          "stop" : 1605074381109,
+          "duration" : 555
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomGroupname",
+        "uid" : "9495f6776d03a924",
+        "parentUid" : "8cee39156197a6fe9ddb7bfac806db94",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074381190,
+          "stop" : 1605074381421,
+          "duration" : 231
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8cee39156197a6fe9ddb7bfac806db94"
+    }, {
+      "name" : "SimpleImageTests",
+      "children" : [ {
+        "name" : "testRootPrivileges",
+        "uid" : "67569c2394bb9147",
+        "parentUid" : "5e98e93df6f6268594246689254adaa4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074383529,
+          "stop" : 1605074384149,
+          "duration" : 620
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "waitForPort",
+        "uid" : "3cdb6e1a06acdd49",
+        "parentUid" : "5e98e93df6f6268594246689254adaa4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074384217,
+          "stop" : 1605074385513,
+          "duration" : 1296
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "waitForPort",
+        "uid" : "823cae09f22a2031",
+        "parentUid" : "5e98e93df6f6268594246689254adaa4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074385518,
+          "stop" : 1605074387745,
+          "duration" : 2227
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "waitForPort",
+        "uid" : "f6fcfa689cd7da35",
+        "parentUid" : "5e98e93df6f6268594246689254adaa4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074387755,
+          "stop" : 1605074390886,
+          "duration" : 3131
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "waitForPort",
+        "uid" : "440781a676c6c47e",
+        "parentUid" : "5e98e93df6f6268594246689254adaa4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074390891,
+          "stop" : 1605074395072,
+          "duration" : 4181
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testUserPrivileges",
+        "uid" : "1f2dccf115dbcb6b",
+        "parentUid" : "5e98e93df6f6268594246689254adaa4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074395118,
+          "stop" : 1605074395363,
+          "duration" : 245
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "5e98e93df6f6268594246689254adaa4"
+    }, {
+      "name" : "JavisterWebDriverIT",
+      "children" : [ {
+        "name" : "testCustomWebDriverContainer",
+        "uid" : "acffb4d0910155f0",
+        "parentUid" : "fec2a7d0356eb171144e92f29d96b9cd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074414041,
+          "stop" : 1605074471771,
+          "duration" : 57730
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainer",
+        "uid" : "eb4a0ffd260a6dc8",
+        "parentUid" : "fec2a7d0356eb171144e92f29d96b9cd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074472008,
+          "stop" : 1605074497832,
+          "duration" : 25824
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainer",
+        "uid" : "52b031ff9ec8aec9",
+        "parentUid" : "fec2a7d0356eb171144e92f29d96b9cd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074497882,
+          "stop" : 1605074504342,
+          "duration" : 6460
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainer",
+        "uid" : "957f640313239125",
+        "parentUid" : "fec2a7d0356eb171144e92f29d96b9cd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074504350,
+          "stop" : 1605074513774,
+          "duration" : 9424
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainerChrome",
+        "uid" : "4a65755ca8a986bc",
+        "parentUid" : "fec2a7d0356eb171144e92f29d96b9cd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074513816,
+          "stop" : 1605074513819,
+          "duration" : 3
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainerFirefox",
+        "uid" : "2f2c725575cf599d",
+        "parentUid" : "fec2a7d0356eb171144e92f29d96b9cd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074513823,
+          "stop" : 1605074513825,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainerWithConfigurator",
+        "uid" : "c44b4c9356c48e4b",
+        "parentUid" : "fec2a7d0356eb171144e92f29d96b9cd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074513829,
+          "stop" : 1605074519567,
+          "duration" : 5738
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainerWithConfigurator",
+        "uid" : "9704636096c2011c",
+        "parentUid" : "fec2a7d0356eb171144e92f29d96b9cd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074519570,
+          "stop" : 1605074527845,
+          "duration" : 8275
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "fec2a7d0356eb171144e92f29d96b9cd"
+    }, {
+      "name" : "HttpAccessWithProxyIT",
+      "children" : [ {
+        "name" : "testCurl",
+        "uid" : "71c59a2b8ea6ae70",
+        "parentUid" : "8e6246f460f9840b5fbe93a40fef12c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074541910,
+          "stop" : 1605074549357,
+          "duration" : 7447
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testWget",
+        "uid" : "6b7fd981f804b448",
+        "parentUid" : "8e6246f460f9840b5fbe93a40fef12c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074549374,
+          "stop" : 1605074549782,
+          "duration" : 408
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "36b471a9ddeaad44",
+        "parentUid" : "8e6246f460f9840b5fbe93a40fef12c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074549826,
+          "stop" : 1605074550523,
+          "duration" : 697
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "788734e8f004b9a3",
+        "parentUid" : "8e6246f460f9840b5fbe93a40fef12c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074550535,
+          "stop" : 1605074551217,
+          "duration" : 682
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "8b0074dfdb41bedd",
+        "parentUid" : "8e6246f460f9840b5fbe93a40fef12c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074551220,
+          "stop" : 1605074551933,
+          "duration" : 713
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "36983f4b22b3f90c",
+        "parentUid" : "8e6246f460f9840b5fbe93a40fef12c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074551940,
+          "stop" : 1605074552654,
+          "duration" : 714
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "76821bc15da42ff8",
+        "parentUid" : "8e6246f460f9840b5fbe93a40fef12c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074552658,
+          "stop" : 1605074553348,
+          "duration" : 690
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "fd00c1a64bf8f2a8",
+        "parentUid" : "8e6246f460f9840b5fbe93a40fef12c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074553352,
+          "stop" : 1605074554103,
+          "duration" : 751
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "e174da9b862b8513",
+        "parentUid" : "8e6246f460f9840b5fbe93a40fef12c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074554123,
+          "stop" : 1605074554817,
+          "duration" : 694
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8e6246f460f9840b5fbe93a40fef12c1"
+    }, {
+      "name" : "JavisterWebDriverMethodConfiguratorIT",
+      "children" : [ {
+        "name" : "testCustomWebDriverAutostart",
+        "uid" : "3eda8a891ffab793",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074557300,
+          "stop" : 1605074564009,
+          "duration" : 6709
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverAutostart",
+        "uid" : "1fdbfed611c21416",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074564014,
+          "stop" : 1605074572391,
+          "duration" : 8377
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainerAutostart",
+        "uid" : "1b4c071c5c13977b",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074572441,
+          "stop" : 1605074578287,
+          "duration" : 5846
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainerAutostart",
+        "uid" : "2f2f5e2dd738c5f3",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074578291,
+          "stop" : 1605074586541,
+          "duration" : 8250
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomRemoteWebDriver",
+        "uid" : "2147e48174d53dcb",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074586584,
+          "stop" : 1605074592404,
+          "duration" : 5820
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomRemoteWebDriver",
+        "uid" : "a6e3f579a35e1f66",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074592417,
+          "stop" : 1605074600633,
+          "duration" : 8216
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainer",
+        "uid" : "c0aec0bc374e4e95",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074600676,
+          "stop" : 1605074606399,
+          "duration" : 5723
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriverContainer",
+        "uid" : "e3f1b11b60e21c7b",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074606407,
+          "stop" : 1605074614439,
+          "duration" : 8032
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriver",
+        "uid" : "620da6434860fe9",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074614485,
+          "stop" : 1605074620402,
+          "duration" : 5917
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomWebDriver",
+        "uid" : "a6f474ecc23bfc84",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074620405,
+          "stop" : 1605074628850,
+          "duration" : 8445
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomRemoteWebDriverAutostart",
+        "uid" : "d0abeada528deff7",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074628893,
+          "stop" : 1605074634751,
+          "duration" : 5858
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testCustomRemoteWebDriverAutostart",
+        "uid" : "9b4c6c1e1e23419",
+        "parentUid" : "b5a6427bb10ed168ea61940e9c9c783f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074634759,
+          "stop" : 1605074642978,
+          "duration" : 8219
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "b5a6427bb10ed168ea61940e9c9c783f"
+    }, {
+      "name" : "HttpAccessWithoutProxyIT",
+      "children" : [ {
+        "name" : "testCurl",
+        "uid" : "335719b529a30509",
+        "parentUid" : "66c0464547d4bdfe2d4482bce411c0c5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074645800,
+          "stop" : 1605074645971,
+          "duration" : 171
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testWget",
+        "uid" : "dcbf3e5ce52a4a8b",
+        "parentUid" : "66c0464547d4bdfe2d4482bce411c0c5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074645973,
+          "stop" : 1605074646099,
+          "duration" : 126
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "66c0464547d4bdfe2d4482bce411c0c5"
+    }, {
+      "name" : "HttpAccessWithProxyWithAuthIT",
+      "children" : [ {
+        "name" : "testCurl",
+        "uid" : "9e713ca8d0ae4d24",
+        "parentUid" : "5dbbaee9b1efa5ae384dd68561198d17",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074651191,
+          "stop" : 1605074653421,
+          "duration" : 2230
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testWget",
+        "uid" : "406d18462da64a51",
+        "parentUid" : "5dbbaee9b1efa5ae384dd68561198d17",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074653423,
+          "stop" : 1605074653946,
+          "duration" : 523
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "5a72471b068c343c",
+        "parentUid" : "5dbbaee9b1efa5ae384dd68561198d17",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074653956,
+          "stop" : 1605074654947,
+          "duration" : 991
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "c4f31c31c2941446",
+        "parentUid" : "5dbbaee9b1efa5ae384dd68561198d17",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074654950,
+          "stop" : 1605074655667,
+          "duration" : 717
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "c314ca735065dfe0",
+        "parentUid" : "5dbbaee9b1efa5ae384dd68561198d17",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074655676,
+          "stop" : 1605074656404,
+          "duration" : 728
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "39e1adc61f295a36",
+        "parentUid" : "5dbbaee9b1efa5ae384dd68561198d17",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074656444,
+          "stop" : 1605074657129,
+          "duration" : 685
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "a3fe040a8dcfafd8",
+        "parentUid" : "5dbbaee9b1efa5ae384dd68561198d17",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074657131,
+          "stop" : 1605074657830,
+          "duration" : 699
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "718aa61786446e9d",
+        "parentUid" : "5dbbaee9b1efa5ae384dd68561198d17",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074657835,
+          "stop" : 1605074658530,
+          "duration" : 695
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testProxyenvs",
+        "uid" : "5d646385b2e151a5",
+        "parentUid" : "5dbbaee9b1efa5ae384dd68561198d17",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074658535,
+          "stop" : 1605074659248,
+          "duration" : 713
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "5dbbaee9b1efa5ae384dd68561198d17"
+    }, {
+      "name" : "JavisterWebDriverVideoIT",
+      "children" : [ {
+        "name" : "testVideoRecordingTemplateSuccess",
+        "uid" : "e78691b4e2c9a243",
+        "parentUid" : "8ea3251da7ac2380b49c702b615ab7b3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074661498,
+          "stop" : 1605074667403,
+          "duration" : 5905
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testVideoRecordingTemplateSuccess",
+        "uid" : "509530fd2310f786",
+        "parentUid" : "8ea3251da7ac2380b49c702b615ab7b3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074667449,
+          "stop" : 1605074675692,
+          "duration" : 8243
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testVideoRecordingTemplateFail",
+        "uid" : "9e737ee6515dae2",
+        "parentUid" : "8ea3251da7ac2380b49c702b615ab7b3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074675701,
+          "stop" : 1605074681698,
+          "duration" : 5997
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testVideoRecordingTemplateFail",
+        "uid" : "280c4505a35f950e",
+        "parentUid" : "8ea3251da7ac2380b49c702b615ab7b3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074681706,
+          "stop" : 1605074689970,
+          "duration" : 8264
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testVideoRecordingTemplateFiles",
+        "uid" : "3f5dd24f0ab9cec8",
+        "parentUid" : "8ea3251da7ac2380b49c702b615ab7b3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074689973,
+          "stop" : 1605074689975,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testVideoRecordingTestSuccess",
+        "uid" : "2bdd024f949b0ea7",
+        "parentUid" : "8ea3251da7ac2380b49c702b615ab7b3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074689983,
+          "stop" : 1605074703994,
+          "duration" : 14011
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testVideoRecordingTestFailed",
+        "uid" : "db14006949daf35f",
+        "parentUid" : "8ea3251da7ac2380b49c702b615ab7b3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1605074704040,
+          "stop" : 1605074718215,
+          "duration" : 14175
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8ea3251da7ac2380b49c702b615ab7b3"
+    } ],
+    "uid" : "com.github.javister.docker.testing.base"
+  } ],
+  "name" : "packages"
+}
