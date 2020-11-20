@@ -18,7 +18,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testcontainers.lifecycle.TestDescription;
 
 import java.io.Closeable;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -74,8 +73,11 @@ public class WebDriverParamResolver implements
     @Override
     public void interceptTestTemplateMethod(Invocation<Void> invocation, ReflectiveInvocationContext<Method> invocationContext, ExtensionContext extensionContext) throws Throwable {
         context = extensionContext;
-        invocation.proceed();
-        close();
+        try {
+            invocation.proceed();
+        } finally {
+            close();
+        }
     }
 
     @Override
