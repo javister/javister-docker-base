@@ -33,7 +33,23 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
+      - name: Upload report files
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-results
+          path: ./target/allure-results
 
+
+  publish-report:
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      - name: Download report files
+        uses: actions/download-artifact@v2
+        with:
+          name: allure-results
+          path: ./target/allure-results
       # Thanks to @simple1elf (Telegram) for the working template
       # https://github.com/simple-elf/github-allure-history
       - name: Get Allure history
