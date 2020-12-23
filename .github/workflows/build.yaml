@@ -28,11 +28,11 @@ jobs:
 
       - name: Build and Check
         run: mvn --no-transfer-progress -Dstyle.color=always --fail-at-end verify
-        if: always()
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
+
       - name: Upload report files
         uses: actions/upload-artifact@v2
         if: always()
