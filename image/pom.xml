@@ -121,6 +121,7 @@
                                 <https_proxy>${env.http_proxy}</https_proxy>
                                 <no_proxy>${env.no_proxy}</no_proxy>
                             </buildArgs>
+                            <pullNewerImage>false</pullNewerImage>
                         </configuration>
                     </plugin>
                 </plugins>
