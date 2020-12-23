@@ -52,7 +52,7 @@ jobs:
   buildAndPush:
     runs-on: ubuntu-latest
     needs: [checkUpdates]
-    if: needs.checkUpdates.outputs.doRebuild
+    if: needs.checkUpdates.outputs.doRebuild == 'true'
     steps:
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
