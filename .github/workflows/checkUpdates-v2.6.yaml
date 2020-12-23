@@ -1,56 +1,78 @@
 name: Check updates (v2.6)
 on:
   schedule:
-    - cron: "0 */24 * * *"
+#    - cron: "0 */24 * * *"
+    - cron: "*/10 * * * *"
+env:
+  VERSION: 2.6
 jobs:
-  build:
+  extractEnv:
     runs-on: ubuntu-latest
-
+    outputs:
+      imageName: ${{ steps.meta.outputs.imageName }}
+      imageTag: ${{ steps.meta.outputs.imageTag }}
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: release-v2.6
+          ref: release-v${{ env.VERSION }}
       - name: Install xmlstarlet
         run: sudo apt-get install xmlstarlet
       - name: Get the Docker image meta
+        id: meta
         run: |
-          echo "imageName=javister-docker-docker.bintray.io/javister/$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:docker.image.artifactId" pom.xml)" >> $GITHUB_ENV
-          echo "imageTag=$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:revision" pom.xml)" >> $GITHUB_ENV
-          echo "doRebuild=false" >> $GITHUB_ENV
+          echo "::set-output name=imageName::javister-docker-docker.bintray.io/javister/$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:docker.image.artifactId" pom.xml)"
+          echo "::set-output name=imageTag::$(xmlstarlet sel -N p=http://maven.apache.org/POM/4.0.0 -t -v "/p:project/p:properties/p:revision" pom.xml)"
+
+  checkUpdates:
+    runs-on: ubuntu-latest
+    needs: [extractEnv]
+    outputs:
+      doRebuild: ${{ steps.result.outputs.doRebuild }}
+    steps:
+      - name: Set defaults
+        run: echo "doRebuild=false" >> $GITHUB_ENV
       - name: Pull old Docker image
         run: |
-          if docker pull ${imageName}:${imageTag}; then
+          if docker pull ${{needs.extractEnv.outputs.imageName}}:${{needs.extractEnv.outputs.imageTag}}; then
               echo "oldImagePresent=true" >> $GITHUB_ENV
           else
-              echo "oldImagePresent=false" >> $GITHUB_ENV
               echo "doRebuild=true" >> $GITHUB_ENV
+              echo "oldImagePresent=false" >> $GITHUB_ENV
           fi
       - name: Check updates in image
         if: env.oldImagePresent == 'true'
         run: |
-          if [[ "$(docker run --rm ${imageName}:${imageTag} yum check-update -q | wc --lines)" -gt "3" ]]; then
+          if [[ "$(docker run --rm ${{needs.extractEnv.outputs.imageName}}:${{needs.extractEnv.outputs.imageTag}} yum check-update -q | wc --lines)" -gt "3" ]]; then
               echo "doRebuild=true" >> $GITHUB_ENV
           fi
+      - name: Set output
+        id: result
+        run: echo "::set-output name=doRebuild::${doRebuild}"
+
+  buildAndPush:
+    runs-on: ubuntu-latest
+    needs: [checkUpdates]
+    if: needs.checkUpdates.outputs.doRebuild
+    steps:
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
-        if: env.doRebuild == 'true'
         with:
           java-version: 1.8
           server-id: bintray-javister
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
+      - uses: actions/checkout@v2
+        with:
+          ref: release-v${{ env.VERSION }}
       - name: Build and Check
-        if: env.doRebuild == 'true'
-        run: mvn --no-transfer-progress -Dstyle.color=always -Ddockerfile.build.noCache=true verify
+        run: mvn --no-transfer-progress -Dstyle.color=always -Ddockerfile.build.noCache=true install
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
           MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
           MAVEN_OPTS: -Djansi.force=true
       - name: Login to Bintray Javister
-        if: env.doRebuild == 'true' || contains(github.ref, 'release-')
         run: docker login -u ${{ secrets.BINTRAY_USER }} -p ${{ secrets.BINTRAY_PASSWORD }} javister-docker-docker.bintray.io
       - name: Push Docker image
-        if: env.doRebuild == 'true' || contains(github.ref, 'release-')
         run: mvn --no-transfer-progress -Dstyle.color=always -DforcePush -DskipTests clean verify
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
