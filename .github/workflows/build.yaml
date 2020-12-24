@@ -44,7 +44,7 @@ jobs:
   publish-report:
     runs-on: ubuntu-latest
     needs: [build]
-
+    if: always()
     steps:
       - name: Download report files
         uses: actions/download-artifact@v2
@@ -55,7 +55,6 @@ jobs:
       # https://github.com/simple-elf/github-allure-history
       - name: Get Allure history
         uses: actions/checkout@v2
-        if: always()
         continue-on-error: true
         with:
           ref: gh-pages
@@ -64,14 +63,12 @@ jobs:
       - name: Allure Report action
         uses: simple-elf/allure-report-action@master
         #uses: ./allure-report-action
-        if: always()
         #id: allure-report
         with:
           allure_results: 'target/allure-results'
           allure_history: allure-history
 
       - name: Deploy report to Github Pages
-        if: always()
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
