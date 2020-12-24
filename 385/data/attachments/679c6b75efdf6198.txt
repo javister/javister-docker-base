@@ -1,0 +1,20 @@
+16:05:44.792 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+16:05:44.796 [34mINFO [0;39m - Creating container for image: selenium/standalone-chrome-debug:3.141.59 
+16:05:44.813 [34mINFO [0;39m - Starting container with ID: 0c76f548bb58a5284b78a56d33a68f0bd4f8fbb233beff33c918811130a69e27 
+16:05:45.178 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 is starting: 0c76f548bb58a5284b78a56d33a68f0bd4f8fbb233beff33c918811130a69e27 
+16:05:48.311 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 started in PT3.515S 
+16:05:49.169 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.1.0 
+16:05:49.185 [34mINFO [0;39m - Starting container with ID: 2e8e33cc0d1c99141779bff37f28367c01beb2fe4efc4a1faca1502ca5e932cc 
+16:05:49.570 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.1.0 is starting: 2e8e33cc0d1c99141779bff37f28367c01beb2fe4efc4a1faca1502ca5e932cc 
+16:05:49.690 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.1.0 started in PT0.521S 
+16:05:49.826 [34mINFO [0;39m - Screen recordings for test testVideoRecordingTestSuccess-CHROME will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../PASSED-testVideoRecordingTestSuccess-CHROME-20201224-160549.flv 
+16:05:50.486 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+16:05:50.492 [34mINFO [0;39m - Creating container for image: selenium/standalone-firefox-debug:3.141.59 
+16:05:50.522 [34mINFO [0;39m - Starting container with ID: d3a75991517b979f7bb52d69ce82a10325a9aa92d21622fbda341543ffd1dd07 
+16:05:50.870 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 is starting: d3a75991517b979f7bb52d69ce82a10325a9aa92d21622fbda341543ffd1dd07 
+16:05:54.003 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 started in PT3.511S 
+16:05:56.489 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.1.0 
+16:05:56.507 [34mINFO [0;39m - Starting container with ID: b6a7e7e492b8ca490414f7d8507b7ec9d67b270b2cc1458c14af872a535d2154 
+16:05:56.869 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.1.0 is starting: b6a7e7e492b8ca490414f7d8507b7ec9d67b270b2cc1458c14af872a535d2154 
+16:05:56.993 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.1.0 started in PT0.504S 
+16:05:57.141 [34mINFO [0;39m - Screen recordings for test testVideoRecordingTestSuccess-FIREFOX will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../PASSED-testVideoRecordingTestSuccess-FIREFOX-20201224-160557.flv 
