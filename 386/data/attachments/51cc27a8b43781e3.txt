@@ -1,0 +1,10 @@
+06:47:52.503 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+06:47:52.507 [34mINFO [0;39m - Creating container for image: selenium/standalone-firefox-debug:3.141.59 
+06:47:52.524 [34mINFO [0;39m - Starting container with ID: 318c873805ae6c4ddcd892a9b37e2b53edbae786d2d20b28963c7f61a48926a4 
+06:47:52.847 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 is starting: 318c873805ae6c4ddcd892a9b37e2b53edbae786d2d20b28963c7f61a48926a4 
+06:47:55.824 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 started in PT3.317S 
+06:47:57.937 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.1.0 
+06:47:58.010 [34mINFO [0;39m - Starting container with ID: 23216b4fa0a6b11f94ed2d04bef2b0c2545b25f88a789d2020a3a46f098dc83e 
+06:47:58.362 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.1.0 is starting: 23216b4fa0a6b11f94ed2d04bef2b0c2545b25f88a789d2020a3a46f098dc83e 
+06:47:58.484 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.1.0 started in PT0.547S 
+06:47:58.668 [34mINFO [0;39m - Screen recordings for test com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriverAutostart-FIREFOX will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../PASSED-com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomWebDriverAutostart-FIREFOX-20211228-064758.flv 
