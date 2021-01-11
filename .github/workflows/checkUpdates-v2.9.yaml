@@ -1,9 +1,9 @@
-name: Check updates (v2.8)
+name: Check updates (v2.9)
 on:
   schedule:
     - cron: "0 */24 * * *"
 env:
-  VERSION: 2.8
+  VERSION: 2.9
 jobs:
   extractEnv:
     runs-on: ubuntu-latest
