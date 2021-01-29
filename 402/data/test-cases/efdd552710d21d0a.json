@@ -1,0 +1,272 @@
+{
+  "uid" : "efdd552710d21d0a",
+  "name" : "[1] CHROME",
+  "fullName" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomRemoteWebDriverAutostart",
+  "historyId" : "c42121a136ed33478e4c826d3064ed78",
+  "time" : {
+    "start" : 1611899902345,
+    "stop" : 1611899907615,
+    "duration" : 5270
+  },
+  "description" : "WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как RemoteWebDriver",
+  "descriptionHtml" : "<p>WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как RemoteWebDriver</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "WebDriverMethodConfigurator: запуск контейнера с автостартом и инжекция как RemoteWebDriver",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "25994d9bfc922002",
+      "name" : "PASSED-com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomRemoteWebDriverAutostart-CHROME-20210129-055827.flv",
+      "source" : "25994d9bfc922002.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    }, {
+      "uid" : "20de09322d8990f7",
+      "name" : "Stdout",
+      "source" : "20de09322d8990f7.txt",
+      "type" : "text/plain",
+      "size" : 1511
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az32-672"
+  }, {
+    "name" : "thread",
+    "value" : "4505@fv-az32-672.ForkJoinPool-1-worker-1(11)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testClass",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCustomRemoteWebDriverAutostart"
+  }, {
+    "name" : "suite",
+    "value" : "com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 62,
+        "unknown" : 0,
+        "total" : 62
+      },
+      "items" : [ {
+        "uid" : "7ca982d4d2329b0f",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/401//#testresult/7ca982d4d2329b0f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611899346739,
+          "stop" : 1611899352241,
+          "duration" : 5502
+        }
+      }, {
+        "uid" : "291e81589deb2502",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/400//#testresult/291e81589deb2502",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611207311249,
+          "stop" : 1611207317019,
+          "duration" : 5770
+        }
+      }, {
+        "uid" : "12512f584d66c6e",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/399//#testresult/12512f584d66c6e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611206765613,
+          "stop" : 1611206771178,
+          "duration" : 5565
+        }
+      }, {
+        "uid" : "7669c09aac8f936",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/398//#testresult/7669c09aac8f936",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610604427121,
+          "stop" : 1610604432478,
+          "duration" : 5357
+        }
+      }, {
+        "uid" : "ed89a80b265df658",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/397//#testresult/ed89a80b265df658",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610603898628,
+          "stop" : 1610603904204,
+          "duration" : 5576
+        }
+      }, {
+        "uid" : "ba4073607bfc5c43",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/396//#testresult/ba4073607bfc5c43",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610369500562,
+          "stop" : 1610369506452,
+          "duration" : 5890
+        }
+      }, {
+        "uid" : "27c9c3776cfa8a1a",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/395//#testresult/27c9c3776cfa8a1a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610369343603,
+          "stop" : 1610369349603,
+          "duration" : 6000
+        }
+      }, {
+        "uid" : "37e8b0094d1afe91",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/394//#testresult/37e8b0094d1afe91",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610369275849,
+          "stop" : 1610369281728,
+          "duration" : 5879
+        }
+      }, {
+        "uid" : "88a5344c44ae4f76",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/393//#testresult/88a5344c44ae4f76",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610347070490,
+          "stop" : 1610347076253,
+          "duration" : 5763
+        }
+      }, {
+        "uid" : "e061962362acfb9d",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/392//#testresult/e061962362acfb9d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610346499414,
+          "stop" : 1610346505355,
+          "duration" : 5941
+        }
+      }, {
+        "uid" : "be72028b0c1e5136",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/391//#testresult/be72028b0c1e5136",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610085783393,
+          "stop" : 1610085788701,
+          "duration" : 5308
+        }
+      }, {
+        "uid" : "796540393458dd58",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/390//#testresult/796540393458dd58",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610085261814,
+          "stop" : 1610085267031,
+          "duration" : 5217
+        }
+      }, {
+        "uid" : "6cc55b1b2dad4b7e",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/389//#testresult/6cc55b1b2dad4b7e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1609826340678,
+          "stop" : 1609826346480,
+          "duration" : 5802
+        }
+      }, {
+        "uid" : "e72a6bbf99d8b98d",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/388//#testresult/e72a6bbf99d8b98d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1609825741735,
+          "stop" : 1609825747045,
+          "duration" : 5310
+        }
+      }, {
+        "uid" : "1d34e58db8d476b0",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/387//#testresult/1d34e58db8d476b0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1609138661580,
+          "stop" : 1609138667024,
+          "duration" : 5444
+        }
+      }, {
+        "uid" : "b84f08a4352e09cb",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/386//#testresult/b84f08a4352e09cb",
+        "status" : "passed",
+        "time" : {
+          "start" : 1609138129480,
+          "stop" : 1609138134688,
+          "duration" : 5208
+        }
+      }, {
+        "uid" : "7dcf87d6ef878b23",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/385//#testresult/7dcf87d6ef878b23",
+        "status" : "passed",
+        "time" : {
+          "start" : 1608826087699,
+          "stop" : 1608826093457,
+          "duration" : 5758
+        }
+      }, {
+        "uid" : "ce4c91d1955e69af",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/384//#testresult/ce4c91d1955e69af",
+        "status" : "passed",
+        "time" : {
+          "start" : 1608751900322,
+          "stop" : 1608751906142,
+          "duration" : 5820
+        }
+      }, {
+        "uid" : "6bcac1dd6b8bec29",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/383//#testresult/6bcac1dd6b8bec29",
+        "status" : "passed",
+        "time" : {
+          "start" : 1608738419833,
+          "stop" : 1608738425796,
+          "duration" : 5963
+        }
+      }, {
+        "uid" : "3d3ca5efdd2e9cf5",
+        "reportUrl" : "https://javister.github.io/javister-docker-base/382//#testresult/3d3ca5efdd2e9cf5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1608735114231,
+          "stop" : 1608735119517,
+          "duration" : 5286
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "efdd552710d21d0a.json",
+  "parameterValues" : [ ]
+}
