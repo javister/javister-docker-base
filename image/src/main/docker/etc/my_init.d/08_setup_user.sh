@@ -8,7 +8,7 @@ LOG_LEVEL=${LOG_LEVEL:-INFO}
 verbose=""
 if [[ "${LOG_LEVEL}" == "DEBUG" ]]; then verbose="--changes"; fi
 
-[[ $(id -u system > /dev/null 2>&1; echo $?) ]] && CURR_USER="system" || CURR_USER="${PUSER}"
+[[ "$(id -u system > /dev/null 2>&1; echo $?)" == "0" ]] && CURR_USER="system" || CURR_USER="${PUSER}"
 mdebug "Current user: ${CURR_USER}"
 
 chown ${verbose} ${CURR_USER} /var/spool/mail/${CURR_USER}
