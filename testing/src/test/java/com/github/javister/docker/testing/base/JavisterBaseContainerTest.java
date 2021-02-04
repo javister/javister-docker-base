@@ -27,14 +27,14 @@ class JavisterBaseContainerTest {
     void getImageRepository() {
         assertEquals(
                 JavisterBaseContainer.getImageRepository(JavisterBaseContainerImpl.class, null),
-                "javister-docker-docker.bintray.io/javister/javister-docker-base");
+                "javister-ntp.artifactory-jcr.krista.ru/javister-docker-base");
     }
 
     @Test
     void getImageName() {
         assertThat(
                 JavisterBaseContainer.getImageName(JavisterBaseContainerImpl.class, null),
-                matchesPattern("^javister-docker-docker\\.bintray\\.io/javister/javister-docker-base:\\d+\\.\\d+(\\.\\d+)?(-.*)?$"));
+                matchesPattern("^javister-ntp\\.artifactory-jcr\\.krista\\.ru/javister-docker-base:\\d+\\.\\d+(\\.\\d+)?(-.*)?$"));
     }
 
     @Test

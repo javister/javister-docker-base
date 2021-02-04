@@ -30,7 +30,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <docker.image.groupId>${project.groupId}</docker.image.groupId>
         <docker.image.artifactId>javister-docker-base</docker.image.artifactId>
-        <docker.image>javister-docker-docker.bintray.io/javister/${docker.image.artifactId}</docker.image>
+        <docker.image>javister-ntp.artifactory-jcr.krista.ru/${docker.image.artifactId}</docker.image>
         <!-- Dependency versions -->
         <centos.version>7</centos.version>
         <testcontainers.version>1.15.1</testcontainers.version>
@@ -76,9 +76,9 @@
 
     <distributionManagement>
         <repository>
-            <id>bintray-javister</id>
-            <name>javister-dockertesting</name>
-            <url>https://api.bintray.com/maven/javister/dockertesting/javister-docker-base/;publish=1</url>
+            <id>krista-maven-public</id>
+            <name>Artifactori-external-releases</name>
+            <url>https://artifactory.krista.ru/artifactory/maven-javister-docker-base</url>
         </repository>
     </distributionManagement>
 
@@ -470,17 +470,7 @@
         <repository>
             <id>central</id>
             <name>central</name>
-            <url>https://jcenter.bintray.com</url>
-        </repository>
-        <repository>
-            <id>bintray-javister-dockertesting</id>
-            <name>bintray</name>
-            <url>https://dl.bintray.com/javister/dockertesting</url>
-        </repository>
-        <repository>
-            <id>krista-oss</id>
-            <name>krista-oss</name>
-            <url>http://artifactory.krista.ru/artifactory/maven-krista-nexus-open-source</url>
+            <url>https://artifactory.krista.ru/artifactory/maven-public</url>
         </repository>
         <repository>
             <id>jitpack.io</id>
@@ -491,7 +481,7 @@
         <pluginRepository>
             <id>central</id>
             <name>central</name>
-            <url>https://jcenter.bintray.com</url>
+            <url>https://artifactory.krista.ru/artifactory/maven-public</url>
         </pluginRepository>
     </pluginRepositories>
 </project>
