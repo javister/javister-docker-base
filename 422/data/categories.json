@@ -1,0 +1,60 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Status 404: {\"message\":\"Could not find the file /newScreen.flv in container 450dae1e496dd61866cdb49c72a7223c54d9414923fe26867511f60add80347d\"}\n",
+      "children" : [ {
+        "name" : "testVideoRecordingTestFailed()",
+        "uid" : "650633f1054cf5c2",
+        "parentUid" : "8981cfc098ad3bf285f91f5cbb9d2e16",
+        "status" : "broken",
+        "time" : {
+          "start" : 1613109246367,
+          "stop" : 1613109260799,
+          "duration" : 14432
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8981cfc098ad3bf285f91f5cbb9d2e16"
+    }, {
+      "name" : "Status 404: {\"message\":\"Could not find the file /newScreen.flv in container 1302f59b37deb1f0da690119c787f7aa93d50483dd5c4c866e412b74eca25362\"}\n",
+      "children" : [ {
+        "name" : "[2] FIREFOX",
+        "uid" : "b90feea367abc45c",
+        "parentUid" : "c258013a45c00a27b7929a3a84afee80",
+        "status" : "broken",
+        "time" : {
+          "start" : 1613109269475,
+          "stop" : 1613109277644,
+          "duration" : 8169
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c258013a45c00a27b7929a3a84afee80"
+    }, {
+      "name" : "Status 404: {\"message\":\"Could not find the file /newScreen.flv in container 9692bcfa759be2aa6f483215a348dc8556e387334acc911f57d838d08aa46510\"}\n",
+      "children" : [ {
+        "name" : "[2] FIREFOX",
+        "uid" : "68014509741b8d1d",
+        "parentUid" : "81b3585154899b24a19ef2809be02a77",
+        "status" : "broken",
+        "time" : {
+          "start" : 1613109344170,
+          "stop" : 1613109352331,
+          "duration" : 8161
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "81b3585154899b24a19ef2809be02a77"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
