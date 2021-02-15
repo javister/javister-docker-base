@@ -29,8 +29,8 @@ jobs:
       - name: Build and Check
         run: mvn --no-transfer-progress -Dstyle.color=always --fail-at-end verify
         env:
-          MAVEN_USERNAME: ${{ secrets.BINTRAY_USER }}
-          MAVEN_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
+          MAVEN_USERNAME: ${{ secrets.KRISTA_REPO_USER }}
+          MAVEN_PASSWORD: ${{ secrets.KRISTA_REPO_PASSWD }}
           MAVEN_OPTS: -Djansi.force=true
 
       - name: Upload report files
