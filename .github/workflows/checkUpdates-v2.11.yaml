@@ -3,7 +3,7 @@ on:
   schedule:
     - cron: "0 */24 * * *"
 env:
-  VERSION: 2.11
+  VERSION: "2.11"
 jobs:
   extractEnv:
     runs-on: ubuntu-latest
