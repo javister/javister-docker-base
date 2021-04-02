@@ -1,0 +1,10 @@
+05:47:41.459 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+05:47:41.465 [34mINFO [0;39m - Creating container for image: selenium/standalone-chrome-debug:3.141.59 
+05:47:41.489 [34mINFO [0;39m - Starting container with ID: ac7e5e35790f2b34cd9b6beaf97bc1fd4aacdcd900767bf207ed73db02e05a99 
+05:47:42.122 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 is starting: ac7e5e35790f2b34cd9b6beaf97bc1fd4aacdcd900767bf207ed73db02e05a99 
+05:47:45.116 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 started in PT3.651S 
+05:47:45.943 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.2.0 
+05:47:45.974 [34mINFO [0;39m - Starting container with ID: b72f9eca5767c376b5f8df523ae8f5ddc08628e5e32f1fd71d82609c3838c660 
+05:47:46.486 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 is starting: b72f9eca5767c376b5f8df523ae8f5ddc08628e5e32f1fd71d82609c3838c660 
+05:47:46.598 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 started in PT0.655S 
+05:47:47.719 [34mINFO [0;39m - Screen recordings for test com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomRemoteWebDriverAutostart-CHROME will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../PASSED-com.github.javister.docker.testing.base.JavisterWebDriverMethodConfiguratorIT.testCustomRemoteWebDriverAutostart-CHROME-20210402-054747.flv 
