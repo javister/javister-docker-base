@@ -1,0 +1,10 @@
+05:52:27.921 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+05:52:27.926 [34mINFO [0;39m - Creating container for image: selenium/standalone-chrome-debug:3.141.59 
+05:52:27.949 [34mINFO [0;39m - Starting container with ID: d4a9f0494e1fd37a9414d8c426f29cee999a9f1f47cc3f0eefd76664ec5d5e66 
+05:52:28.532 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 is starting: d4a9f0494e1fd37a9414d8c426f29cee999a9f1f47cc3f0eefd76664ec5d5e66 
+05:52:31.472 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 started in PT3.546S 
+05:52:32.203 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.2.0 
+05:52:32.224 [34mINFO [0;39m - Starting container with ID: 32e8f9807c6ffd887e78618bce8d08a9b4c8838efab2af7a52fb50f81cd5ec90 
+05:52:32.722 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 is starting: 32e8f9807c6ffd887e78618bce8d08a9b4c8838efab2af7a52fb50f81cd5ec90 
+05:52:32.846 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 started in PT0.643S 
+05:52:33.183 [34mINFO [0;39m - Screen recordings for test testVideoRecordingTemplateFail-CHROME will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../FAILED-testVideoRecordingTemplateFail-CHROME-20210413-055233.flv 
