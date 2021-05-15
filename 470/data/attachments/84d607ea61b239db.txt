@@ -1,0 +1,10 @@
+08:29:21.286 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+08:29:21.299 [34mINFO [0;39m - Creating container for image: selenium/standalone-chrome-debug:3.141.59 
+08:29:21.342 [34mINFO [0;39m - Starting container with ID: 1d3fa52befc60d580501025948fa0125f9aab76b1201ba00eb4845493d225320 
+08:29:21.833 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 is starting: 1d3fa52befc60d580501025948fa0125f9aab76b1201ba00eb4845493d225320 
+08:29:24.995 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 started in PT3.696S 
+08:29:25.961 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.2.0 
+08:29:25.983 [34mINFO [0;39m - Starting container with ID: 2f6d2b4564b6606000a0e718845c2975e6740c44582383672973066db7ab52f0 
+08:29:26.379 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 is starting: 2f6d2b4564b6606000a0e718845c2975e6740c44582383672973066db7ab52f0 
+08:29:26.408 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 started in PT0.446S 
+08:29:27.583 [34mINFO [0;39m - Screen recordings for test com.github.javister.docker.testing.base.JavisterWebDriverVideoIT.testVideoRecordingTemplateSuccess-CHROME will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../PASSED-com.github.javister.docker.testing.base.JavisterWebDriverVideoIT.testVideoRecordingTemplateSuccess-CHROME-20210515-082927.flv 
