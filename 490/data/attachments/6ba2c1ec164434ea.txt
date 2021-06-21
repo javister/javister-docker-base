@@ -1,0 +1,10 @@
+08:27:43.621 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+08:27:43.637 [34mINFO [0;39m - Creating container for image: selenium/standalone-firefox-debug:3.141.59 
+08:27:43.668 [34mINFO [0;39m - Starting container with ID: 8d33f3ab8ab1a2804f2a3ddebd8f2592e12e4db499042cf03a0fe22576abbabf 
+08:27:44.166 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 is starting: 8d33f3ab8ab1a2804f2a3ddebd8f2592e12e4db499042cf03a0fe22576abbabf 
+08:27:46.604 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 started in PT2.97S 
+08:27:49.455 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.2.0 
+08:27:49.480 [34mINFO [0;39m - Starting container with ID: 9e3b7d3c13229c6dd09fdcca295fc4d924889afb509aa4710e79378bbe35e8cb 
+08:27:49.958 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 is starting: 9e3b7d3c13229c6dd09fdcca295fc4d924889afb509aa4710e79378bbe35e8cb 
+08:27:50.007 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 started in PT0.552S 
+08:27:50.412 [34mINFO [0;39m - Screen recordings for test testVideoRecordingTemplateFail-FIREFOX will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../FAILED-testVideoRecordingTemplateFail-FIREFOX-20210621-082750.flv 
