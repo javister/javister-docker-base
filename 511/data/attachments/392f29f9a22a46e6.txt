@@ -1,0 +1,10 @@
+08:43:32.671 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+08:43:32.676 [34mINFO [0;39m - Creating container for image: selenium/standalone-firefox-debug:3.141.59 
+08:43:32.702 [34mINFO [0;39m - Starting container with ID: d0ecd1913e7199ad3959eef216bb2554b796c8fcdaf9d6ad88692662dfd5555e 
+08:43:33.327 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 is starting: d0ecd1913e7199ad3959eef216bb2554b796c8fcdaf9d6ad88692662dfd5555e 
+08:43:36.195 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 started in PT3.519S 
+08:43:38.009 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.2.0 
+08:43:38.035 [34mINFO [0;39m - Starting container with ID: ca3c88af963df3637043234043915d71800eb50af0f52731d068a79b07655d14 
+08:43:38.435 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 is starting: ca3c88af963df3637043234043915d71800eb50af0f52731d068a79b07655d14 
+08:43:38.455 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 started in PT0.446S 
+08:43:39.657 [34mINFO [0;39m - Screen recordings for test com.github.javister.docker.testing.base.JavisterWebDriverVideoIT.testVideoRecordingTemplateSuccess-FIREFOX will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../PASSED-com.github.javister.docker.testing.base.JavisterWebDriverVideoIT.testVideoRecordingTemplateSuccess-FIREFOX-20210813-084339.flv 
