@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.containers.output.Slf4jLogConsumer;
+import org.testcontainers.utility.DockerImageName;
 
 import java.util.Objects;
 import java.util.concurrent.Future;
@@ -129,6 +130,19 @@ public class JavisterBaseContainerImpl<SELF extends JavisterBaseContainerImpl<SE
     public JavisterBaseContainerImpl(String dockerImageName, String tag, Class<?> testClass) {
         super(dockerImageName + ":" + tag);
         this.testClass = testClass;
+        initialize();
+    }
+
+    /**
+     * Создание контейнера из какого-либо образа, унаследованного от образа
+     * <a href="https://github.com/javister/javister-docker-base">
+     * javister-docker-docker.bintray.io/javister/javister-docker-base
+     * </a>.
+     *
+     * @param dockerImageName имя и версия образа из которого необходимо создать контейнер.
+     */
+    public JavisterBaseContainerImpl(DockerImageName dockerImageName){
+        super(dockerImageName);
         initialize();
     }
 
