@@ -11,7 +11,7 @@ jobs:
       imageName: ${{ steps.meta.outputs.imageName }}
       imageTag: ${{ steps.meta.outputs.imageTag }}
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           ref: release-v${{ env.VERSION }}
       - name: Install xmlstarlet
@@ -61,7 +61,7 @@ jobs:
           server-id: krista-maven-public
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           ref: release-v${{ env.VERSION }}
       - name: Build and Check
