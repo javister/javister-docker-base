@@ -44,7 +44,7 @@
             <!-- Build uber jar -->
             <plugin>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <id>uber-jar</id>
