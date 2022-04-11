@@ -48,7 +48,7 @@ jobs:
     if: always()
     steps:
       - name: Download report files
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: allure-results
           path: ./target/allure-results
