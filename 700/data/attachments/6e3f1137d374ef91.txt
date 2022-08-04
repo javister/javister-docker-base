@@ -1,0 +1,16 @@
+08:35:16.435 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+08:35:16.438 [34mINFO [0;39m - Creating container for image: selenium/standalone-chrome-debug:3.141.59 
+08:35:16.461 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 is starting: c32c398de82beef2f9b9c62da66a00ca245639fc032af997ea57bcc3dda059f1 
+08:35:19.005 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 started in PT2.567S 
+08:35:19.006 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.2.0 
+08:35:19.031 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 is starting: 4e133c9a9e33540e20542bf60b866d2e8ea58634feeb8cb3ec43847887ee5480 
+08:35:19.335 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 started in PT0.329S 
+08:35:21.474 [34mINFO [0;39m - Screen recordings for test testVideoRecordingTestSuccess-CHROME will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../PASSED-testVideoRecordingTestSuccess-CHROME-20220804-083521.flv 
+08:35:23.881 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+08:35:23.884 [34mINFO [0;39m - Creating container for image: selenium/standalone-firefox-debug:3.141.59 
+08:35:23.912 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 is starting: 1b5c1e2c98f825efa3c014bfde12250c07c3b20c658f51022ade37b873a5dc0c 
+08:35:26.470 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 started in PT2.586S 
+08:35:26.471 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.2.0 
+08:35:26.495 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 is starting: 11935c88ed8676aaced7cd91419dd8587dfe05af60d16e6ff89ecc445f71a749 
+08:35:26.816 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 started in PT0.345S 
+08:35:30.306 [34mINFO [0;39m - Screen recordings for test testVideoRecordingTestSuccess-FIREFOX will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../PASSED-testVideoRecordingTestSuccess-FIREFOX-20220804-083530.flv 
