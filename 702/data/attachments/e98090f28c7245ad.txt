@@ -1,0 +1,16 @@
+08:35:01.992 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+08:35:01.996 [34mINFO [0;39m - Creating container for image: selenium/standalone-chrome-debug:3.141.59 
+08:35:02.029 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 is starting: 1100419fad3fa3142aa53bac2f553ca56ccd3f078151a8e68e45dcd7305d40a9 
+08:35:04.669 [34mINFO [0;39m - Container selenium/standalone-chrome-debug:3.141.59 started in PT2.673S 
+08:35:04.670 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.2.0 
+08:35:04.697 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 is starting: 6280e7031f57ece574855237d1d0c34157a2017ba746d01d547e1cd908866544 
+08:35:05.024 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 started in PT0.355S 
+08:35:07.208 [34mINFO [0;39m - Screen recordings for test testVideoRecordingTestFailed-CHROME will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../FAILED-testVideoRecordingTestFailed-CHROME-20220812-083507.flv 
+08:35:09.702 [34mINFO [0;39m - Selenium API version 3.141.59 detected on classpath 
+08:35:09.705 [34mINFO [0;39m - Creating container for image: selenium/standalone-firefox-debug:3.141.59 
+08:35:09.763 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 is starting: 2fd03038b636ab588155e9d313ef01e9f18bb41a6f51d796bca2110083825280 
+08:35:12.329 [34mINFO [0;39m - Container selenium/standalone-firefox-debug:3.141.59 started in PT2.624S 
+08:35:12.330 [34mINFO [0;39m - Creating container for image: testcontainers/vnc-recorder:1.2.0 
+08:35:12.358 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 is starting: cd03cb0fe75d22db35235e18ac321d569fe99231e5fe2206cc34d2af7de0fc24 
+08:35:12.700 [34mINFO [0;39m - Container testcontainers/vnc-recorder:1.2.0 started in PT0.37S 
+08:35:16.431 [34mINFO [0;39m - Screen recordings for test testVideoRecordingTestFailed-FIREFOX will be stored at: /home/runner/work/javister-docker-base/javister-docker-base/tests/simple/target/test-classes/../FAILED-testVideoRecordingTestFailed-FIREFOX-20220812-083516.flv 
